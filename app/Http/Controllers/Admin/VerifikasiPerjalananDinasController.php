@@ -21,17 +21,18 @@ class VerifikasiPerjalananDinasController extends Controller
         $detail_perjalanandinas = perjalanandinas::find($id);
         return view('admin.detail.detail-perjalanan-dinas', compact('detail_perjalanandinas'));
     }
+
     public function update(Request $request, string $id)
     {
         $perjalanandinas = perjalanandinas::find($id);
 
         if ($request->has('disetujui')) {
             $perjalanandinas->update([
-                'status' => 'Disetujui',
+                'proses' => 'Disetujui',
             ]);
         } elseif ($request->has('ditolak')) {
             $perjalanandinas->update([
-                'status' => 'Ditolak',
+                'proses' => 'Ditolak',
             ]);
         }
 
