@@ -88,25 +88,25 @@
                         <span class="menu-title">Dashboard</span>
                     </a>
                 </li>
-                <li class="nav-item {{ request()->is('verifikasi-perjalanan-dinas/index') ? 'active' : '' }}">
+                <li class="nav-item {{ request()->is('dashboard-admin/verifikasi-perjalanan-dinas*') ? 'active' : '' }}">
                     <a href=" {{ route('verifikasi-perjalanan-dinas.index') }}" class="nav-link ">
                         <i class="mdi mdi-airplane-takeoff menu-icon"></i>
                         <span class="menu-title">Verifikasi Perencanaan</span>
                     </a>
                 </li>
-                <li class="nav-item {{ request()->is('verifikasi-pelaporan-perjadin/index') ? 'active' : '' }}">
+                <li class="nav-item {{ request()->is('dashboard-admin/verifikasi-pelaporan-perjadin*') ? 'active' : '' }}">
                     <a href=" {{ route('verifikasi-pelaporan-perjadin.index') }}" class="nav-link ">
                         <i class="mdi mdi-file-multiple menu-icon"></i>
                         <span class="menu-title">Verifikasi Pelaporan</span>
                     </a>
                 </li>
-                <li class="nav-item {{ request()->is('verifikasi-belanja-modal/index') ? 'active' : '' }}">
+                <li class="nav-item {{ request()->is('dashboard-admin/verifikasi-belanja-modal*') ? 'active' : '' }}">
                     <a href=" {{ route('verifikasi-belanja-modal.index') }}" class="nav-link ">
                         <i class="mdi mdi-finance menu-icon"></i>
                         <span class="menu-title">Verifikasi Belanja Modal</span>
                     </a>
                 </li>
-                <li class="nav-item {{ request()->is('verifikasi-belanja-barang-jasa/index') ? 'active' : '' }}">
+                <li class="nav-item {{ request()->is('dashboard-admin/verifikasi-belanja-barang-jasa*') ? 'active' : '' }}">
                     <a href=" {{ route('verifikasi-belanja-barang-jasa.index') }}" class="nav-link ">
                         <i class="mdi mdi-cube-outline menu-icon"></i>
                         <span class="menu-title">Verifikasi Belanja BarJas</span>
