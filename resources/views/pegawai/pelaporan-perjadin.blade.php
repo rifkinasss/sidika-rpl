@@ -1,0 +1,314 @@
+@extends('pegawai.layouts.app')
+
+@section('content')
+    <h1>Pelaporan Perjalanan Dinas</h1>
+    <h6 style="color: red;" class="mb-4">Harap laporkan data selengkap-lengkapnya. alur dana tidak boleh lebih besar ataupun
+        lebih kecil dari dana yang diberikan.*</h6>
+    <form class="forms-sample" method="POST" action="{{ route('pelaporan-perjadin.store') }}">
+        @csrf
+        <div class="row">
+            {{-- form atas besar --}}
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="nama-lengkap">Nama Lengkap</label>
+                            <input type="text" class="form-control" name="nama" value="{{ Auth::user()->nama }}"
+                                disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="nip">NIP</label>
+                            <input type="text" class="form-control" name="nip" value="{{ Auth::user()->nip }}"
+                                disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="penginapan">Nama Penginapan</label>
+                            <input type="text" class="form-control" id="penginapan" name="jns_penginapan"
+                                placeholder="Masukkan Nama Penginapan">
+                        </div>
+                        <div class="form-group">
+                            <label for="pelaporan-tujuan">Tujuan</label>
+                            <input type="text" class="form-control" id="pelaporan-tujuan"
+                                placeholder="Masukkan Tujuan Pelaporan" name="tujuan" required>
+                        </div>
+                        {{-- 2 card terpisah --}}
+                        <div class="row">
+                            {{-- card form kiri --}}
+                            <div class="col-sm-6">
+                                <div class="card p-2 rounded-1 bg-secondary me-2">
+                                    <h5 class="text-white">Berangkat</h5>
+                                    <div class="form-group">
+                                        <label for="tanggal-berangkat"
+                                            class="col-sm-9 col-form-label text-white">Tanggal</label>
+                                        <div class="col-sm-9">
+                                            <input type="date" class="form-control" id="tanggal-berangkat"
+                                                name="tgL_berangkat" placeholder="dd/mm/yyyy">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="text-white">Jenis Transportasi</label>
+                                        <div class="col-sm-9">
+                                            <select class="js-example-basic-single w-100" name="jns_transportas_berangkat">
+                                                <option value="pesawat-berangkat">Pesawat</option>
+                                                <option value="kereta-api-berangkat">Kereta Api</option>
+                                                <option value="bis-berangkat">Bis</option>
+                                                <option value="kapal-berangkat">Kapal</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nama-transportasi-berangkat"
+                                            class="col-sm-9 col-form-label text-white">Nama Pesawat/Kereta Api</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="nama-transportasi-berangkat"
+                                                name="nama_transportasi_berangkat">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nomor-tiket-berangkat" class="col-sm-9 col-form-label text-white">Nomor
+                                            Tiket</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="nomor-tiket-berangkat"
+                                                name="nomor_tiket_berangkat">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="tempat-duduk-berangkat"
+                                            class="col-sm-9 col-form-label text-white">Tempat Duduk</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="tempat-duduk-berangkat"
+                                                name="nomor_kursi_berangkat">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="harga-berangkat"
+                                            class="col-sm-9 col-form-label text-white">Harga</label>
+                                        <div class="col-sm-9">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text bg-success text-white">Rp.</span>
+                                                </div>
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">0.00</span>
+                                                </div>
+                                                <input type="number" class="form-control" id="harga-berangkat"
+                                                    name="harga_berangkat" aria-label="Amount (to the nearest dollar)">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- card form kanan --}}
+                            <div class="col-sm-6">
+                                <div class="card p-2 rounded-1 bg-success ms-2">
+                                    <h5 class="text-white">Kembali</h5>
+                                    <div class="form-group">
+                                        <label for="tanggal-kembali"
+                                            class="col-sm-9 col-form-label text-white">Tanggal</label>
+                                        <div class="col-sm-9">
+                                            <input type="date" class="form-control" id="tanggal-kembali"
+                                                name="tgl_kembali" placeholder="dd/mm/yyyy">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="text-white">Jenis Transportasi</label>
+                                        <div class="col-sm-9">
+                                            <select class="js-example-basic-single w-100" name="jns_transportasi_kembali">
+                                                <option value="pesawat-kembali">Pesawat</option>
+                                                <option value="kereta-api-kembali">Kereta Api</option>
+                                                <option value="bis-berangkat">Bis</option>
+                                                <option value="kapal-berangkat">Kapal</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nama-transportasi-kembali"
+                                            class="col-sm-9 col-form-label text-white">Nama Pesawat/Kereta Api</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="nama-transportasi-kembali"
+                                                name="nama_transportasi_kembali">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nomor-tiket-kembali" class="col-sm-9 col-form-label text-white">Nomor
+                                            Tiket</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="nomor-tiket-kembali"
+                                                name="nomor_tiket_kembali">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="tempat-duduk-kembali"
+                                            class="col-sm-9 col-form-label text-white">Tempat Duduk</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="tempat-duduk-kembali"
+                                                name="nomor_kursi_kembali">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="harga-kembali"
+                                            class="col-sm-9 col-form-label text-white">Harga</label>
+                                        <div class="col-sm-9">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text bg-success text-white">Rp.</span>
+                                                </div>
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">0.00</span>
+                                                </div>
+                                                <input type="number" class="form-control" id="harga-kembali"
+                                                    name="harga_kembali" aria-label="Amount (to the nearest dollar)">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {{-- form bukti --}}
+                <div class="col-md-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Pengumpulan Bukti</h4>
+                            <p class="card-description text-danger">
+                                satu file pdf yang tergabung dari foto tiket pesawat/kereta api, struk pembelian, atau nota
+                                pembayaran lainnya. tuliskan total transaksi disebelah form uploadnya.*
+                            </p>
+                            <form class="forms-sample">
+                                {{-- card 1 akomodasi biru --}}
+                                <div class="card bg-primary rounded-1 p-2 my-5">
+                                    <div class="row">
+                                        <div class="col-sm-7">
+                                            <div class="form-group">
+                                                <label for="akomodasi"
+                                                    class="col-sm-9 col-form-label text-white">Akomodasi
+                                                    :</label>
+                                                <input type="file" name="img[]" class="file-upload-default">
+                                                <div class="input-group col-xs-12">
+                                                    <input type="file" class="form-control file-upload-input"
+                                                        accept="application/pdf" name="bukti_akomodasi"
+                                                        placeholder="Upload PDF" id="pdf-upload-input">
+                                                    <span class="input-group-append">
+                                                        <label for="pdf-upload-input"
+                                                            class="file-upload-browse btn btn-info">Upload</label>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="form-group">
+                                                <label for="biaya-akomodasi"
+                                                    class="col-sm-9 col-form-label text-white">Biaya
+                                                    :</label>
+                                                <div class="col-sm-9">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text bg-success text-white">Rp.</span>
+                                                        </div>
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">0.00</span>
+                                                        </div>
+                                                        <input type="number" class="form-control" id="biaya-akomodasi"
+                                                            name="total_biaya_akomodasi"
+                                                            aria-label="Amount (to the nearest dollar)">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- card 2 berangkat abu-abu --}}
+                                <div class="card bg-secondary rounded-1 p-2 my-5">
+                                    <div class="row">
+                                        <div class="col-sm-7">
+                                            <div class="form-group">
+                                                <label for="berangkat"
+                                                    class="col-sm-9 col-form-label text-white">Berangkat
+                                                    :</label>
+                                                <input type="file" name="img[]" class="file-upload-default">
+                                                <div class="input-group col-xs-12">
+                                                    <input type="file" class="form-control file-upload-input"
+                                                        accept="application/pdf" name="bukti_berangkat"
+                                                        id="pdf-upload-input">
+                                                    <span class="input-group-append">
+                                                        <label for="pdf-upload-input"
+                                                            class="file-upload-browse btn btn-info">Upload</label>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="form-group">
+                                                <label for="biaya-berangkat"
+                                                    class="col-sm-9 col-form-label text-white">Biaya
+                                                    :</label>
+                                                <div class="col-sm-9">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text bg-success text-white">Rp.</span>
+                                                        </div>
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">0.00</span>
+                                                        </div>
+                                                        <input type="number" class="form-control" id="biaya-berangkat"
+                                                            name="total_biaya_berangkat"
+                                                            aria-label="Amount (to the nearest dollar)">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- card 3 kembali hijau --}}
+                                <div class="card bg-success rounded-1 p-2 my-5">
+                                    <div class="row">
+                                        <div class="col-sm-7">
+                                            <div class="form-group">
+                                                <label for="kembali" class="col-sm-9 col-form-label text-white">Kembali
+                                                    :</label>
+                                                <input type="file" name="img[]" class="file-upload-default">
+                                                <div class="input-group col-xs-12">
+                                                    <input type="file" class="form-control file-upload-input"
+                                                        accept="application/pdf" name="bukti_kembali"
+                                                        id="pdf-upload-input">
+                                                    <span class="input-group-append">
+                                                        <label for="pdf-upload-input"
+                                                            class="file-upload-browse btn btn-info">Upload</label>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="form-group">
+                                                <label for="biaya-kembali"
+                                                    class="col-sm-9 col-form-label text-white">Biaya
+                                                    :</label>
+                                                <div class="col-sm-9">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text bg-success text-white">Rp.</span>
+                                                        </div>
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">0.00</span>
+                                                        </div>
+                                                        <input type="number" class="form-control" id="biaya-kembali"
+                                                            name="total_biaya_kembali"
+                                                            aria-label="Amount (to the nearest dollar)">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit"
+                                    class="btn btn-primary submit-form-perjadin mt-2 mb-2">Submit</button>
+                                <a href="{{ route('pegawai') }}" class="btn btn-light">Kembali</a>
+                        </div>
+                    </div>
+                </div>
+    </form>
+    </div>
+@endsection
