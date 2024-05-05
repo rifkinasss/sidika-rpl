@@ -22,7 +22,7 @@
                             <div class="form-group">
                                 <input type="text"
                                     class="form-control form-control-lg @error('nip_or_email') is-invalid @enderror"
-                                    id="nip_or_email" placeholder="Masukkan NIP" name="nip_or_email" required autofocus>
+                                    id="nip_or_email" placeholder="Masukkan Email" name="nip_or_email" required autofocus>
                                 @error('nip_or_email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
