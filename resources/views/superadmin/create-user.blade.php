@@ -7,7 +7,7 @@
             <div class="card mt-4">
                 <div class="card-body">
                     <h4 class="card-title">Tambah User</h4>
-                    <form action="{{ route('createuser.store') }}" method="POST">
+                    <form action="{{ route('user.store') }}" method="POST">
                         @csrf
                         <div class="row mb-3">
                             <label for="nip" class="col-sm-2 col-form-label">NIP</label>
@@ -93,7 +93,7 @@
                             </div>
                         </div>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <a href=" {{ route('createuser.index') }}" role="button"
+                            <a href=" {{ route('user.index') }}" role="button"
                                 class="btn btn-secondary col-2">Kembali</a>
                             <button type="submit" class="btn btn-primary col-2">Tambah</button>
                         </div>
