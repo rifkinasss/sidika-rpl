@@ -90,7 +90,7 @@
                 </li>
                 <li class="nav-item {{ request()->is('dashboard-superadmin/user*') ? 'active' : '' }}">
                     <a href="/dashboard-superadmin/user" class="nav-link ">
-                        <i class="mdi mdi-airplane-takeoff menu-icon"></i>
+                        <span class="mdi mdi-account menu-icon"></span>
                         <span class="menu-title">User</span>
                     </a>
                 </li>

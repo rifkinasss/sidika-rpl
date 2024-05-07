@@ -44,11 +44,11 @@
                                             {{ $p->keperluan_perjadin }}
                                         </td>
                                         <td>
-                                            @if ($p->proses === 'Diproses')
+                                            @if ($p->status === 'Diproses')
                                                 <span class="badge text-bg-warning">Diproses</span>
-                                            @elseif ($p->proses === 'Disetujui')
+                                            @elseif ($p->status === 'Disetujui')
                                                 <span class="badge text-bg-success">Disetujui</span>
-                                            @elseif ($p->proses === 'Ditolak')
+                                            @elseif ($p->status === 'Ditolak')
                                                 <span class="badge text-bg-danger">Ditolak</span>
                                             @else
                                                 <span class="badge">Status tidak valid</span>
