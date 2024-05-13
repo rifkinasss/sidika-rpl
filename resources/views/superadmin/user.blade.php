@@ -14,7 +14,7 @@
                             class="mdi mdi-account-multiple-plus"></i>
                         Tambah</a>
                     <button type="button" class="btn btn-success text-white mb-3" data-toggle="modal"
-                        data-target="#importModal"><i class="mdi mdi-account-multiple-plus"></i>
+                        data-target="#importModal"><span class="mdi mdi-import"></span>
                         Import
                     </button>
                     <div class="modal fade" id="importModal" tabindex="-1" role="dialog"
@@ -22,23 +22,28 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="importModalLabel">Import Excel File</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
+                                    <h5 class="modal-title" id="importModalLabel">Import User Excel File</h5>
+                                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
                                     </button>
                                 </div>
-                                <form action="/" method="post" enctype="multipart/form-data">
+                                <form action="{{ route('user.import') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="modal-body">
-                                        <div class="form-group">
-                                            <label for="excelFile">Choose Excel File</label>
-                                            <input type="file" class="form-control-file" id="excelFile" name="file"
+                                        <div class="form-group mb-3">
+                                            <label for="inputGroupFile01">Upload File Excel</label>
+                                            <input type="file" class="form-control" id="inputGroupFile01" name="file"
                                                 accept=".xls,.xlsx" required>
+                                        </div>
+                                        <div>
+                                            <h6>Template dapat di unduh : <a href="/excel/user.xlsx" download>Template
+                                                    User</a></h6>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Import</button>
+                                        <button type="button" class="btn btn-danger text-white mb-3"
+                                            data-dismiss="modal"><span class="mdi mdi-progress-close"></span>Close</button>
+                                        <button type="submit" class="btn btn-success text-white mb-3"><span
+                                                class="mdi mdi-import"></span>Import</button>
                                     </div>
                                 </form>
                             </div>

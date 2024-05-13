@@ -41,7 +41,7 @@ return new class extends Migration
             $table->integer('total_biaya_berangkat');
             $table->string('bukti_kembali');
             $table->integer('total_biaya_kembali');
-            $table->enum('proses', ['Diproses', 'Disetujui', 'Ditolak'])->default('Diproses');
+            $table->enum('status', ['Diproses', 'Disetujui', 'Ditolak'])->default('Diproses');
             $table->timestamps();
         });
     }

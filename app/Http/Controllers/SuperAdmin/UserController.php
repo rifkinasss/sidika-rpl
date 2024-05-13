@@ -5,6 +5,9 @@ namespace App\Http\Controllers\SuperAdmin;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Response;
+use App\Imports\UsersImport;
 
 class UserController extends Controller
 {
@@ -17,18 +20,21 @@ class UserController extends Controller
     {
         return view('superadmin.create-user');
     }
-    // public function import(Request $request)
-    // {
-    //     $request->validate([
-    //         'file' => 'required|file|mimes:xls,xlsx'
-    //     ]);
+    public function import(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|file|mimes:xls,xlsx'
+        ]);
 
-    //     $file = $request->file('file');
+        if ($request->hasFile('file')) {
+            Excel::import(new UsersImport, $request->file('file'));
 
-    //     Excel::import(new UsersImport, $file);
+            return redirect()->back()->with('success', 'Pengguna berhasil diimpor.');
+        } else {
+            return redirect()->back()->with('error', 'File tidak ditemukan.');
+        }
+    }
 
-    //     return redirect()->back()->with('success', 'Pengguna berhasil diimpor.');
-    // }
     public function store(Request $request)
     {
         User::create([

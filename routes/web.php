@@ -43,6 +43,8 @@ Route::middleware('superadmin')->group(function () {
         return view('superadmin.dashboard');
     })->name('superadmin');
     Route::resource('dashboard-superadmin/user', UserController::class);
+    Route::post('dashboard-superadmin/user/import', [UserController::class, 'import'])->name('user.import');
+    Route::get('/dashboard-superadmin/user/download', [UserController::class, 'download'])->name('download');
     Route::get('/dashboard-superadmin/bantuan', function () {
         return view('superadmin.bantuan');
     })->name('dashboard-superadmin-bantuan');

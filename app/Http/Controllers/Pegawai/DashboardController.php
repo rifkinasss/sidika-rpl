@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Pegawai;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Pegawai\PerjalananDinas;
 use App\Models\Pegawai\PelaporanPerjadin;
 use Illuminate\Support\Facades\View;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
@@ -17,19 +18,22 @@ class DashboardController extends Controller
         return view('pegawai.dashboard', compact(['perjadin', 'laporan']));
     }
 
-    public function getTotalPengajuanPerjadin(Request $request)
+    public function getDataForChart()
     {
-        $totalPengajuanPerjadin = Perjalanandinas::selectRaw('YEAR(tanggal_berangkat) as tahun, COUNT(*) as total_pengajuan')
-            ->groupBy('tahun')
+        $dataForChart = PerjalanDinas::selectRaw('DATE_FORMAT(created_at, "%Y-%m") as month, COUNT(*) as total')
+            ->groupBy('month')
+            ->orderBy('month')
             ->get();
-        $labels = $totalPengajuanPerjadin->pluck('tahun');
-        $data = $totalPengajuanPerjadin->pluck('total_pengajuan');
-        $dataForChart = [
-            'labels' => $labels,
-            'data' => $data,
-        ];
 
-        return $dataForChart;
+        $formattedData = [];
+        foreach ($dataForChart as $data) {
+            $formattedData[] = [
+                'month' => $data->month,
+                'total' => $data->total
+            ];
+        }
+
+        return view('pegawai.dashboard', ['dataForChart' => $formattedData]);
     }
 
     public function showChart()

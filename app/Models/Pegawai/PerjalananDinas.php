@@ -9,7 +9,10 @@ use App\Models\User;
 class PerjalananDinas extends Model
 {
     use HasFactory;
+
+    protected $table = 'perjalanan_dinas';
     protected $guarded = ['id'];
+
 
     public function user()
     {
