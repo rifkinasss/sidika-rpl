@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Pegawai\PelaporanPerjadin;
 use App\Models\Pegawai\PerjalananDinas;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -35,10 +36,10 @@ class User extends Authenticatable
 
     public function perjadin()
     {
-        return $this->belongsTo(PerjalananDinas::class, 'user_id');
+        return $this->hasMany(PerjalananDinas::class);
     }
-    // public function perjadin()
-    // {
-    //     return $this->belongsTo(Perjadin::class, 'user_id');
-    // }
+    public function pelaporan()
+    {
+        return $this->hasMany(PelaporanPerjadin::class);
+    }
 }

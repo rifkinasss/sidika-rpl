@@ -23,7 +23,7 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Data Pengajuan</h4>
-                    <canvas id="barChart"></canvas>
+                    <canvas id="barCharts"></canvas>
                 </div>
             </div>
         </div>
@@ -43,17 +43,23 @@
                             <th>
                                 <b>No</b>
                             </th>
+                            <th class="text-center">
+                                <b>Nomor Surat</b>
+                            </th>
                             <th>
                                 <b>Keperluan Perjalanan Dinas</b>
                             </th>
-                            <th>
+                            <th class="text-center">
                                 <b>Status</b>
                             </th>
-                            <th>
+                            <th class="text-center">
                                 <b>Anggaran</b>
                             </th>
-                            <th>
+                            <th class="text-center">
                                 <b>Tanggal</b>
+                            </th>
+                            <th>
+                                <b>Action</b>
                             </th>
                         </tr>
                     </thead>
@@ -63,10 +69,13 @@
                                 <td class="py-1">
                                     {{ $loop->iteration }}
                                 </td>
-                                <td style="width: 500px; height: auto;">
-                                    {{ $p->keperluan_perjadin }}
+                                <td class="text-center">
+                                    {{ $p->nomor_surat }}
                                 </td>
                                 <td>
+                                    {{ $p->keperluan_perjadin }}
+                                </td>
+                                <td class="text-center">
                                     @if ($p->status === 'Diproses')
                                         <span class="badge text-bg-warning">Diproses</span>
                                     @elseif ($p->status === 'Disetujui')
@@ -77,12 +86,23 @@
                                         <span class="badge">Status tidak valid</span>
                                     @endif
                                 </td>
-                                <td>
+                                <td class="text-end">
                                     Rp {{ number_format($p->jumlah_dibayarkan, 0, ',', '.') }}
                                 </td>
-                                <td>
+                                <td class="text-center">
                                     {{ \Carbon\Carbon::parse($p->tgl_berangkat)->format('d-M-y') }} -
                                     {{ \Carbon\Carbon::parse($p->tgl_kembali)->format('d-M-y') }}
+                                </td>
+                                <td>
+                                    @if ($p->status === 'Disetujui')
+                                        <a href="{{ route('pelaporan-perjadin.create') }}"
+                                            class="btn btn-outline-danger btn-icon-text">Lapor<i
+                                                class="mdi mdi-file-chart btn-icon-append"></i></a>
+                                        <button type="button" class="btn btn-outline-info btn-icon-text">
+                                            Print
+                                            <i class="mdi mdi-printer btn-icon-append"></i>
+                                        </button>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

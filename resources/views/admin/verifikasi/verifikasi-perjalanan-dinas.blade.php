@@ -54,7 +54,7 @@
                                                 <span class="badge">Status tidak valid</span>
                                             @endif
                                         </td>
-                                        <td>
+                                        <td class="text-end">
                                             Rp {{ number_format($p->jumlah_dibayarkan, 0, ',', '.') }}
                                         </td>
                                         <td>

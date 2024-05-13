@@ -11,14 +11,16 @@ class PelaporanPerjadin extends Model
 {
     use HasFactory;
 
+
+    protected $table = 'pelaporan_perjadins';
     protected $guarded = ['id'];
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class);
     }
     public function perjalanandinas()
     {
-        return $this->belongsTo(PerjalananDinas::class, 'perjalanan_dinas_id');
+        return $this->belongsTo(PerjalananDinas::class);
     }
 }

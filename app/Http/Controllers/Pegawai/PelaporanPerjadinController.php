@@ -13,7 +13,8 @@ class PelaporanPerjadinController extends Controller
 {
     public function create()
     {
-        return view('pegawai.pelaporan-perjadin');
+        $perjalanandinas = PerjalananDinas::where('user_id', Auth::id())->get();
+        return view('pegawai.pelaporan-perjadin', compact('perjalanandinas'));
     }
 
     public function store(Request $request)
@@ -37,8 +38,6 @@ class PelaporanPerjadinController extends Controller
 
         PelaporanPerjadin::create([
             'user_id' => Auth::id(),
-            'nama' => Auth::user()->nama,
-            'nip' => Auth::user()->nip,
             'jns_penginapan' => $request->jns_penginapan,
             'tujuan' => $request->tujuan,
             'tgl_berangkat' => $request->tgl_berangkat,

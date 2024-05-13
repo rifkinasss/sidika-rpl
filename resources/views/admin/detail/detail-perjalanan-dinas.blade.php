@@ -11,7 +11,7 @@
                         <label for="nama_lengkap" class="col-sm-2 col-form-label">Nama Lengkap</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="nama_lengkap"
-                                value="{{ $detail_perjalanandinas->nama }}" disabled>
+                                value="{{ $detail_perjalanandinas->user->nama }}" disabled>
                         </div>
                     </div>
                     <div class="row mb-3">

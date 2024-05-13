@@ -36,8 +36,6 @@ class PerjalananDinasController extends Controller
 
         PerjalananDinas::create([
             'user_id' => Auth::id(),
-            'nama' => Auth::user()->nama,
-            'nip' => Auth::user()->nip,
             'keperluan_perjadin' => $request->keperluan_perjadin,
             'jumlah_dibayarkan' => $request->jumlah_dibayarkan,
             'tujuan' => $request->tujuan,

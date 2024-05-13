@@ -15,9 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nomor_surat')->nullable();
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->string('nama');
-            $table->string('nip', 18)->unique();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('keperluan_perjadin');
             $table->integer('jumlah_dibayarkan');
             $table->string('tujuan');
@@ -29,7 +27,7 @@ return new class extends Migration
             $table->integer('biaya_akomodasi');
             $table->integer('biaya_lain');
             $table->integer('jumlah_biaya');
-            $table->enum('proses', ['Diproses', 'Disetujui', 'Ditolak'])->default('Diproses');
+            $table->enum('status', ['Diproses', 'Disetujui', 'Ditolak'])->default('Diproses');
             $table->timestamps();
         });
     }

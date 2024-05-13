@@ -17,10 +17,9 @@ class DashboardController extends Controller
         $laporan = PelaporanPerjadin::all();
         return view('pegawai.dashboard', compact(['perjadin', 'laporan']));
     }
-
     public function getDataForChart()
     {
-        $dataForChart = PerjalanDinas::selectRaw('DATE_FORMAT(created_at, "%Y-%m") as month, COUNT(*) as total')
+        $dataForChart = PerjalananDinas::selectRaw('DATE_FORMAT(created_at, "%Y-%m") as month, COUNT(*) as total')
             ->groupBy('month')
             ->orderBy('month')
             ->get();

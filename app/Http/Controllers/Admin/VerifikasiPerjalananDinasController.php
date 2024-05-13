@@ -19,7 +19,7 @@ class VerifikasiPerjalananDinasController extends Controller
     {
         $user = User::find($id);
         $detail_perjalanandinas = perjalanandinas::find($id);
-        return view('admin.detail.detail-perjalanan-dinas', compact('detail_perjalanandinas'));
+        return view('admin.detail.detail-perjalanan-dinas', compact('detail_perjalanandinas', 'user'));
     }
 
     public function update(Request $request, string $id)
@@ -28,11 +28,19 @@ class VerifikasiPerjalananDinasController extends Controller
 
         if ($request->has('disetujui')) {
             $perjalanandinas->update([
-                'proses' => 'Disetujui',
+                'status' => 'Disetujui',
+            ]);
+
+            $tanggal = date('dmY'); // Format tanggal sebagai bagian dari nomor surat
+            $nomorSurat = "SPM/{$tanggal}/{$perjalanandinas->id}"; // Format nomor surat sesuai kebutuhan Anda
+
+            // Update nomor surat ke dalam database
+            $perjalanandinas->update([
+                'nomor_surat' => $nomorSurat,
             ]);
         } elseif ($request->has('ditolak')) {
             $perjalanandinas->update([
-                'proses' => 'Ditolak',
+                'status' => 'Ditolak',
             ]);
         }
 

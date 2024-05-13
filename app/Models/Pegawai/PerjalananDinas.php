@@ -18,4 +18,8 @@ class PerjalananDinas extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+    public function perjalanandinas()
+    {
+        return $this->hasMany(PerjalananDinas::class);
+    }
 }
