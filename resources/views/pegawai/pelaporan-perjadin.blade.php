@@ -4,32 +4,48 @@
     <h1>Pelaporan Perjalanan Dinas</h1>
     <h6 style="color: red;" class="mb-4">Harap laporkan data selengkap-lengkapnya. alur dana tidak boleh lebih besar ataupun
         lebih kecil dari dana yang diberikan.*</h6>
-    <form class="forms-sample" method="POST" action="{{ route('pelaporan-perjadin.store') }}">
+    <form class="forms-sample" method="POST" action="{{ route('pelaporan-perjadin.store', $perjadin->id) }}"
+        enctype="multipart/form-data">
         @csrf
         <div class="row">
             {{-- form atas besar --}}
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <div class="form-group">
-                            <label for="nama-lengkap">Nama Lengkap</label>
-                            <input type="text" class="form-control" name="nama" value="{{ Auth::user()->nama }}"
-                                disabled>
-                        </div>
-                        <div class="form-group">
-                            <label for="nip">NIP</label>
-                            <input type="text" class="form-control" name="nip" value="{{ Auth::user()->nip }}"
-                                disabled>
-                        </div>
-                        <div class="form-group">
-                            <label for="penginapan">Nama Penginapan</label>
-                            <input type="text" class="form-control" id="penginapan" name="jns_penginapan"
-                                placeholder="Masukkan Nama Penginapan">
-                        </div>
-                        <div class="form-group">
-                            <label for="pelaporan-tujuan">Tujuan</label>
-                            <input type="text" class="form-control" id="pelaporan-tujuan"
-                                placeholder="Masukkan Tujuan Pelaporan" name="tujuan" required>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="nomor-surat">Nomor Surat</label>
+                                    <input type="text" class="form-control" value="{{ $perjadin->nomor_surat }}"
+                                        disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nama-lengkap">Nama Lengkap</label>
+                                    <input type="text" class="form-control" value="{{ Auth::user()->nama }}" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nip">NIP</label>
+                                    <input type="text" class="form-control" value="{{ Auth::user()->nip }}" disabled>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="keperluan">Keperluan Perjalanan Dinas</label>
+                                    <input type="text" class="form-control" id="keperluan"
+                                        value="{{ $perjadin->keperluan_perjadin }}" disabled></input>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pelaporan-tujuan">Tujuan</label>
+                                    <input type="text" class="form-control" id="pelaporan-tujuan"
+                                        placeholder="Masukkan Tujuan Pelaporan" name="tujuan"
+                                        value="{{ $perjadin->tujuan }}" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="penginapan">Nama Penginapan</label>
+                                    <input type="text" class="form-control" id="penginapan" name="jns_penginapan"
+                                        placeholder="Masukkan Nama Penginapan">
+                                </div>
+                            </div>
                         </div>
                         {{-- 2 card terpisah --}}
                         <div class="row">
@@ -41,14 +57,16 @@
                                         <label for="tanggal-berangkat"
                                             class="col-sm-9 col-form-label text-white">Tanggal</label>
                                         <div class="col-sm-9">
-                                            <input type="date" class="form-control" id="tanggal-berangkat"
-                                                name="tgL_berangkat" placeholder="dd/mm/yyyy">
+                                            <input type="text" class="form-control" id="tanggal-berangkat"
+                                                name="tgl_berangkat" placeholder="dd/mm/yyyy" disabled
+                                                value="{{ \Carbon\Carbon::parse($perjadin->tgl_berangkat)->format('d-M-Y') }}">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="text-white">Jenis Transportasi</label>
                                         <div class="col-sm-9">
-                                            <select class="js-example-basic-single w-100" name="jns_transportas_berangkat">
+                                            <select class="form-control text-black" name="jns_transportasi_berangkat">
+                                                <option selected>Pilih Jenis Transportasi</option>
                                                 <option value="pesawat-berangkat">Pesawat</option>
                                                 <option value="kereta-api-berangkat">Kereta Api</option>
                                                 <option value="bis-berangkat">Bis</option>
@@ -106,18 +124,20 @@
                                         <label for="tanggal-kembali"
                                             class="col-sm-9 col-form-label text-white">Tanggal</label>
                                         <div class="col-sm-9">
-                                            <input type="date" class="form-control" id="tanggal-kembali"
-                                                name="tgl_kembali" placeholder="dd/mm/yyyy">
+                                            <input type="text" class="form-control" id="tanggal-kembali"
+                                                name="tgl_kembali" placeholder="dd/mm/yyyy" disabled
+                                                value="{{ \Carbon\Carbon::parse($perjadin->tgl_kembali)->format('d-M-Y') }}">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="text-white">Jenis Transportasi</label>
                                         <div class="col-sm-9">
-                                            <select class="js-example-basic-single w-100" name="jns_transportasi_kembali">
-                                                <option value="pesawat-kembali">Pesawat</option>
-                                                <option value="kereta-api-kembali">Kereta Api</option>
-                                                <option value="bis-berangkat">Bis</option>
-                                                <option value="kapal-berangkat">Kapal</option>
+                                            <select class="form-control text-black" name="jns_transportasi_kembali">
+                                                <option selected>Pilih Jenis Transportasi</option>
+                                                <option value="pesawat">Pesawat</option>
+                                                <option value="kereta-api">Kereta Api</option>
+                                                <option value="bis">Bis</option>
+                                                <option value="kapal">Kapal</option>
                                             </select>
                                         </div>
                                     </div>

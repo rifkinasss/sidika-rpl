@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Pegawai\PerjalananDinas;
-use App\Models\Pegawai\PelaporanPerjadin;
 
 class PerjalananDinasController extends Controller
 {

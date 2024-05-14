@@ -13,13 +13,8 @@ class PerjalananDinas extends Model
     protected $table = 'perjalanan_dinas';
     protected $guarded = ['id'];
 
-
     public function user()
     {
-        return $this->belongsTo(User::class, 'user_id');
-    }
-    public function perjalanandinas()
-    {
-        return $this->hasMany(PerjalananDinas::class);
+        return $this->belongsTo(User::class);
     }
 }

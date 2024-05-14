@@ -81,42 +81,39 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        $(function() {
-            "use strict";
-            var data = {
-                labels: ["2024", "2025", "2026", "2027", "2028", "2029"],
+        // Assuming $formattedData contains the data in the correct format
+        var formattedData = {!! json_encode($formattedData) !!}; // Convert PHP array to JavaScript object
+
+        var months = formattedData.map(function(item) {
+            return item.month;
+        });
+
+        var totals = formattedData.map(function(item) {
+            return item.total;
+        });
+
+        var ctx = document.getElementById('barCharts').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: months,
                 datasets: [{
-                    label: $labels,
-                    data: [12, 19, 3, 5, 2, 3],
-                    backgroundColor: [
-                        "rgba(255, 99, 132, 0.2)",
-                        "rgba(54, 162, 235, 0.2)",
-                        "rgba(255, 206, 86, 0.2)",
-                        "rgba(75, 192, 192, 0.2)",
-                        "rgba(153, 102, 255, 0.2)",
-                        "rgba(255, 159, 64, 0.2)",
-                    ],
-                    borderColor: [
-                        "rgba(255,99,132,1)",
-                        "rgba(54, 162, 235, 1)",
-                        "rgba(255, 206, 86, 1)",
-                        "rgba(75, 192, 192, 1)",
-                        "rgba(153, 102, 255, 1)",
-                        "rgba(255, 159, 64, 1)",
-                    ],
-                    borderWidth: 1,
-                    fill: false,
-                }, ],
-            };
-            if ($("#barChart").length) {
-                var barChartCanvas = $("#barChart").get(0).getContext("2d");
-                // This will get the first returned node in the jQuery collection.
-                var barChart = new Chart(barChartCanvas, {
-                    type: "bar",
-                    data: data,
-                    options: options,
-                });
+                    label: 'Total',
+                    data: totals,
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
             }
         });
     </script>

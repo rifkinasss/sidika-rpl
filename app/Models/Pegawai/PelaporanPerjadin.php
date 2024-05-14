@@ -15,10 +15,30 @@ class PelaporanPerjadin extends Model
     protected $table = 'pelaporan_perjadins';
     protected $guarded = ['id'];
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+    protected $fillable = [
+        'perjalanan_dinas_id',
+        'jns_penginapan',
+        'tujuan',
+        'tgl_berangkat',
+        'tgl_kembali',
+        'jns_transportasi_berangkat',
+        'jns_transportasi_kembali',
+        'nama_transportasi_berangkat',
+        'nama_transportasi_kembali',
+        'nomor_tiket_berangkat',
+        'nomor_tiket_kembali',
+        'nomor_kursi_berangkat',
+        'nomor_kursi_kembali',
+        'harga_berangkat',
+        'harga_kembali',
+        'total_biaya_akomodasi',
+        'total_biaya_berangkat',
+        'total_biaya_kembali',
+        'bukti_akomodasi',
+        'bukti_berangkat',
+        'bukti_kembali',
+    ];
+
     public function perjalanandinas()
     {
         return $this->belongsTo(PerjalananDinas::class);

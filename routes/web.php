@@ -70,6 +70,8 @@ Route::middleware('pegawai')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('pegawai');
     Route::resource('perjalanan-dinas', PerjalananDinasController::class);
     Route::resource('pelaporan-perjadin', PelaporanPerjadinController::class);
+    Route::post('/pelaporan-perjadin/{id}', [PelaporanPerjadinController::class, 'store'])->name('pelaporan-perjadin.store');
+    // Route::get('/pelaporan-perjalanan-dinas/{id}', [PelaporanPerjadinController::class, 'lapor']);
     Route::resource('belanja-modal', BelanjaModalController::class);
     Route::resource('belanja-barang-jasa', BelanjaBarangJasaController::class);
     Route::get('/bantuan', function () {

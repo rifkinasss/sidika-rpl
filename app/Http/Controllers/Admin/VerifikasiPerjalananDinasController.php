@@ -31,10 +31,9 @@ class VerifikasiPerjalananDinasController extends Controller
                 'status' => 'Disetujui',
             ]);
 
-            $tanggal = date('dmY'); // Format tanggal sebagai bagian dari nomor surat
-            $nomorSurat = "SPM/{$tanggal}/{$perjalanandinas->id}"; // Format nomor surat sesuai kebutuhan Anda
+            $tanggal = date('dmY');
+            $nomorSurat = "SPM/{$tanggal}/{$perjalanandinas->id}";
 
-            // Update nomor surat ke dalam database
             $perjalanandinas->update([
                 'nomor_surat' => $nomorSurat,
             ]);

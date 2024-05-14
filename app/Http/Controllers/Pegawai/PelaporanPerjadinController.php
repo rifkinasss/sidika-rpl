@@ -8,61 +8,43 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Pegawai\PerjalananDinas;
 use App\Models\Pegawai\PelaporanPerjadin;
+use App\Utils\FileUtils;
 
 class PelaporanPerjadinController extends Controller
 {
-    public function create()
+    public function show($id)
     {
-        $perjalanandinas = PerjalananDinas::where('user_id', Auth::id())->get();
-        return view('pegawai.pelaporan-perjadin', compact('perjalanandinas'));
+        $perjadin = PerjalananDinas::find($id);
+        return view('pegawai.pelaporan-perjadin', compact('perjadin'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        $tglBerangkat = Carbon::createFromFormat('Y-m-d', $request->tgl_berangkat);
-        $tglKembali = Carbon::createFromFormat('Y-m-d', $request->tgl_kembali);
-        $jumlah_hari = $tglKembali->diffInDays($tglBerangkat);
+        $perjadin = PerjalananDinas::find($id);
 
-        $uang_total = $request->uang_harian * $jumlah_hari;
+        $pelaporan = new PelaporanPerjadin();
+        $pelaporan->perjalanan_dinas_id = $perjadin->id;
+        $pelaporan->jns_penginapan = $request->jns_penginapan;
+        $pelaporan->tujuan = $perjadin->tujuan;
+        $pelaporan->tgl_berangkat = $perjadin->tgl_berangkat;
+        $pelaporan->tgl_kembali = $perjadin->tgl_kembali;
+        $pelaporan->jns_transportasi_berangkat = $request->jns_transportasi_berangkat;
+        $pelaporan->jns_transportasi_kembali = $request->jns_transportasi_kembali;
+        $pelaporan->nama_transportasi_berangkat = $request->nama_transportasi_berangkat;
+        $pelaporan->nama_transportasi_kembali = $request->nama_transportasi_kembali;
+        $pelaporan->nomor_tiket_berangkat = $request->nomor_tiket_berangkat;
+        $pelaporan->nomor_tiket_kembali = $request->nomor_tiket_kembali;
+        $pelaporan->nomor_kursi_berangkat = $request->nomor_kursi_berangkat;
+        $pelaporan->nomor_kursi_kembali = $request->nomor_kursi_kembali;
+        $pelaporan->harga_berangkat = $request->harga_berangkat;
+        $pelaporan->harga_kembali = $request->harga_kembali;
+        $pelaporan->total_biaya_akomodasi = $request->total_biaya_akomodasi;
+        $pelaporan->total_biaya_berangkat = $request->total_biaya_berangkat;
+        $pelaporan->total_biaya_kembali = $request->total_biaya_kembali;
 
-        $uang_total = (float)$uang_total;
-        $biaya_akomodasi = (float)$request->biaya_akomodasi;
-        $biaya_lain = (float)$request->biaya_lain;
-        $biaya_tiket = (float)$request->biaya_tiket;
+        $pelaporan->save();
 
-        if (!is_numeric($uang_total) || !is_numeric($biaya_akomodasi) || !is_numeric($biaya_lain) || !is_numeric($biaya_tiket)) {
-            return response()->json(['error' => 'Input tidak valid'], 400);
-        }
-
-        $jumlah_biaya = $uang_total + $biaya_akomodasi + $biaya_lain + $biaya_tiket;
-
-        PelaporanPerjadin::create([
-            'user_id' => Auth::id(),
-            'jns_penginapan' => $request->jns_penginapan,
-            'tujuan' => $request->tujuan,
-            'tgl_berangkat' => $request->tgl_berangkat,
-            'tgl_kembali' => $request->tgl_kembali,
-            'jns_transportasi_berangkat' => $request->jns_transportasi_berangkat,
-            'jns_transportasi_kembali' => $request->jns_transportasi_kembali,
-            'nama_transportasi_berangkat' => $request->nama_transportasi_berangkat,
-            'nama_transportasi_kembali' => $request->nama_transportasi_kembali,
-            'nomor_tiket_berangkat' => $request->nomor_tiket_berangkat,
-            'nomor_tiket_kembali' => $request->nomor_tiket_kembali,
-            'nomor_kursi_berangkat' => $request->nomor_kursi_berangkat,
-            'nomor_kursi_kembali' => $request->nomor_kursi_kembali,
-            'harga_berangkat' => $request->harga_berangkat,
-            'harga_kembali' => $request->harga_kembali,
-            'bukti_akomodasi' => $request->bukti_akomodasi,
-            'total_biaya_akomodasi' => $request->total_biaya_akomodasi,
-            'bukti_berangkat' => $request->bukti_berangkat,
-            'total_biaya_berangkat' => $request->total_biaya_berangkat,
-            'bukti_kembali' => $request->bukti_kembali,
-            'total_biaya_kembali' => $request->total_biaya_kembali,
-        ]);
-
-        session()->flash('uang_total', $uang_total);
-
-        return redirect()->route('pegawai');
+        return redirect()->route('pegawai', ['perjadin' => $perjadin->id])->with('success', 'Pelaporan berhasil diperbarui.');
     }
     public function destroy(string $id)
     {

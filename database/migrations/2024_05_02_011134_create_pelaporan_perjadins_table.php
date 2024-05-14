@@ -13,12 +13,8 @@ return new class extends Migration
     {
         Schema::create('pelaporan_perjadins', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('perjalanan_dinas_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('perjalanan_dinas_id')->references('id')->on('perjalanan_dinas')->onDelete('cascade');
-            $table->string('keperluan_perjadin');
-            $table->integer('jumlah_dibayarkan');
             $table->string('jns_penginapan');
             $table->string('tujuan');
             $table->date('tgl_berangkat');

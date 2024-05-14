@@ -95,7 +95,7 @@
                                 </td>
                                 <td>
                                     @if ($p->status === 'Disetujui')
-                                        <a href="{{ route('pelaporan-perjadin.create') }}"
+                                        <a href="{{ route('pelaporan-perjadin.show', $p->id) }}"
                                             class="btn btn-outline-danger btn-icon-text">Lapor<i
                                                 class="mdi mdi-file-chart btn-icon-append"></i></a>
                                         <button type="button" class="btn btn-outline-info btn-icon-text">
@@ -133,13 +133,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($laporan->where('user_id', auth()->user()->id) as $lapor)
+                        @foreach ($laporan->where('perjalanan_dinas_id') as $lapor)
                             <tr>
                                 <td class="py-1">
                                     {{ $loop->iteration }}
                                 </td>
                                 <td style="width: 500px; height: auto;">
-                                    {{ $lapor->keperluan_perjadin }}
+                                    {{ $lapor->tujuan }}
                                 </td>
                                 <td>
                                     @if ($lapor->status === 'Diproses')
