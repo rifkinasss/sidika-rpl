@@ -56,7 +56,7 @@
                                 <img src="{{ asset('images/faces/face2.jpg') }}" alt="profile" />
                             </a>
                             <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-                                <a class="dropdown-item" href="/profile-pegawai">
+                                <a class="dropdown-item" href="{{ url('/dashboard-admin/profile-admin') }}">
                                     <i class="mdi mdi-settings text-primary"></i>
                                     Settings
                                 </a>

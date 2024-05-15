@@ -17,6 +17,18 @@
                         </div>
                         <h4>Selamat Datang di website SIDIKA</h4>
                         <h6 class="font-weight-light">Masuk Sebagai Pegawai ataupun Admin</h6>
+                        @if (session('alert'))
+                            <div class="alert alert-success text-center mb-1 mt-3">
+                                {{ session('alert') }}
+                            </div>
+                        @endif
+
+                        @if (session('error'))
+                            <div class="alert alert-danger text-center mb-1 mt-3">
+                                {{ session('error') }}
+                            </div>
+                        @endif
+
                         <form method="POST" action="{{ route('login') }}" class="pt-3">
                             @csrf
                             <div class="form-group">
@@ -60,17 +72,6 @@
                                 @endif
                             </div>
                         </form>
-                        @if (session('alert'))
-                            <div class="alert alert-success">
-                                {{ session('alert') }}
-                            </div>
-                        @endif
-
-                        @if (session('error'))
-                            <div class="alert alert-danger">
-                                {{ session('error') }}
-                            </div>
-                        @endif
                     </div>
                 </div>
             </div>

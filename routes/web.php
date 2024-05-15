@@ -64,6 +64,9 @@ Route::middleware('admin')->group(function () {
     Route::get('/dashboard-admin/bantuan', function () {
         return view('admin.bantuan');
     })->name('dashboard-admin-bantuan');
+    Route::get('/dashboard-admin/profile-admin', function () {
+        return view('admin.profile');
+    })->name('dashboard-admin-profile');
 });
 
 Route::middleware('pegawai')->group(function () {

@@ -30,7 +30,7 @@
                             </div>
                         </div>
                         <div class="float-sm-end mt-4">
-                            <a href="{{ route('createuser.edit', Auth::user()->id) }}" type="submit"
+                            <a href="#{{-- route('createuser.edit', Auth::user()->id) --}}" type="submit"
                                 class="btn btn-warning"><i class="col-sm mdi mdi-pencil"></i>Edit</a>
                         </div>
                     </form>
@@ -43,7 +43,7 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Ubah Password</h4>
-                    <form class="forms-sample" action="{{ route('createuser.update', Auth::user()->id) }}" method="POST">
+                    <form class="forms-sample" action="#{{-- route('createuser.update', Auth::user()->id) --}}" method="POST">
                         @method('PUT')
                         @csrf
                         <div class="form-group">
