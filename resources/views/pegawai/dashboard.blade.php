@@ -249,4 +249,39 @@
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var formattedData = {!! json_encode($formattedData) !!}; // Convert PHP array to JavaScript object
+
+        var months = formattedData.map(function(item) {
+            return item.month;
+        });
+
+        var totals = formattedData.map(function(item) {
+            return item.total;
+        });
+
+        var ctx = document.getElementById('barCharts').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: months,
+                datasets: [{
+                    label: 'Total',
+                    data: totals,
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
 @endsection
