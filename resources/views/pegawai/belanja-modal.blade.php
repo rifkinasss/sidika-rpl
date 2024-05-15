@@ -25,7 +25,6 @@
                             <label for="jenis-spk-modal">Jenis Belanja Modal</label>
                             <input type="text" class="form-control" id="jenis-spk-modal" placeholder="belanja modal..">
                         </div>
-                        <button type="submit" class="btn btn-info mt-2 mb-2">Simpan</button>
                     </form>
 
                 </div>
@@ -221,7 +220,6 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-info mt-2 mb-2">Simpan</button>
                     </form>
                 </div>
             </div>
@@ -267,7 +265,6 @@
                                 Metode LPSE (Layanan Pengadaan Secara Elektronik)
                             </label>
                         </div>
-                        <button type="submit" class="btn btn-info mt-2 mb-2">Simpan</button>
                     </form>
                 </div>
             </div>
@@ -358,7 +355,6 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-info mt-2 mb-2">Simpan</button>
                     </form>
                 </div>
             </div>
@@ -386,7 +382,6 @@
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary mt-2 mb-2">Kirim</button>
-                        <button class="btn btn-light">Batalkan</button>
                     </form>
                 </div>
             </div>
