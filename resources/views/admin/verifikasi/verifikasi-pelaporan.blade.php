@@ -17,6 +17,9 @@
                                         <b>No</b>
                                     </th>
                                     <th>
+                                        <b>Nama Lengkap</b>
+                                    </th>
+                                    <th>
                                         <b>Keperluan Perjalanan Dinas</b>
                                     </th>
                                     <th>
@@ -39,8 +42,11 @@
                                         <td class="py-1">
                                             {{ $loop->iteration }}
                                         </td>
+                                        <td>
+                                            {{ $p->perjalanandinas->user->nama }}
+                                        </td>
                                         <td style="width: 500px; height: auto;">
-                                            {{ $p->keperluan_perjadin }}
+                                            {{ $p->perjalanandinas->keperluan_perjadin }}
                                         </td>
                                         <td>
                                             @if ($p->status === 'Diproses')
@@ -52,15 +58,15 @@
                                             @endif
                                         </td>
                                         <td>
-                                            Rp {{ number_format($p->jumlah_dibayarkan, 0, ',', '.') }}
+                                            Rp {{ number_format($p->perjalanandinas->jumlah_dibayarkan, 0, ',', '.') }}
                                         </td>
                                         <td>
                                             {{ \Carbon\Carbon::parse($p->tgl_berangkat)->format('d-M-y') }} -
                                             {{ \Carbon\Carbon::parse($p->tgl_kembali)->format('d-M-y') }}
                                         </td>
                                         <td>
-                                            <a href="{{ route('verifikasi-perjadin.show', $p->id) }}" type="button"
-                                                class="btn btn-primary">Detail</a>
+                                            <a href="{{ route('verifikasi-pelaporan-perjadin.show', $p->id) }}"
+                                                type="button" class="btn btn-primary">Detail</a>
                                         </td>
                                     </tr>
                                 @endforeach

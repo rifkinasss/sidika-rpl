@@ -17,4 +17,9 @@ class PerjalananDinas extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function pelaporanPerjadin()
+    {
+        return $this->hasOne(PelaporanPerjadin::class, 'perjalanan_dinas_id');
+    }
 }

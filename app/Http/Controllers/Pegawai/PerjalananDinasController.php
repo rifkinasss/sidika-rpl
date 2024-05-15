@@ -12,7 +12,41 @@ class PerjalananDinasController extends Controller
 {
     public function create()
     {
-        return view('pegawai.perjalanan-dinas');
+
+        $dataForChart = PerjalananDinas::selectRaw('DATE_FORMAT(created_at, "%Y-%m") as month, COUNT(*) as total')
+            ->groupBy('month')
+            ->orderBy('month')
+            ->get();
+
+        // Map month numbers to month names
+        $months = [
+            '01' => 'Januari',
+            '02' => 'Februari',
+            '03' => 'Maret',
+            '04' => 'April',
+            '05' => 'Mei',
+            '06' => 'Juni',
+            '07' => 'Juli',
+            '08' => 'Agustus',
+            '09' => 'September',
+            '10' => 'Oktober',
+            '11' => 'November',
+            '12' => 'Desember',
+        ];
+
+        // Format the data
+        $formattedData = [];
+        foreach ($dataForChart as $data) {
+            $yearMonth = explode('-', $data->month);
+            $year = $yearMonth[0];
+            $monthNumber = $yearMonth[1];
+
+            $formattedData[] = [
+                'month' => $months[$monthNumber] . ' ' . $year,
+                'total' => $data->total
+            ];
+        }
+        return view('pegawai.perjalanan-dinas', compact('formattedData'));
     }
     public function store(Request $request)
     {

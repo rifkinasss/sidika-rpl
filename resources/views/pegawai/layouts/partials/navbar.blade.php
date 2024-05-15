@@ -96,13 +96,6 @@
                         <span class="menu-title">Perjalanan Dinas</span>
                     </a>
                 </li>
-                <li class="nav-item {{ request()->routeis('pelaporan-perjadin.create') ? 'active' : '' }}">
-                    <a href="{{ route('pelaporan-perjadin.create') }}" class="nav-link">
-                        <i class="mdi mdi-file-multiple menu-icon"></i>
-                        <span class="menu-title">Pelaporan Perjadin</span>
-                        <i class="menu-arrow"></i>
-                    </a>
-                </li>
                 <li class="nav-item {{ request()->is('belanja-modal/create') ? 'active' : '' }}">
                     <a href="{{ route('belanja-modal.create') }}" class="nav-link">
                         <i class="mdi mdi-finance menu-icon"></i>

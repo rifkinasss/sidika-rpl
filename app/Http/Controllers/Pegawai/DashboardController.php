@@ -18,18 +18,18 @@ class DashboardController extends Controller
 
         // Map month numbers to month names
         $months = [
-            '01' => 'January',
-            '02' => 'February',
-            '03' => 'March',
+            '01' => 'Januari',
+            '02' => 'Februari',
+            '03' => 'Maret',
             '04' => 'April',
-            '05' => 'May',
-            '06' => 'June',
-            '07' => 'July',
-            '08' => 'August',
+            '05' => 'Mei',
+            '06' => 'Juni',
+            '07' => 'Juli',
+            '08' => 'Agustus',
             '09' => 'September',
-            '10' => 'October',
+            '10' => 'Oktober',
             '11' => 'November',
-            '12' => 'December',
+            '12' => 'Desember',
         ];
 
         // Format the data

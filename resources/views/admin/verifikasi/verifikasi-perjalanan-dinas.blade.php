@@ -18,15 +18,18 @@
                                         <b>No</b>
                                     </th>
                                     <th>
+                                        <b>Nama Lengkap</b>
+                                    </th>
+                                    <th>
                                         <b>Keperluan Perjalanan Dinas</b>
                                     </th>
                                     <th>
                                         <b>Status</b>
                                     </th>
-                                    <th>
+                                    <th class="text-center">
                                         <b>Jumlah Dibayar</b>
                                     </th>
-                                    <th>
+                                    <th class="text-center">
                                         <b>Tanggal</b>
                                     </th>
                                     <th>
@@ -40,7 +43,10 @@
                                         <td class="py-1">
                                             {{ $loop->iteration }}
                                         </td>
-                                        <td style="width: 500px; height: auto;">
+                                        <td>
+                                            {{ $p->user->nama }}
+                                        </td>
+                                        <td style="width: 350px; height: auto;">
                                             {{ $p->keperluan_perjadin }}
                                         </td>
                                         <td>
@@ -54,10 +60,10 @@
                                                 <span class="badge">Status tidak valid</span>
                                             @endif
                                         </td>
-                                        <td class="text-end">
+                                        <td>
                                             Rp {{ number_format($p->jumlah_dibayarkan, 0, ',', '.') }}
                                         </td>
-                                        <td>
+                                        <td class="text-center">
                                             {{ \Carbon\Carbon::parse($p->tgl_berangkat)->format('d-M-y') }} -
                                             {{ \Carbon\Carbon::parse($p->tgl_kembali)->format('d-M-y') }}
                                         </td>

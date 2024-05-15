@@ -37,10 +37,11 @@ class PelaporanPerjadin extends Model
         'bukti_akomodasi',
         'bukti_berangkat',
         'bukti_kembali',
+        'status',
     ];
 
-    public function perjalanandinas()
+    public function perjalananDinas()
     {
-        return $this->belongsTo(PerjalananDinas::class);
+        return $this->belongsTo(PerjalananDinas::class, 'perjalanan_dinas_id');
     }
 }

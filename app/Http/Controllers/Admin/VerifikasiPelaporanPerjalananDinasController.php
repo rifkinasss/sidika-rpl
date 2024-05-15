@@ -11,7 +11,7 @@ class VerifikasiPelaporanPerjalananDinasController extends Controller
 {
     public function index()
     {
-        $pelaporanperjadin = PelaporanPerjadin::all();
+        $pelaporanperjadin = PelaporanPerjadin::with('perjalananDinas')->get();
         return view('admin.verifikasi.verifikasi-pelaporan', compact('pelaporanperjadin'));
     }
 
@@ -19,18 +19,18 @@ class VerifikasiPelaporanPerjalananDinasController extends Controller
     {
         $user = User::find($id);
         $detail_pelaporanperjadin = PelaporanPerjadin::find($id);
-        return view('admin.detail.detail-perjalanan-dinas', compact('detail_pelaporanperjadin'));
+        return view('admin.detail.detail-pelaporan', compact('detail_pelaporanperjadin'));
     }
 
     public function update(Request $request, string $id)
     {
         $pelaporanperjadin = PelaporanPerjadin::findOrFail($id);
 
-        if ($request->has('approved')) {
+        if ($request->has('disetujui')) {
             $pelaporanperjadin->update([
                 'status' => 'Disetujui',
             ]);
-        } elseif ($request->has('rejected')) {
+        } elseif ($request->has('ditolak')) {
             $pelaporanperjadin->update([
                 'status' => 'Ditolak',
             ]);
