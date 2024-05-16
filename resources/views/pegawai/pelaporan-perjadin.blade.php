@@ -206,7 +206,6 @@
                                                 <label for="akomodasi"
                                                     class="col-sm-9 col-form-label text-white">Akomodasi
                                                     :</label>
-                                                <input type="file" name="img[]" class="file-upload-default">
                                                 <div class="input-group col-xs-12">
                                                     <input type="file" class="form-control file-upload-input"
                                                         accept="application/pdf" name="bukti_akomodasi"
@@ -248,7 +247,6 @@
                                                 <label for="berangkat"
                                                     class="col-sm-9 col-form-label text-white">Berangkat
                                                     :</label>
-                                                <input type="file" name="img[]" class="file-upload-default">
                                                 <div class="input-group col-xs-12">
                                                     <input type="file" class="form-control file-upload-input"
                                                         accept="application/pdf" name="bukti_berangkat"
@@ -289,7 +287,6 @@
                                             <div class="form-group">
                                                 <label for="kembali" class="col-sm-9 col-form-label text-white">Kembali
                                                     :</label>
-                                                <input type="file" name="img[]" class="file-upload-default">
                                                 <div class="input-group col-xs-12">
                                                     <input type="file" class="form-control file-upload-input"
                                                         accept="application/pdf" name="bukti_kembali"

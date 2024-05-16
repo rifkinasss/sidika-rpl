@@ -98,10 +98,11 @@
                                         <a href="{{ route('pelaporan-perjadin.show', $p->id) }}"
                                             class="btn btn-outline-danger btn-icon-text">Lapor<i
                                                 class="mdi mdi-file-chart btn-icon-append"></i></a>
-                                        <button type="button" class="btn btn-outline-info btn-icon-text">
+                                        <a href="{{ route('SPPD', $p->id) }}" type="button" target="_blank"
+                                            class="btn btn-outline-info btn-icon-text">
                                             Print
                                             <i class="mdi mdi-printer btn-icon-append"></i>
-                                        </button>
+                                        </a>
                                     @endif
                                 </td>
                             </tr>
