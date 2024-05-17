@@ -15,8 +15,11 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('perjalanan_dinas_id');
             $table->foreign('perjalanan_dinas_id')->references('id')->on('perjalanan_dinas')->onDelete('cascade');
-            $table->string('jns_penginapan');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('keperluan_perjadin');
             $table->string('tujuan');
+            $table->string('jns_penginapan');
             $table->date('tgl_berangkat');
             $table->date('tgl_kembali');
             $table->string('jns_transportasi_berangkat');

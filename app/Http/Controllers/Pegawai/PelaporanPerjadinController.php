@@ -24,8 +24,10 @@ class PelaporanPerjadinController extends Controller
 
         $pelaporan = new PelaporanPerjadin();
         $pelaporan->perjalanan_dinas_id = $perjadin->id;
-        $pelaporan->jns_penginapan = $request->jns_penginapan;
+        $pelaporan->user_id = Auth::id(); // Menambahkan user_id dari pengguna yang sedang login
+        $pelaporan->keperluan_perjadin = $perjadin->keperluan_perjadin;
         $pelaporan->tujuan = $perjadin->tujuan;
+        $pelaporan->jns_penginapan = $request->jns_penginapan;
         $pelaporan->tgl_berangkat = $perjadin->tgl_berangkat;
         $pelaporan->tgl_kembali = $perjadin->tgl_kembali;
         $pelaporan->jns_transportasi_berangkat = $request->jns_transportasi_berangkat;
@@ -42,10 +44,30 @@ class PelaporanPerjadinController extends Controller
         $pelaporan->total_biaya_berangkat = $request->total_biaya_berangkat;
         $pelaporan->total_biaya_kembali = $request->total_biaya_kembali;
 
+        // Handle file uploads
+        if ($request->file('bukti_akomodasi')) {
+            $bukti_akomodasi = $request->file('bukti_akomodasi');
+            $bukti_akomodasi_path = $bukti_akomodasi->store('uploads/bukti_akomodasi', 'public');
+            $pelaporan->bukti_akomodasi = $bukti_akomodasi_path;
+        }
+
+        if ($request->file('bukti_berangkat')) {
+            $bukti_berangkat = $request->file('bukti_berangkat');
+            $bukti_berangkat_path = $bukti_berangkat->store('uploads/bukti_berangkat', 'public');
+            $pelaporan->bukti_berangkat = $bukti_berangkat_path;
+        }
+
+        if ($request->file('bukti_kembali')) {
+            $bukti_kembali = $request->file('bukti_kembali');
+            $bukti_kembali_path = $bukti_kembali->store('uploads/bukti_kembali', 'public');
+            $pelaporan->bukti_kembali = $bukti_kembali_path;
+        }
+
         $pelaporan->save();
 
         return redirect()->route('pegawai', ['perjadin' => $perjadin->id])->with('success', 'Pelaporan berhasil diperbarui.');
     }
+
     public function destroy(string $id)
     {
         $pelaporan = PelaporanPerjadin::find($id);

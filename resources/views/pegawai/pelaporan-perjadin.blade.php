@@ -16,7 +16,7 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label for="nomor-surat">Nomor Surat</label>
-                                    <input type="text" class="form-control" value="{{ $perjadin->nomor_surat }}"
+                                    <input type="text" class="form-control" value="{{ $perjadin->nomor_surat }}" name="nomor_surat"
                                         disabled>
                                 </div>
                                 <div class="form-group">
@@ -31,7 +31,7 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label for="keperluan">Keperluan Perjalanan Dinas</label>
-                                    <input type="text" class="form-control" id="keperluan"
+                                    <input type="text" class="form-control" id="keperluan" name="keperluan_perjadin"
                                         value="{{ $perjadin->keperluan_perjadin }}" disabled></input>
                                 </div>
                                 <div class="form-group">
@@ -209,9 +209,9 @@
                                                 <div class="input-group col-xs-12">
                                                     <input type="file" class="form-control file-input-default"
                                                         accept="application/pdf" name="bukti_akomodasi"
-                                                        placeholder="Upload PDF" id="pdf-upload-input">
+                                                        placeholder="Upload PDF" id="bukti_akomodasi">
                                                     {{-- <span class="input-group-append"> --}}
-                                                    <label for="pdf-upload-input"
+                                                    <label for="bukti_akomodasi"
                                                         class="file-upload-browse btn btn-info">Upload</label>
                                                     {{-- </span> --}}
                                                 </div>
@@ -250,9 +250,9 @@
                                                 <div class="input-group col-xs-12">
                                                     <input type="file" class="form-control file-input-default"
                                                         accept="application/pdf" name="bukti_berangkat"
-                                                        id="pdf-upload-input">
+                                                        id="bukti_berangkat">
                                                     {{-- <span class="input-group-append"> --}}
-                                                        <label for="pdf-upload-input"
+                                                        <label for="bukti_berangkat"
                                                             class="file-upload-browse btn btn-info">Upload<label>
                                                     {{-- </span> --}}
                                                 </div>
@@ -288,10 +288,10 @@
                                                 <label for="kembali" class="col-sm-9 col-form-label text-white">Kembali
                                                     :</label>
                                                 <div class="input-group col-xs-12">
-                                                    <input class="form-control file-input-default" type="file" id="formFile"accept="application/pdf" name="bukti_kembali"
-                                                    id="pdf-upload-input">
+                                                    <input class="form-control file-input-default" type="file" accept="application/pdf" name="bukti_kembali"
+                                                    id="bukti_kembali">
                                                     {{-- <span class="input-group-append"> --}}
-                                                        <label for="pdf-upload-input"
+                                                        <label for="bukti_kembali"
                                                             class="file-upload-browse btn btn-info">Upload</label>
                                                     {{-- </span> --}}
                                                 </div>
