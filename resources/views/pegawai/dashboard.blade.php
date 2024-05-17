@@ -171,29 +171,49 @@
                                 <b>No</b>
                             </th>
                             <th>
-                                <b>Tujuan</b>
+                                <b>Nomor Surat</b>
+                            </th>
+                            <th>
+                                <b>Jenis Belanja Modal</b>
                             </th>
                             <th>
                                 <b>Status</b>
                             </th>
+                            <th>
+                                <b>Action</b>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($laporan->where('user_id', auth()->user()->id) as $lapor)
+                        @foreach ($barang_modal->where('user_id', auth()->user()->id) as $barmod)
                             <tr>
                                 <td class="py-1">
                                     {{ $loop->iteration }}
                                 </td>
-                                <td style="width: 500px; height: auto;">
-                                    {{ $lapor->keperluan_perjadin }}
+                                <td>
+                                    {{ $barmod->nomor_surat_spk }}
                                 </td>
                                 <td>
-                                    @if ($lapor->status === 'Diproses')
+                                    {{ $barmod->jns_belanja }}
+                                </td>
+                                <td>
+                                    @if ($barmod->status === 'Diproses')
                                         <span class="badge text-bg-warning">Diproses</span>
-                                    @elseif ($lapor->status === 'Disetujui')
+                                    @elseif ($barmod->status === 'Disetujui')
                                         <span class="badge text-bg-success">Disetujui</span>
                                     @else
                                         <span class="badge text-bg-danger">Ditolak</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($barmod->status === 'Disetujui')
+                                        <a href="#{{-- route('barang-modal.show', $barmod->id) --}}"
+                                            class="btn btn-outline-danger btn-icon-text">Lapor<i
+                                                class="mdi mdi-file-chart btn-icon-append"></i></a>
+                                        <button type="button" class="btn btn-outline-info btn-icon-text">
+                                            Detail
+                                            <i class="mdi mdi-information-outline btn-icon-append"></i>
+                                        </button>
                                     @endif
                                 </td>
                             </tr>

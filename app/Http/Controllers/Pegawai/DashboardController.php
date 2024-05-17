@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Pegawai;
 
 use App\Http\Controllers\Controller;
+use App\Models\Pegawai\BarangModal;
 use App\Models\Pegawai\PerjalananDinas;
 use App\Models\Pegawai\PelaporanPerjadin;
 
@@ -48,9 +49,10 @@ class DashboardController extends Controller
         // Fetch additional data
         $perjadin = PerjalananDinas::all();
         $laporan = PelaporanPerjadin::all();
+        $barang_modal = BarangModal::all();
 
         // Pass data to the view
-        return view('pegawai.dashboard', compact('perjadin', 'laporan', 'formattedData'));
+        return view('pegawai.dashboard', compact('perjadin', 'laporan', 'barang_modal' ,'formattedData'));
     }
 
 

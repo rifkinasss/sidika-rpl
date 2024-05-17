@@ -49,14 +49,14 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="mulai-bast-modal">Tanggal Proses Hasil Operasi</label>
+                                    <label for="mulai-bast-modal">Tanggal Proses Hasil Operasi (PHO)</label>
                                     <input type="date" class="form-control" id="mulai-bast-modal"
                                         placeholder="DD/MM/YYYY">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="berakhir-bast-modal">Tanggal Proses Hasil Operasi</label>
+                                    <label for="berakhir-bast-modal">Tanggal Proses Hasil Operasi (FHO)</label>
                                     <input type="date" class="form-control" id="berakhir-bast-modal"
                                         placeholder="DD/MM/YYYY">
                                 </div>
