@@ -83,4 +83,5 @@ Route::middleware('pegawai')->group(function () {
     Route::get('/profile', function () {
         return view('pegawai.profile');
     })->name('profile');
+    Route::get('/SPPD/{id}', [App\Http\Controllers\PDFController::class, 'generatePDF'])->name('SPPD');
 });
