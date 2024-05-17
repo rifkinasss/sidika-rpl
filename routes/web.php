@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\VerifikasiBelanjaModalController;
 use App\Http\Controllers\Admin\VerifikasiPerjalananDinasController;
 use App\Http\Controllers\Admin\VerifikasiBelanjaBarangJasaController;
 use App\Http\Controllers\Admin\VerifikasiPelaporanPerjalananDinasController;
+use App\Http\Controllers\PDFController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,6 +77,7 @@ Route::middleware('pegawai')->group(function () {
     Route::post('/pelaporan-perjadin/{id}', [PelaporanPerjadinController::class, 'store'])->name('pelaporan-perjadin.store');
     // Route::get('/pelaporan-perjalanan-dinas/{id}', [PelaporanPerjadinController::class, 'lapor']);
     Route::resource('belanja-modal', BelanjaModalController::class);
+    Route::get('belanja-modal/detail/{id}', [BelanjaModalController::class, 'detail'])->name('belanja-modal.detail');
     Route::resource('belanja-barang-jasa', BelanjaBarangJasaController::class);
     Route::get('/bantuan', function () {
         return view('pegawai.bantuan');
@@ -83,5 +85,5 @@ Route::middleware('pegawai')->group(function () {
     Route::get('/profile', function () {
         return view('pegawai.profile');
     })->name('profile');
-    Route::get('/SPPD/{id}', [App\Http\Controllers\PDFController::class, 'generatePDF'])->name('SPPD');
+    Route::get('/SPPD/{id}', [PDFController::class, 'generatePDF'])->name('SPPD');
 });

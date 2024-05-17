@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Auth;
 
 class BelanjaModalController extends Controller
 {
+    public function detail(string $id)
+    {
+        $barmod = BarangModal::find($id);
+        return view('pegawai.detail.detail-belanja-modal', compact('barmod'));
+    }
+    
     public function create()
     {
         return view('pegawai.belanja-modal');
