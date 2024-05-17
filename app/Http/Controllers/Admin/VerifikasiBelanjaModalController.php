@@ -3,12 +3,50 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Pegawai\BarangModal;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class VerifikasiBelanjaModalController extends Controller
 {
     public function index()
     {
-        return view('admin.verifikasi.verifikasi-belanja-modal');
+        $barmod = BarangModal::all();
+        return view('admin.verifikasi.verifikasi-belanja-modal', compact('barmod'));
+    }
+
+    public function show($id)
+    {
+        $user = User::find($id);
+        $barmod = BarangModal::find($id);
+        return view('admin.detail.detail-belanja-modal', compact('barmod', 'user'));
+    }
+
+    public function update(Request $request, string $id)
+    {
+        $barmod = BarangModal::find($id);
+
+        if ($request->has('disetujui')) {
+            $tanggal = date('dmY');
+            $nomor_surat_spk = "SPK/DISDIKBUD/{$tanggal}/{$barmod->id}";
+            $nomor_kontrak = "JWK/DISDIKBUD/{$tanggal}/{$barmod->id}";
+            $nomor_tgl_adendum = "AKT/DISDIKBUD/{$tanggal}/{$barmod->id}";
+            $nomor_sumber_dpa = "DPPA/DISDIKBUD/{$tanggal}/{$barmod->id}";
+
+            $barmod->update([
+                'nomor_sumber_dpa' => $nomor_sumber_dpa,
+                'nomor_tgl_adendum' => $nomor_tgl_adendum,
+                'nomor_kontrak' => $nomor_kontrak,
+                'nomor_surat_spk' => $nomor_surat_spk,
+                'status' => 'Disetujui',
+            ]);
+
+        } elseif ($request->has('ditolak')) {
+            $barmod->update([
+                'status' => 'Ditolak',
+            ]);
+        }
+
+        return redirect()->route('verifikasi-belanja-modal.index')->with('success', 'Status pengajuan belanja modal berhasil diperbarui.');
     }
 }

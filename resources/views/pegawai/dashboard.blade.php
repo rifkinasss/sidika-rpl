@@ -43,16 +43,16 @@
                             <th>
                                 <b>No</b>
                             </th>
-                            <th class="text-center">
+                            <th>
                                 <b>Nomor Surat</b>
                             </th>
                             <th>
                                 <b>Keperluan Perjalanan Dinas</b>
                             </th>
-                            <th class="text-center">
+                            <th>
                                 <b>Status</b>
                             </th>
-                            <th class="text-center">
+                            <th>
                                 <b>Anggaran</b>
                             </th>
                             <th class="text-center">
@@ -69,13 +69,13 @@
                                 <td class="py-1">
                                     {{ $loop->iteration }}
                                 </td>
-                                <td class="text-center">
+                                <td>
                                     {{ $p->nomor_surat }}
                                 </td>
                                 <td>
                                     {{ $p->keperluan_perjadin }}
                                 </td>
-                                <td class="text-center">
+                                <td>
                                     @if ($p->status === 'Diproses')
                                         <span class="badge text-bg-warning">Diproses</span>
                                     @elseif ($p->status === 'Disetujui')
@@ -86,7 +86,7 @@
                                         <span class="badge">Status tidak valid</span>
                                     @endif
                                 </td>
-                                <td class="text-end">
+                                <td>
                                     Rp {{ number_format($p->jumlah_dibayarkan, 0, ',', '.') }}
                                 </td>
                                 <td class="text-center">
@@ -175,10 +175,16 @@
                                 <b>Nomor Surat</b>
                             </th>
                             <th>
-                                <b>Jenis Belanja Modal</b>
+                                <b>Jenis Belanja Barang</b>
                             </th>
                             <th>
+                                <b>Nilai Kontrak</b>
+                            </th>
+                            <th class="text-center">
                                 <b>Status</b>
+                            </th>
+                            <th class="text-center">
+                                <b>Masa Berlaku</b>
                             </th>
                             <th>
                                 <b>Action</b>
@@ -198,6 +204,9 @@
                                     {{ $barmod->jns_belanja }}
                                 </td>
                                 <td>
+                                    Rp {{ number_format($barmod->nilai_kontrak, 0, ',', '.') }}
+                                </td>
+                                <td class="text-center">
                                     @if ($barmod->status === 'Diproses')
                                         <span class="badge text-bg-warning">Diproses</span>
                                     @elseif ($barmod->status === 'Disetujui')
@@ -206,15 +215,18 @@
                                         <span class="badge text-bg-danger">Ditolak</span>
                                     @endif
                                 </td>
+                                <td class="text-center">
+                                    {{ \Carbon\Carbon::parse($barmod->tgl_mulai_kontrak)->format('d-M-y') }} - 
+                                    {{ \Carbon\Carbon::parse($barmod->tgl_berakhir_kontrak)->format('d-M-y') }}
+                                </td>
                                 <td>
                                     @if ($barmod->status === 'Disetujui')
-                                        <a href="#{{-- route('barang-modal.show', $barmod->id) --}}"
-                                            class="btn btn-outline-danger btn-icon-text">Lapor<i
-                                                class="mdi mdi-file-chart btn-icon-append"></i></a>
-                                        <button type="button" class="btn btn-outline-info btn-icon-text">
+                                        <a href="{{ route('belanja-modal.show', $barmod->id) }}" class="btn btn-outline-danger btn-icon-text">
+                                            Lapor
+                                            <i class="mdi mdi-file-chart btn-icon-append"></i></a>
+                                        <a  href="#{{-- route('barang-modal.detail, $barmod->id') --}}" class="btn btn-outline-info btn-icon-text">
                                             Detail
-                                            <i class="mdi mdi-information-outline btn-icon-append"></i>
-                                        </button>
+                                            <i class="mdi mdi-information-outline btn-icon-append"></i></a>
                                     @endif
                                 </td>
                             </tr>

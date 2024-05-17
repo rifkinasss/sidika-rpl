@@ -23,7 +23,7 @@
                                     <th>
                                         <b>Keperluan Perjalanan Dinas</b>
                                     </th>
-                                    <th>
+                                    <th class="text-center">
                                         <b>Status</b>
                                     </th>
                                     <th class="text-center">
@@ -33,7 +33,7 @@
                                         <b>Tanggal</b>
                                     </th>
                                     <th>
-                                        <b>Aksi</b>
+                                        <b>Action</b>
                                     </th>
                                 </tr>
                             </thead>
@@ -49,7 +49,7 @@
                                         <td style="width: 350px; height: auto;">
                                             {{ $p->keperluan_perjadin }}
                                         </td>
-                                        <td>
+                                        <td class="text-center">
                                             @if ($p->status === 'Diproses')
                                                 <span class="badge text-bg-warning">Diproses</span>
                                             @elseif ($p->status === 'Disetujui')
@@ -60,7 +60,7 @@
                                                 <span class="badge">Status tidak valid</span>
                                             @endif
                                         </td>
-                                        <td>
+                                        <td class="text-end">
                                             Rp {{ number_format($p->jumlah_dibayarkan, 0, ',', '.') }}
                                         </td>
                                         <td class="text-center">

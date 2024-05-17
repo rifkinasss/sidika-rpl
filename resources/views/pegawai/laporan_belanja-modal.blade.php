@@ -122,4 +122,19 @@
             </div>
         </div>
     </div>
+
+    {{-- JS function for range --}}
+    <script>
+        document.getElementById('persentase-number-modal').addEventListener('input', function() {
+            let value = parseInt(this.value, 10);
+            if (value < 0) value = 0;
+            if (value > 100) value = 100;
+
+            document.getElementById('persentase-range-modal').value = value;
+        });
+
+        document.getElementById('persentase-range-modal').addEventListener('input', function() {
+            document.getElementById('persentase-number-modal').value = this.value;
+        });
+    </script>
 @endsection

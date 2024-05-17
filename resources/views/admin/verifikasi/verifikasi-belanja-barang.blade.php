@@ -23,18 +23,17 @@
                                     <th>
                                         <b>Nilai Kontrak</b>
                                     </th>
-                                    <th>
-                                        <b>Status Dana</b>
+                                    <th class="text-center">
+                                        <b>Status</b>
                                     </th>
-                                    <th>
+                                    <th class="text-center">
                                         <b>Status Pekerjaan</b>
                                     </th>
-                                    <th>
+                                    <th class="text-center">
                                         <b>Masa Berlaku</b>
                                     </th>
                                     <th>
-                                        <b>Kebijakan
-                                        </b>
+                                        <b>Action</b>
                                     </th>
                                 </tr>
                             </thead>

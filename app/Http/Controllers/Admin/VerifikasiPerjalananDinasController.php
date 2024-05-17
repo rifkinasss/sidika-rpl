@@ -11,7 +11,7 @@ class VerifikasiPerjalananDinasController extends Controller
 {
     public function index()
     {
-        $perjalanandinas = perjalanandinas::all();
+        $perjalanandinas = PerjalananDinas::all();
         return view('admin.verifikasi.verifikasi-perjalanan-dinas', compact('perjalanandinas'));
     }
 
@@ -27,16 +27,14 @@ class VerifikasiPerjalananDinasController extends Controller
         $perjalanandinas = perjalanandinas::find($id);
 
         if ($request->has('disetujui')) {
-            $perjalanandinas->update([
-                'status' => 'Disetujui',
-            ]);
-
             $tanggal = date('dmY');
             $nomorSurat = "SPM/{$tanggal}/{$perjalanandinas->id}";
 
             $perjalanandinas->update([
                 'nomor_surat' => $nomorSurat,
+                'status' => 'Disetujui',
             ]);
+            
         } elseif ($request->has('ditolak')) {
             $perjalanandinas->update([
                 'status' => 'Ditolak',

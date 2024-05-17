@@ -54,7 +54,7 @@ return new class extends Migration
             $table->date('tgl_sp2d')->nullable();
             $table->string('nomor_sp2d')->nullable();
             $table->integer('nilai_sp2d')->nullable();
-            $table->string('persentase_progress')->nullable();
+            $table->string('persentase_progress')->default('0%');
             $table->timestamps();
         });
     }

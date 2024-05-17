@@ -62,4 +62,9 @@ class BelanjaModalController extends Controller
 
         return redirect()->route('pegawai');
     }
+
+    public function show($id)
+    {
+        return view('pegawai.laporan_belanja-modal');
+    }
 }

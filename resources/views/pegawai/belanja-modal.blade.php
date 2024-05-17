@@ -24,7 +24,7 @@
                             <div class="form-group col-sm-4">
                                 <label for="nomor-spk-modal">Nomor Surat</label>
                                 <input type="number" class="form-control" name="nomor_surat_spk" id="nomor-spk-modal"
-                                    placeholder="" disabled>
+                                    placeholder="SPK/DISDIKBUD/170524/1" disabled>
                             </div>
                             <div class="form-group col-sm-4">
                                 <label for="jenis-spk-modal">Jenis Belanja Modal</label>
@@ -57,7 +57,8 @@
                             <label for="uraian-pengadaan-modal" class="col-sm-3 col-form-label">Uraian Pengadaan (Sesuai
                                 Kontrak)</label>
                             <div class="col-sm-9">
-                                <textarea class="form-control" name="uraian_pengadaan" id="uraian-pengadaan-modal" rows="4"></textarea>
+                                <textarea class="form-control" name="uraian_pengadaan" id="uraian-pengadaan-modal"
+                                    placeholder="Contoh: Pembayaran Belanja Modal Mebel Set 3 Seater" rows="4"></textarea>
                             </div>
                         </div>
                         <hr>
@@ -68,74 +69,27 @@
                                 <div class="form-group">
                                     <label for="nomor-spk-modal">Nomor</label>
                                     <input type="number" class="form-control" name="nomor_kontrak" id="nomor-spk-modal"
-                                        placeholder="123.." disabled>
+                                        placeholder="JWK/DISDIKBUD/170524/1" disabled>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-3">
                                 <div class="form-group">
                                     <label for="mulai-kontrak-modal">Tanggal Mulai</label>
                                     <input type="date" class="form-control" name="tgl_mulai_kontrak"
                                         id="mulai-kontrak-modal" placeholder="DD/MM/YYYY">
                                 </div>
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-3">
                                 <div class="form-group">
                                     <label for="berakhir-kontrak-modal">Tanggal Berakhir</label>
                                     <input type="date" class="form-control" name="tgl_berakhir_kontrak"
                                         id="berakhir-kontrak-modal" placeholder="DD/MM/YYYY">
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="jumlah-hari-kontrak-modal">Jumlah Hari</label>
-                            <div class="input-group">
-                                <input type="number" name="jumlah_hari_kontrak" id="jumlah-hari-kontrak-modal"
-                                    class="form-control" aria-label="Amount (to the nearest dollar)" disabled>
-                                <div class="input-group-append">
-                                    <span class="input-group-text bg-primary text-white">HARI</span>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-
-                        <h4 class="card-title">Adendum Kontrak</h4>
-                        <div class="form-group">
-                            <label for="nomor-adendum-modal">Nomor dan Tanggal</label>
-                            <input type="text" class="form-control" name="nomor_tgl_adendum" id="nomor-adendum-modal"
-                                placeholder="misal. 420/1058/SKT.DISDIKBUD" disabled>
-                        </div>
-                        <div class="form-group">
-                            <label for="uraian-adendum-modal" class="col-sm-3 col-form-label">Uraian Adendum (Beserta
-                                Nilai)</label>
-                            <div class="col-sm-9">
-                                <textarea class="form-control" name="uraian_adendum" id="uraian-adendum-modal"
-                                    placeholder="misal. Pembayaran Belanja Modal Mebel Set 3 Seater" rows="4"></textarea>
-                            </div>
-                        </div>
-                        <hr>
-
-                        <h4 class="card-title">Jangka Waktu Adendum</h4>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="mulai-adendum-modal">Tanggal Mulai</label>
-                                    <input type="date" class="form-control" name="tgl_mulai_adendum"
-                                        id="mulai-adendum-modal" placeholder="DD/MM/YYYY">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="berakhir-adendum-modal">Tanggal Berakhir</label>
-                                    <input type="date" class="form-control" name="tgl_berakhir_adendum"
-                                        id="berakhir-adendum-modal" placeholder="DD/MM/YYYY">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="jumlah-hari-adendum-modal" class="col-sm-3 col-form-label">Jumlah Hari</label>
-                            <div class="col-sm-9">
+                            <div class="form-group col-sm-2">
+                                <label for="jumlah-hari-kontrak-modal">Jumlah Hari</label>
                                 <div class="input-group">
-                                    <input type="number" name="jumlah_hari_adendum" id="jumlah-hari-adendum-modal"
+                                    <input type="number" name="jumlah_hari_kontrak" id="jumlah-hari-kontrak-modal"
                                         class="form-control" aria-label="Amount (to the nearest dollar)" disabled>
                                     <div class="input-group-append">
                                         <span class="input-group-text bg-primary text-white">HARI</span>
@@ -145,14 +99,62 @@
                         </div>
                         <hr>
 
-                        <h4 class="card-title">Jaminan Pelaksanaan</h4>
+                        <h4 class="card-title">Adendum Kontrak</h4>
                         <div class="form-group">
-                            <label for="bentuk-pelaksanaan-modal">Bentuk</label>
-                            <input type="text" class="form-control" name="bentuk_pelaksanaan" id="jenis-spk-modal">
+                            <label for="nomor-adendum-modal">Nomor dan Tanggal</label>
+                            <input type="text" class="form-control" name="nomor_tgl_adendum" id="nomor-adendum-modal"
+                                placeholder="AKT/DISDIKBUD/170524/1" disabled>
                         </div>
                         <div class="form-group">
-                            <label for="nilai-pelaksanaan-modal" class="col-sm-3 col-form-label">Nilai</label>
+                            <label for="uraian-adendum-modal" class="col-sm-3 col-form-label">Uraian Adendum (Beserta
+                                Nilai)</label>
                             <div class="col-sm-9">
+                                <textarea class="form-control" name="uraian_adendum" id="uraian-adendum-modal"
+                                    placeholder="" rows="4"></textarea>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <h4 class="card-title">Jangka Waktu Adendum</h4>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="mulai-adendum-modal">Tanggal Mulai</label>
+                                    <input type="date" class="form-control" name="tgl_mulai_adendum"
+                                        id="mulai-adendum-modal" placeholder="DD/MM/YYYY">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="berakhir-adendum-modal">Tanggal Berakhir</label>
+                                    <input type="date" class="form-control" name="tgl_berakhir_adendum"
+                                        id="berakhir-adendum-modal" placeholder="DD/MM/YYYY">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="jumlah-hari-adendum-modal">Jumlah Hari</label>
+                                    <div class="input-group">
+                                        <input type="number" name="jumlah_hari_adendum" id="jumlah-hari-adendum-modal"
+                                            class="form-control" aria-label="Amount (to the nearest dollar)" disabled>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text bg-primary text-white">HARI</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <h4 class="card-title">Jaminan Pelaksanaan</h4>
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label for="bentuk-pelaksanaan-modal">Bentuk</label>
+                                <input type="text" class="form-control" name="bentuk_pelaksanaan"
+                                    id="jenis-spk-modal">
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label for="nilai-pelaksanaan-modal">Nilai</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-success text-white">Rp.</span>
@@ -165,7 +167,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p>Masa Berlaku :</p>
+                        <p><b>Masa Berlaku :</b></p>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
@@ -185,13 +187,14 @@
                         <hr>
 
                         <h4 class="card-title">Jaminan pemeliharaan</h4>
-                        <div class="form-group">
-                            <label for="bentuk-pemeliharaan-modal">Bentuk</label>
-                            <input type="text" class="form-control" name="bentuk_pemeliharaan" id="jenis-spk-modal">
-                        </div>
-                        <div class="form-group">
-                            <label for="nilai-pemeliharaan-modal" class="col-sm-3 col-form-label">Nilai</label>
-                            <div class="col-sm-9">
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label for="bentuk-pemeliharaan-modal">Bentuk</label>
+                                <input type="text" class="form-control" name="bentuk_pemeliharaan"
+                                    id="jenis-spk-modal">
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label for="nilai-pemeliharaan-modal">Nilai</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-success text-white">Rp.</span>
@@ -204,7 +207,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p>Masa Berlaku :</p>
+                        <p><b>Masa Berlaku :</b></p>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
@@ -230,19 +233,21 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Sumber Dana DPA</h4>
-                        <div class="form-group">
-                            <label for="nomor-dpa-modal">Nomor</label>
-                            <input type="number" class="form-control" name="nomor_sumber_dpa" id="nomor-dpa-modal"
-                                placeholder=" misal. DPPA/B.1/1.01.2.22.0.00.01.0000/001/2023" disabled>
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label for="nomor-dpa-modal">Nomor</label>
+                                <input type="number" class="form-control" name="nomor_sumber_dpa" id="nomor-dpa-modal"
+                                    placeholder="DPPA/DISDIKBUD/170524/1" disabled>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label for="tanggal-dpa-modal">Tanggal</label>
+                                <input type="date" class="form-control" name="tgl_sumber_dpa" id="tanggal-dpa-modal"
+                                    placeholder="DD/MM/YYYY">
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="tanggal-dpa-modal">Tanggal</label>
-                            <input type="date" class="form-control" name="tgl_sumber_dpa" id="tanggal-dpa-modal"
-                                placeholder="DD/MM/YYYY">
-                        </div>
-                        <div class="form-group">
-                            <label for="nilai-dpa-modal" class="col-sm-3 col-form-label">Nilai</label>
-                            <div class="col-sm-9">
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label for="nilai-dpa-modal">Nilai</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-success text-white">Rp.</span>
@@ -254,11 +259,11 @@
                                         id="nilai-dpa-modal" aria-label="Amount (to the nearest dollar)">
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="metode-dpa-modal">Metode Pengadaan</label>
-                            <input type="text" class="form-control" name="metode_pengadaan_dpa"
-                                id="metode-dpa-modal">
+                            <div class="form-group col-sm-6">
+                                <label for="metode-dpa-modal">Metode Pengadaan</label>
+                                <input type="text" class="form-control" name="metode_pengadaan_dpa"
+                                    id="metode-dpa-modal">
+                            </div>
                         </div>
                         <div class="form-check form-check-flat form-check-success">
                             <label class="form-check-label">
@@ -273,19 +278,4 @@
         </form>
         {{-- end of div.row --}}
     </div>
-
-    {{-- JS function for range --}}
-    <script>
-        document.getElementById('persentase-number-modal').addEventListener('input', function() {
-            let value = parseInt(this.value, 10);
-            if (value < 0) value = 0;
-            if (value > 100) value = 100;
-
-            document.getElementById('persentase-range-modal').value = value;
-        });
-
-        document.getElementById('persentase-range-modal').addEventListener('input', function() {
-            document.getElementById('persentase-number-modal').value = this.value;
-        });
-    </script>
 @endsection

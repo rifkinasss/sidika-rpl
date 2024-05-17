@@ -81,15 +81,6 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-<<<<<<< HEAD
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="{{ asset('js/Chart-handler.js') }}"></script>
-    {{-- <script id="formattedData" type="application/json">
-        {!! json_encode($formattedData) !!}
-    </script> --}}
-=======
->>>>>>> 90a46dd51cc50c1bb53d226f6b3bcd66264c9f94
 </body>
 
 </html>
