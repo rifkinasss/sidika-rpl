@@ -34,9 +34,9 @@ class VerifikasiBelanjaBarangJasaController extends Controller
         $tanggal = date('dmY');
 
         if ($request->has('disetujui')) {
-            $nomor_spmk = "SPMK/MDL/DISDIKBUD/{$tanggal}/{$barjas->id}";
-            $nomor_bast = "BAST/MDL/DISDIKBUD/{$tanggal}/{$barjas->id}";
-            $nomor_sp2d = "SP2D/MDL/DISDIKBUD/{$tanggal}/{$barjas->id}";
+            $nomor_spmk = "SPMK/BJS/DISDIKBUD/{$tanggal}/{$barjas->id}";
+            $nomor_bast = "BAST/BJS/DISDIKBUD/{$tanggal}/{$barjas->id}";
+            $nomor_sp2d = "SP2D/BJS/DISDIKBUD/{$tanggal}/{$barjas->id}";
 
             $barjas->update([
                 'nomor_spmk' => $nomor_spmk,
@@ -59,10 +59,10 @@ class VerifikasiBelanjaBarangJasaController extends Controller
 
         if ($request->has('disetujui')) {
             $tanggal = date('dmY');
-            $nomor_surat_spk = "SPK/MDL/DISDIKBUD/{$tanggal}/{$barjas->id}";
-            $nomor_kontrak = "JWK/MDL/DISDIKBUD/{$tanggal}/{$barjas->id}";
-            $nomor_tgl_adendum = "AKT/MDL/DISDIKBUD/{$tanggal}/{$barjas->id}";
-            $nomor_sumber_dpa = "DPPA/MDL/DISDIKBUD/{$tanggal}/{$barjas->id}";
+            $nomor_surat_spk = "SPK/BJS/DISDIKBUD/{$tanggal}/{$barjas->id}";
+            $nomor_kontrak = "JWK/BJS/DISDIKBUD/{$tanggal}/{$barjas->id}";
+            $nomor_tgl_adendum = "AKT/BJS/DISDIKBUD/{$tanggal}/{$barjas->id}";
+            $nomor_sumber_dpa = "DPPA/BJS/DISDIKBUD/{$tanggal}/{$barjas->id}";
 
             $barjas->update([
                 'nomor_sumber_dpa' => $nomor_sumber_dpa,
@@ -77,6 +77,6 @@ class VerifikasiBelanjaBarangJasaController extends Controller
             ]);
         }
 
-        return redirect()->route('verifikasi-belanja-barang-jasa.index')->with('success', 'Status pengajuan belanja modal berhasil diperbarui.');
+        return redirect()->route('verifikasi-belanja-barang-jasa.index')->with('success', 'Status pengajuan belanja barang jasa berhasil diperbarui.');
     }
 }

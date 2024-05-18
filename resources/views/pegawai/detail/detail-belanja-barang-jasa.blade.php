@@ -1,32 +1,8 @@
-@extends('admin.layouts.app')
+@extends('pegawai.layouts.app')
 
 @section('content')
+    <h1 class="mb-4">Detail Belanja Barang Jasa</h1>
     <div class="row">
-        {{-- card nama --}}
-        <div class="col-12 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Data Pengaju</h4>
-                    <div class="row">
-                        <div class="form-group col-sm-4">
-                            <label for="nama_lengkap">Nama Lengkap</label>
-                            <input type="text" class="form-control" id="nama_lengkap" value="{{ $barjas->user->nama }}"
-                                disabled>
-                        </div>
-                        <div class="form-group col-sm-4">
-                            <label for="nip">NIP</label>
-                            <input type="text" class="form-control" id="nip" value="{{ $barjas->user->nip }}"
-                                disabled>
-                        </div>
-                        <div class="form-group col-sm-4">
-                            <label for="tgl_mengajukan">Waktu Pengajuan</label>
-                            <input type="text" class="form-control" id="tgl_mengajukan"
-                                value="{{ \Carbon\Carbon::parse($barjas->created_at)->format('(H:i) d M Y') }}" disabled>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         {{-- card pertama --}}
         <div class="col-12 grid-margin stretch-card">
@@ -41,8 +17,8 @@
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="nomor-spk-barjas">Nomor Surat</label>
-                            <input type="text" class="form-control" id="nomor-spk-barjas" value="{{ $barjas->nomor_surat_spk }}"
-                                disabled>
+                            <input type="text" class="form-control" id="nomor-spk-barjas"
+                                value="{{ $barjas->nomor_surat_spk }}" disabled>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="jenis-spk-barjas">Jenis Belanja Barang Jasa</label>
@@ -111,8 +87,8 @@
                             <label for="jumlah-hari-kontrak-barjas">Jumlah Hari</label>
                             <div class="input-group">
                                 <input type="text" id="jumlah-hari-kontrak-barjas" class="form-control"
-                                    aria-label="Amount (to the nearest dollar)"
-                                    value="{{ $barjas->jumlah_hari_kontrak }}" disabled>
+                                    aria-label="Amount (to the nearest dollar)" value="{{ $barjas->jumlah_hari_kontrak }}"
+                                    disabled>
                                 <div class="input-group-append">
                                     <span class="input-group-text bg-primary text-white">HARI</span>
                                 </div>
@@ -296,21 +272,7 @@
                                 value="{{ $barjas->metode_pengadaan_dpa }}" disabled>
                         </div>
                     </div>
-                    <div class="d-grid gap-2 d-md-flex justify-content-between mt-3">
-                        <a href="{{ url('/dashboard-admin/verifikasi-belanja-barang-jasa') }}" class="btn btn-secondary mt-2 mb-2">Kembali</a>
-                        @if ($barjas->status != 'Disetujui' && $barjas->status != 'Ditolak')
-                            <form action="{{ route('verifikasi-belanja-barang-jasa.update', $barjas->id) }}" method="POST">
-                                @method('PUT')
-                                @csrf
-                                <div>
-                                    <button class="btn btn-primary" type="submit" name="disetujui"><i
-                                            class="mdi mdi-check-circle-outline text-white"></i></button>
-                                    <button class="btn btn-danger" type="submit" name="ditolak"><i
-                                            class="mdi mdi-cancel text-white"></i></button>
-                                </div>
-                            </form>
-                        @endif
-                    </div>
+                    <a href="{{ route('pegawai') }}" class="btn btn-secondary mt-4 mb-2">Kembali</a>
                 </div>
             </div>
         </div>

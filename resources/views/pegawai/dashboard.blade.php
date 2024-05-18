@@ -299,10 +299,10 @@
                                 </td>
                                 <td>
                                     @if ($barjas->status === 'Disetujui')
-                                        <a href="{{ route('belanja-modal.show', $barjas->id) }}" class="btn btn-outline-danger btn-icon-text">
+                                        <a href="{{ route('belanja-barang-jasa.show', $barjas->id) }}" class="btn btn-outline-danger btn-icon-text">
                                             Lapor
                                             <i class="mdi mdi-file-chart btn-icon-append"></i></a>
-                                        <a href="{{ route('belanja-modal.detail', $barjas->id) }}" class="btn btn-outline-info btn-icon-text">
+                                        <a href="{{ route('belanja-barang-jasa.detail', $barjas->id) }}" class="btn btn-outline-info btn-icon-text">
                                             Detail
                                             <i class="mdi mdi-information-outline btn-icon-append"></i></a>
                                     @endif

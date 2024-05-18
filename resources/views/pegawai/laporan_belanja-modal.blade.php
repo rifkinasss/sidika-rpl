@@ -16,7 +16,7 @@
                             <div class="form-group col-sm-6">
                                 <label for="nomor-spmk-modal">Nomor</label>
                                 <input type="text" class="form-control" name="nomor_spmk" id="nomor-spmk-modal"
-                                    value="{{ $barmod->nomor_spmk }}" disabled>
+                                    placeholder="Akan terisi setelah terverifikasi oleh admin" value="{{ $barmod->nomor_spmk }}" disabled>
                             </div>
                             <div class="form-group col-sm-6">
                                 <label for="tanggal-spmk-modal">Tanggal</label>
@@ -33,7 +33,7 @@
                             <div class="form-group col-sm-3">
                                 <label for="nomor-bast-modal">Nomor</label>
                                 <input type="text" class="form-control" name="nomor_bast" id="nomor-bast-modal"
-                                    value="{{ $barmod->nomor_bast }}" disabled>
+                                    placeholder="Akan terisi setelah diverifikasi oleh admin" value="{{ $barmod->nomor_bast }}" disabled>
                             </div>
                             <div class="form-group col-sm-3">
                                 <label for="tanggal-bast-modal">Tanggal</label>
@@ -81,7 +81,7 @@
                             <div class="form-group col-sm-3">
                                 <label for="nomor-sp2d-modal">Nomor</label>
                                 <input type="text" class="form-control" name="nomor_sp2d" id="nomor-sp2d-modal"
-                                    value="{{ $barmod->nomor_sp2d }}" disabled>
+                                    placeholder="Akan terisi setelah diverifikasi oleh admin" value="{{ $barmod->nomor_sp2d }}" disabled>
                             </div>
                             <div class="form-group col-sm-3">
                                 <label for="tanggal-sp2d-modal">Tanggal</label>

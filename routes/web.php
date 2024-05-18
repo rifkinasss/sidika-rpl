@@ -81,6 +81,7 @@ Route::middleware('pegawai')->group(function () {
     Route::resource('belanja-modal', BelanjaModalController::class);
     Route::get('belanja-modal/detail/{id}', [BelanjaModalController::class, 'detail'])->name('belanja-modal.detail');
     Route::resource('belanja-barang-jasa', BelanjaBarangJasaController::class);
+    Route::get('belanja-barang-jasa/detail/{id}', [BelanjaBarangJasaController::class, 'detail'])->name('belanja-barang-jasa.detail');
     Route::get('/bantuan', function () {
         return view('pegawai.bantuan');
     })->name('bantuan');

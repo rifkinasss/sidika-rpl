@@ -272,7 +272,7 @@
                                 value="{{ $barmod->metode_pengadaan_dpa }}" disabled>
                         </div>
                     </div>
-                    <a href="{{ route('pegawai') }}" type="submit" class="btn btn-secondary mt-4 mb-2">Kembali</a>
+                    <a href="{{ route('pegawai') }}" class="btn btn-secondary mt-4 mb-2">Kembali</a>
                 </div>
             </div>
         </div>
