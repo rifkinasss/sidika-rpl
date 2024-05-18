@@ -45,7 +45,7 @@ return new class extends Migration
             // diisi menggunakan metode update
             $table->enum('status', ['Diproses', 'Disetujui', 'Ditolak'])->default('Diproses');
             $table->string('nomor_spmk')->nullable();
-            $table->date('tgl_spml')->nullable();
+            $table->date('tgl_spmk')->nullable();
             $table->string('nomor_bast')->nullable();
             $table->date('tgl_bast')->nullable();
             $table->integer('nilai_bast')->nullable();
@@ -54,7 +54,8 @@ return new class extends Migration
             $table->date('tgl_sp2d')->nullable();
             $table->string('nomor_sp2d')->nullable();
             $table->integer('nilai_sp2d')->nullable();
-            $table->string('persentase_progress')->default('0%');
+            $table->string('persentase_progress')->default('0');
+            $table->enum('status_lapor', ['Belum', 'Lapor', 'Disetujui', 'Ditolak'])->default('Belum');
             $table->timestamps();
         });
     }

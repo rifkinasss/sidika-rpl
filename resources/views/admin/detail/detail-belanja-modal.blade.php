@@ -297,7 +297,7 @@
                         </div>
                     </div>
                     <div class="d-grid gap-2 d-md-flex justify-content-between mt-3">
-                        <button type="submit" class="btn btn-secondary mt-2 mb-2">Kembali</button>
+                        <a href="{{ url('/dashboard-admin/verifikasi-belanja-modal') }}" class="btn btn-secondary mt-2 mb-2">Kembali</a>
                         @if ($barmod->status != 'Disetujui' && $barmod->status != 'Ditolak')
                             <form action="{{ route('verifikasi-belanja-modal.update', $barmod->id) }}" method="POST">
                                 @method('PUT')

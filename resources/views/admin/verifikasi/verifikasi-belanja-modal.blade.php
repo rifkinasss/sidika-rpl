@@ -66,9 +66,9 @@
                                         </td>
                                         <td class="text-center">
                                             @if ($b->persentase_progress < '40%')
-                                                <span class="badge text-bg-warning">{{ $b->persentase_progress }}</span>
+                                                <span class="badge text-bg-warning">{{ $b->persentase_progress }} %</span>
                                             @elseif ($b->persentase_progress >= '50%')
-                                                <span class="badge text-bg-success">{{ $b->persentase_progress }}</span>
+                                                <span class="badge text-bg-success">{{ $b->persentase_progress }} %</span>
                                             @endif
                                         </td>
                                         <td class="text-center">
@@ -78,6 +78,10 @@
                                         <td>
                                             <a href="{{ route('verifikasi-belanja-modal.show', $b->id) }}" type="button"
                                                 class="btn btn-primary">Detail</a>
+                                            @if ($b->status_lapor != 'Belum')
+                                                <a href="{{ route('verifikasi-belanja-modal.laporan', $b->id) }}"
+                                                    type="button" class="btn btn-secondary">Laporan</a>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach

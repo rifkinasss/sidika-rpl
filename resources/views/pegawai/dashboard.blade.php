@@ -258,7 +258,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($laporan->where('user_id', auth()->user()->id) as $lapor)
+                        {{-- @foreach ($laporan->where('user_id', auth()->user()->id) as $lapor)
                             <tr>
                                 <td class="py-1">
                                     {{ $loop->iteration }}
@@ -277,7 +277,7 @@
                                 </td>
                             </tr>
                         @endforeach
-                    </tbody>
+                    </tbody> --}}
                 </table>
             </div>
         </div>

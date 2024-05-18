@@ -1,6 +1,7 @@
 @extends('pegawai.layouts.app')
 
 @section('content')
+    <h1 class="mb-4">Detail Belanja Modal</h1>
     <div class="row">
 
         {{-- card pertama --}}

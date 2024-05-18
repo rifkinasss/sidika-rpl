@@ -61,6 +61,8 @@ Route::middleware('admin')->group(function () {
     Route::resource('dashboard-admin/verifikasi-perjalanan-dinas', VerifikasiPerjalananDinasController::class);
     Route::resource('dashboard-admin/verifikasi-pelaporan-perjadin', VerifikasiPelaporanPerjalananDinasController::class);
     Route::resource('dashboard-admin/verifikasi-belanja-modal', VerifikasiBelanjaModalController::class);
+    Route::get('dashboard-admin/verifikasi-belanja-modal/{id}/laporan', [VerifikasiBelanjaModalController::class, 'laporan'])->name('verifikasi-belanja-modal.laporan');
+    Route::post('dashboard-admin/verifikasi-belanja-modal/{id}/verif', [VerifikasiBelanjaModalController::class, 'verif'])->name('verifikasi-belanja-modal.verif');
     Route::resource('dashboard-admin/verifikasi-belanja-barang-jasa', VerifikasiBelanjaBarangJasaController::class);
     Route::get('/dashboard-admin/bantuan', function () {
         return view('admin.bantuan');

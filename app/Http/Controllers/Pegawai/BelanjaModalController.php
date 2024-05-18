@@ -15,7 +15,7 @@ class BelanjaModalController extends Controller
         $barmod = BarangModal::find($id);
         return view('pegawai.detail.detail-belanja-modal', compact('barmod'));
     }
-    
+
     public function create()
     {
         return view('pegawai.belanja-modal');
@@ -28,7 +28,7 @@ class BelanjaModalController extends Controller
         $tgl_mulai_kontrak = Carbon::createFromFormat('Y-m-d', $request->tgl_mulai_kontrak);
         $tgl_berakhir_kontrak = Carbon::createFromFormat('Y-m-d', $request->tgl_berakhir_kontrak);
         $jumlah_hari_kontrak = $tgl_berakhir_kontrak->diffInDays($tgl_mulai_kontrak);
-        
+
         $tgl_mulai_adendum = Carbon::createFromFormat('Y-m-d', $request->tgl_mulai_adendum);
         $tgl_berakhir_adendum = Carbon::createFromFormat('Y-m-d', $request->tgl_berakhir_adendum);
         $jumlah_hari_adendum = $tgl_berakhir_adendum->diffInDays($tgl_mulai_adendum);
@@ -39,7 +39,7 @@ class BelanjaModalController extends Controller
         $tgl_mulai_pemeliharaan = Carbon::createFromFormat('Y-m-d', $request->tgl_mulai_pemeliharaan);
         $tgl_selesai_pemeliharaan = Carbon::createFromFormat('Y-m-d', $request->tgl_selesai_pemeliharaan);
         $tgl_sumber_dpa = Carbon::createFromFormat('Y-m-d', $request->tgl_sumber_dpa);
-        
+
         BarangModal::create([
             'user_id' => Auth::id(),
             'tgl_spk' => $tgl_spk,
@@ -71,6 +71,40 @@ class BelanjaModalController extends Controller
 
     public function show($id)
     {
-        return view('pegawai.laporan_belanja-modal');
+        $barmod = BarangModal::find($id);
+        return view('pegawai.laporan_belanja-modal', compact('barmod'));
+    }
+
+    public function update(Request $request, string $id)
+    {
+        $barmod = BarangModal::find($id);
+
+        if ($barmod->status_lapor == 'Belum') {
+            $tgl_spmk = Carbon::createFromFormat('Y-m-d', $request->tgl_spmk);
+            $tgl_bast = Carbon::createFromFormat('Y-m-d', $request->tgl_bast);
+            $tgl_pho = Carbon::createFromFormat('Y-m-d', $request->tgl_pho);
+            $tgl_fho = Carbon::createFromFormat('Y-m-d', $request->tgl_fho);
+            $tgl_sp2d = Carbon::createFromFormat('Y-m-d', $request->tgl_sp2d);
+
+            $barmod->update([
+                'tgl_spmk' => $tgl_spmk,
+                'tgl_bast' => $tgl_bast,
+                'nilai_bast' => $request->nilai_bast,
+                'tgl_pho' => $tgl_pho,
+                'tgl_fho' => $tgl_fho,
+                'tgl_sp2d' => $tgl_sp2d,
+                'nilai_sp2d' => $request->nilai_sp2d,
+                'persentase_progress' => $request->persentase_progress,
+                'status_lapor' => 'Lapor',
+            ]);
+
+        } elseif ($barmod->status_lapor != 'Belum') {
+            $barmod->update([
+                'persentase_progress' => $request->persentase_progress,
+            ]);
+
+        } 
+
+        return redirect()->route('pegawai');
     }
 }
