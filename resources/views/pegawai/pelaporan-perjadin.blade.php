@@ -16,8 +16,8 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label for="nomor-surat">Nomor Surat</label>
-                                    <input type="text" class="form-control" value="{{ $perjadin->nomor_surat }}" name="nomor_surat"
-                                        disabled>
+                                    <input type="text" class="form-control" value="{{ $perjadin->nomor_surat }}"
+                                        name="nomor_surat" disabled>
                                 </div>
                                 <div class="form-group">
                                     <label for="nama-lengkap">Nama Lengkap</label>
@@ -43,7 +43,7 @@
                                 <div class="form-group">
                                     <label for="penginapan">Nama Penginapan</label>
                                     <input type="text" class="form-control" id="penginapan" name="jns_penginapan"
-                                        placeholder="Masukkan Nama Penginapan">
+                                        placeholder="Masukkan Nama Penginapan" required>
                                 </div>
                             </div>
                         </div>
@@ -59,7 +59,8 @@
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control" id="tanggal-berangkat"
                                                 name="tgl_berangkat" placeholder="dd/mm/yyyy" disabled
-                                                value="{{ \Carbon\Carbon::parse($perjadin->tgl_berangkat)->format('d-M-Y') }}">
+                                                value="{{ \Carbon\Carbon::parse($perjadin->tgl_berangkat)->format('d-M-Y') }}"
+                                                required>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -79,7 +80,7 @@
                                             class="col-sm-9 col-form-label text-white">Nama Pesawat/Kereta Api</label>
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control" id="nama-transportasi-berangkat"
-                                                name="nama_transportasi_berangkat">
+                                                name="nama_transportasi_berangkat" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -87,7 +88,7 @@
                                             Tiket</label>
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control" id="nomor-tiket-berangkat"
-                                                name="nomor_tiket_berangkat">
+                                                name="nomor_tiket_berangkat" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -95,7 +96,7 @@
                                             class="col-sm-9 col-form-label text-white">Tempat Duduk</label>
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control" id="tempat-duduk-berangkat"
-                                                name="nomor_kursi_berangkat">
+                                                name="nomor_kursi_berangkat" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -110,7 +111,8 @@
                                                     <span class="input-group-text">0.00</span>
                                                 </div>
                                                 <input type="number" class="form-control" id="harga-berangkat"
-                                                    name="harga_berangkat" aria-label="Amount (to the nearest dollar)">
+                                                    name="harga_berangkat" aria-label="Amount (to the nearest dollar)"
+                                                    required>
                                             </div>
                                         </div>
                                     </div>
@@ -126,7 +128,8 @@
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control" id="tanggal-kembali"
                                                 name="tgl_kembali" placeholder="dd/mm/yyyy" disabled
-                                                value="{{ \Carbon\Carbon::parse($perjadin->tgl_kembali)->format('d-M-Y') }}">
+                                                value="{{ \Carbon\Carbon::parse($perjadin->tgl_kembali)->format('d-M-Y') }}"
+                                                required>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -162,7 +165,7 @@
                                             class="col-sm-9 col-form-label text-white">Tempat Duduk</label>
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control" id="tempat-duduk-kembali"
-                                                name="nomor_kursi_kembali">
+                                                name="nomor_kursi_kembali" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -177,7 +180,8 @@
                                                     <span class="input-group-text">0.00</span>
                                                 </div>
                                                 <input type="number" class="form-control" id="harga-kembali"
-                                                    name="harga_kembali" aria-label="Amount (to the nearest dollar)">
+                                                    name="harga_kembali" aria-label="Amount (to the nearest dollar)"
+                                                    required>
                                             </div>
                                         </div>
                                     </div>
@@ -209,7 +213,7 @@
                                                 <div class="input-group col-xs-12">
                                                     <input type="file" class="form-control file-input-default"
                                                         accept="application/pdf" name="bukti_akomodasi"
-                                                        placeholder="Upload PDF" id="bukti_akomodasi">
+                                                        placeholder="Upload PDF" id="bukti_akomodasi" required>
                                                     {{-- <span class="input-group-append"> --}}
                                                     <label for="bukti_akomodasi"
                                                         class="file-upload-browse btn btn-info">Upload</label>
@@ -232,7 +236,7 @@
                                                         </div>
                                                         <input type="number" class="form-control" id="biaya-akomodasi"
                                                             name="total_biaya_akomodasi"
-                                                            aria-label="Amount (to the nearest dollar)">
+                                                            aria-label="Amount (to the nearest dollar)" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -250,11 +254,9 @@
                                                 <div class="input-group col-xs-12">
                                                     <input type="file" class="form-control file-input-default"
                                                         accept="application/pdf" name="bukti_berangkat"
-                                                        id="bukti_berangkat">
-                                                    {{-- <span class="input-group-append"> --}}
-                                                        <label for="bukti_berangkat"
-                                                            class="file-upload-browse btn btn-info">Upload<label>
-                                                    {{-- </span> --}}
+                                                        id="bukti_berangkat" required>
+                                                    <label for="bukti_berangkat"
+                                                        class="file-upload-browse btn btn-info">Upload<label>
                                                 </div>
                                             </div>
                                         </div>
@@ -273,7 +275,7 @@
                                                         </div>
                                                         <input type="number" class="form-control" id="biaya-berangkat"
                                                             name="total_biaya_berangkat"
-                                                            aria-label="Amount (to the nearest dollar)">
+                                                            aria-label="Amount (to the nearest dollar)" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -288,12 +290,11 @@
                                                 <label for="kembali" class="col-sm-9 col-form-label text-white">Kembali
                                                     :</label>
                                                 <div class="input-group col-xs-12">
-                                                    <input class="form-control file-input-default" type="file" accept="application/pdf" name="bukti_kembali"
-                                                    id="bukti_kembali">
-                                                    {{-- <span class="input-group-append"> --}}
-                                                        <label for="bukti_kembali"
-                                                            class="file-upload-browse btn btn-info">Upload</label>
-                                                    {{-- </span> --}}
+                                                    <input class="form-control file-input-default" type="file"
+                                                        accept="application/pdf" name="bukti_kembali" id="bukti_kembali"
+                                                        required>
+                                                    <label for="bukti_kembali"
+                                                        class="file-upload-browse btn btn-info">Upload</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -312,7 +313,7 @@
                                                         </div>
                                                         <input type="number" class="form-control" id="biaya-kembali"
                                                             name="total_biaya_kembali"
-                                                            aria-label="Amount (to the nearest dollar)">
+                                                            aria-label="Amount (to the nearest dollar)" required>
                                                     </div>
                                                 </div>
                                             </div>

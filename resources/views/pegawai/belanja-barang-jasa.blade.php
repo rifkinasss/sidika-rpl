@@ -17,18 +17,18 @@
                         </p>
                         <div class="row">
                             <div class="form-group col-sm-4">
-                                <label for="tanggal-spk-barjas">Tanggal</label>
-                                <input type="date" class="form-control" name="tgl_spk" id="tanggal-spk-barjas"
-                                    placeholder="DD/MM/YYYY">
-                            </div>
-                            <div class="form-group col-sm-4">
                                 <label for="nomor-spk-barjas">Nomor Surat</label>
                                 <input type="number" class="form-control" name="nomor_surat_spk" id="nomor-spk-barjas"
-                                    placeholder="Akan terisi setelah disetujui oleh admin" disabled>
+                                placeholder="Akan terisi setelah disetujui oleh admin" disabled>
                             </div>
                             <div class="form-group col-sm-4">
                                 <label for="jenis-spk-barjas">Jenis Belanja Barang Jasa</label>
-                                <input type="text" class="form-control" name="jns_belanja" id="jenis-spk-barjas">
+                                <input type="text" class="form-control" name="jns_belanja" id="jenis-spk-barjas" required>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label for="tanggal-spk-barjas">Tanggal</label>
+                                <input type="date" class="form-control" name="tgl_spk" id="tanggal-spk-barjas"
+                                    placeholder="DD/MM/YYYY" required>
                             </div>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                                     <span class="input-group-text">0.00</span>
                                 </div>
                                 <input type="number" class="form-control" name="nilai_kontrak" id="nilai-kedua-barjas"
-                                    aria-label="Amount (to the nearest dollar)">
+                                    aria-label="Amount (to the nearest dollar)" required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -58,7 +58,7 @@
                                 Kontrak)</label>
                             <div class="col-sm-9">
                                 <textarea class="form-control" name="uraian_pengadaan" id="uraian-pengadaan-barjas"
-                                    placeholder="Contoh: Pembayaran Belanja barjas Mebel Set 3 Seater" rows="4"></textarea>
+                                    placeholder="Contoh: Pembayaran Belanja barjas Mebel Set 3 Seater" rows="4" required></textarea>
                             </div>
                         </div>
                         <hr>
@@ -76,14 +76,14 @@
                                 <div class="form-group">
                                     <label for="mulai-kontrak-barjas">Tanggal Mulai</label>
                                     <input type="date" class="form-control" name="tgl_mulai_kontrak"
-                                        id="mulai-kontrak-barjas" placeholder="DD/MM/YYYY">
+                                        id="mulai-kontrak-barjas" placeholder="DD/MM/YYYY" required>
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <label for="berakhir-kontrak-barjas">Tanggal Berakhir</label>
                                     <input type="date" class="form-control" name="tgl_berakhir_kontrak"
-                                        id="berakhir-kontrak-barjas" placeholder="DD/MM/YYYY">
+                                        id="berakhir-kontrak-barjas" placeholder="DD/MM/YYYY" required>
                                 </div>
                             </div>
                             <div class="form-group col-sm-2">
@@ -109,7 +109,7 @@
                             <label for="uraian-adendum-barjas" class="col-sm-3 col-form-label">Uraian Adendum (Beserta
                                 Nilai)</label>
                             <div class="col-sm-9">
-                                <textarea class="form-control" name="uraian_adendum" id="uraian-adendum-barjas" placeholder="" rows="4"></textarea>
+                                <textarea class="form-control" name="uraian_adendum" id="uraian-adendum-barjas" placeholder="" rows="4" required></textarea>
                             </div>
                         </div>
                         <hr>
@@ -120,14 +120,14 @@
                                 <div class="form-group">
                                     <label for="mulai-adendum-barjas">Tanggal Mulai</label>
                                     <input type="date" class="form-control" name="tgl_mulai_adendum"
-                                        id="mulai-adendum-barjas" placeholder="DD/MM/YYYY">
+                                        id="mulai-adendum-barjas" placeholder="DD/MM/YYYY" required>
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label for="berakhir-adendum-barjas">Tanggal Berakhir</label>
                                     <input type="date" class="form-control" name="tgl_berakhir_adendum"
-                                        id="berakhir-adendum-barjas" placeholder="DD/MM/YYYY">
+                                        id="berakhir-adendum-barjas" placeholder="DD/MM/YYYY" required>
                                 </div>
                             </div>
                             <div class="col-sm-4">
@@ -150,7 +150,7 @@
                             <div class="form-group col-sm-6">
                                 <label for="bentuk-pelaksanaan-barjas">Bentuk</label>
                                 <input type="text" class="form-control" name="bentuk_pelaksanaan"
-                                    id="jenis-spk-barjas">
+                                    id="jenis-spk-barjas" required>
                             </div>
                             <div class="form-group col-sm-6">
                                 <label for="nilai-pelaksanaan-barjas">Nilai</label>
@@ -162,7 +162,7 @@
                                         <span class="input-group-text">0.00</span>
                                     </div>
                                     <input type="number" class="form-control" name="nilai_pelaksanaan"
-                                        id="nilai-pelaksanaan-barjas" aria-label="Amount (to the nearest dollar)">
+                                        id="nilai-pelaksanaan-barjas" aria-label="Amount (to the nearest dollar)" required>
                                 </div>
                             </div>
                         </div>
@@ -172,14 +172,14 @@
                                 <div class="form-group">
                                     <label for="mulai-pelaksanaan-barjas">Tanggal Mulai</label>
                                     <input type="date" class="form-control" name="tgl_mulai_pelaksanaan"
-                                        id="mulai-pelaksanaan-barjas" placeholder="DD/MM/YYYY">
+                                        id="mulai-pelaksanaan-barjas" placeholder="DD/MM/YYYY" required>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="berakhir-pelaksanaan-barjas">Tanggal Berakhir</label>
                                     <input type="date" class="form-control" name="tgl_berakhir_pelaksanaan"
-                                        id="berakhir-pelaksanaan-barjas" placeholder="DD/MM/YYYY">
+                                        id="berakhir-pelaksanaan-barjas" placeholder="DD/MM/YYYY" required>
                                 </div>
                             </div>
                         </div>
@@ -190,7 +190,7 @@
                             <div class="form-group col-sm-6">
                                 <label for="bentuk-pemeliharaan-barjas">Bentuk</label>
                                 <input type="text" class="form-control" name="bentuk_pemeliharaan"
-                                    id="jenis-spk-barjas">
+                                    id="jenis-spk-barjas" required>
                             </div>
                             <div class="form-group col-sm-6">
                                 <label for="nilai-pemeliharaan-barjas">Nilai</label>
@@ -202,7 +202,7 @@
                                         <span class="input-group-text">0.00</span>
                                     </div>
                                     <input type="number" class="form-control" name="nilai_pemeliharaan"
-                                        id="nilai-pemeliharaan-barjas" aria-label="Amount (to the nearest dollar)">
+                                        id="nilai-pemeliharaan-barjas" aria-label="Amount (to the nearest dollar)" required>
                                 </div>
                             </div>
                         </div>
@@ -212,14 +212,14 @@
                                 <div class="form-group">
                                     <label for="mulai-pemeliharaan-barjas">Tanggal Mulai</label>
                                     <input type="date" class="form-control" name="tgl_mulai_pemeliharaan"
-                                        id="mulai-pemeliharaan-barjas" placeholder="DD/MM/YYYY">
+                                        id="mulai-pemeliharaan-barjas" placeholder="DD/MM/YYYY" required>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="berakhir-pemeliharaan-barjas">Tanggal Berakhir</label>
                                     <input type="date" class="form-control" name="tgl_selesai_pemeliharaan"
-                                        id="berakhir-pemeliharaan-barjas" placeholder="DD/MM/YYYY">
+                                        id="berakhir-pemeliharaan-barjas" placeholder="DD/MM/YYYY" required>
                                 </div>
                             </div>
                         </div>
@@ -241,7 +241,7 @@
                             <div class="form-group col-sm-6">
                                 <label for="tanggal-dpa-barjas">Tanggal</label>
                                 <input type="date" class="form-control" name="tgl_sumber_dpa" id="tanggal-dpa-barjas"
-                                    placeholder="DD/MM/YYYY">
+                                    placeholder="DD/MM/YYYY" required>
                             </div>
                         </div>
                         <div class="row">
@@ -255,13 +255,13 @@
                                         <span class="input-group-text">0.00</span>
                                     </div>
                                     <input type="number" class="form-control" name="nilai_sumber_dpa"
-                                        id="nilai-dpa-barjas" aria-label="Amount (to the nearest dollar)">
+                                        id="nilai-dpa-barjas" aria-label="Amount (to the nearest dollar)" required>
                                 </div>
                             </div>
                             <div class="form-group col-sm-6">
                                 <label for="metode-dpa-barjas">Metode Pengadaan</label>
                                 <input type="text" class="form-control" name="metode_pengadaan_dpa"
-                                    id="metode-dpa-barjas">
+                                    id="metode-dpa-barjas" required>
                             </div>
                         </div>
                         <div class="form-check form-check-flat form-check-success">

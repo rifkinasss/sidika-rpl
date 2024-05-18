@@ -17,18 +17,18 @@
                         </p>
                         <div class="row">
                             <div class="form-group col-sm-4">
-                                <label for="tanggal-spk-modal">Tanggal</label>
-                                <input type="date" class="form-control" name="tgl_spk" id="tanggal-spk-modal"
-                                    placeholder="DD/MM/YYYY">
-                            </div>
-                            <div class="form-group col-sm-4">
                                 <label for="nomor-spk-modal">Nomor Surat</label>
                                 <input type="number" class="form-control" name="nomor_surat_spk" id="nomor-spk-modal"
-                                    placeholder="Akan terisi setelah disetujui oleh admin" disabled>
+                                placeholder="Akan terisi setelah disetujui oleh admin" disabled>
                             </div>
                             <div class="form-group col-sm-4">
                                 <label for="jenis-spk-modal">Jenis Belanja Modal</label>
-                                <input type="text" class="form-control" name="jns_belanja" id="jenis-spk-modal">
+                                <input type="text" class="form-control" name="jns_belanja" id="jenis-spk-modal" required>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label for="tanggal-spk-modal">Tanggal</label>
+                                <input type="date" class="form-control" name="tgl_spk" id="tanggal-spk-modal"
+                                    placeholder="DD/MM/YYYY" required>
                             </div>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                                     <span class="input-group-text">0.00</span>
                                 </div>
                                 <input type="number" class="form-control" name="nilai_kontrak" id="nilai-kedua-modal"
-                                    aria-label="Amount (to the nearest dollar)">
+                                    aria-label="Amount (to the nearest dollar)" required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -58,7 +58,7 @@
                                 Kontrak)</label>
                             <div class="col-sm-9">
                                 <textarea class="form-control" name="uraian_pengadaan" id="uraian-pengadaan-modal"
-                                    placeholder="Contoh: Pembayaran Belanja Modal Mebel Set 3 Seater" rows="4"></textarea>
+                                    placeholder="Contoh: Pembayaran Belanja Modal Mebel Set 3 Seater" rows="4" required></textarea>
                             </div>
                         </div>
                         <hr>
@@ -76,14 +76,14 @@
                                 <div class="form-group">
                                     <label for="mulai-kontrak-modal">Tanggal Mulai</label>
                                     <input type="date" class="form-control" name="tgl_mulai_kontrak"
-                                        id="mulai-kontrak-modal" placeholder="DD/MM/YYYY">
+                                        id="mulai-kontrak-modal" placeholder="DD/MM/YYYY" required>
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <label for="berakhir-kontrak-modal">Tanggal Berakhir</label>
                                     <input type="date" class="form-control" name="tgl_berakhir_kontrak"
-                                        id="berakhir-kontrak-modal" placeholder="DD/MM/YYYY">
+                                        id="berakhir-kontrak-modal" placeholder="DD/MM/YYYY" required>
                                 </div>
                             </div>
                             <div class="form-group col-sm-2">
@@ -110,7 +110,7 @@
                                 Nilai)</label>
                             <div class="col-sm-9">
                                 <textarea class="form-control" name="uraian_adendum" id="uraian-adendum-modal"
-                                    placeholder="" rows="4"></textarea>
+                                    placeholder="" rows="4" required></textarea>
                             </div>
                         </div>
                         <hr>
@@ -121,14 +121,14 @@
                                 <div class="form-group">
                                     <label for="mulai-adendum-modal">Tanggal Mulai</label>
                                     <input type="date" class="form-control" name="tgl_mulai_adendum"
-                                        id="mulai-adendum-modal" placeholder="DD/MM/YYYY">
+                                        id="mulai-adendum-modal" placeholder="DD/MM/YYYY" required>
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label for="berakhir-adendum-modal">Tanggal Berakhir</label>
                                     <input type="date" class="form-control" name="tgl_berakhir_adendum"
-                                        id="berakhir-adendum-modal" placeholder="DD/MM/YYYY">
+                                        id="berakhir-adendum-modal" placeholder="DD/MM/YYYY" required>
                                 </div>
                             </div>
                             <div class="col-sm-4">
@@ -151,7 +151,7 @@
                             <div class="form-group col-sm-6">
                                 <label for="bentuk-pelaksanaan-modal">Bentuk</label>
                                 <input type="text" class="form-control" name="bentuk_pelaksanaan"
-                                    id="jenis-spk-modal">
+                                    id="jenis-spk-modal" required>
                             </div>
                             <div class="form-group col-sm-6">
                                 <label for="nilai-pelaksanaan-modal">Nilai</label>
@@ -163,7 +163,7 @@
                                         <span class="input-group-text">0.00</span>
                                     </div>
                                     <input type="number" class="form-control" name="nilai_pelaksanaan"
-                                        id="nilai-pelaksanaan-modal" aria-label="Amount (to the nearest dollar)">
+                                        id="nilai-pelaksanaan-modal" aria-label="Amount (to the nearest dollar)" required>
                                 </div>
                             </div>
                         </div>
@@ -173,14 +173,14 @@
                                 <div class="form-group">
                                     <label for="mulai-pelaksanaan-modal">Tanggal Mulai</label>
                                     <input type="date" class="form-control" name="tgl_mulai_pelaksanaan"
-                                        id="mulai-pelaksanaan-modal" placeholder="DD/MM/YYYY">
+                                        id="mulai-pelaksanaan-modal" placeholder="DD/MM/YYYY" required>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="berakhir-pelaksanaan-modal">Tanggal Berakhir</label>
                                     <input type="date" class="form-control" name="tgl_berakhir_pelaksanaan"
-                                        id="berakhir-pelaksanaan-modal" placeholder="DD/MM/YYYY">
+                                        id="berakhir-pelaksanaan-modal" placeholder="DD/MM/YYYY" required>
                                 </div>
                             </div>
                         </div>
@@ -191,7 +191,7 @@
                             <div class="form-group col-sm-6">
                                 <label for="bentuk-pemeliharaan-modal">Bentuk</label>
                                 <input type="text" class="form-control" name="bentuk_pemeliharaan"
-                                    id="jenis-spk-modal">
+                                    id="jenis-spk-modal" required>
                             </div>
                             <div class="form-group col-sm-6">
                                 <label for="nilai-pemeliharaan-modal">Nilai</label>
@@ -203,7 +203,7 @@
                                         <span class="input-group-text">0.00</span>
                                     </div>
                                     <input type="number" class="form-control" name="nilai_pemeliharaan"
-                                        id="nilai-pemeliharaan-modal" aria-label="Amount (to the nearest dollar)">
+                                        id="nilai-pemeliharaan-modal" aria-label="Amount (to the nearest dollar)" required>
                                 </div>
                             </div>
                         </div>
@@ -213,14 +213,14 @@
                                 <div class="form-group">
                                     <label for="mulai-pemeliharaan-modal">Tanggal Mulai</label>
                                     <input type="date" class="form-control" name="tgl_mulai_pemeliharaan"
-                                        id="mulai-pemeliharaan-modal" placeholder="DD/MM/YYYY">
+                                        id="mulai-pemeliharaan-modal" placeholder="DD/MM/YYYY" required>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="berakhir-pemeliharaan-modal">Tanggal Berakhir</label>
                                     <input type="date" class="form-control" name="tgl_selesai_pemeliharaan"
-                                        id="berakhir-pemeliharaan-modal" placeholder="DD/MM/YYYY">
+                                        id="berakhir-pemeliharaan-modal" placeholder="DD/MM/YYYY" required>
                                 </div>
                             </div>
                         </div>
@@ -242,7 +242,7 @@
                             <div class="form-group col-sm-6">
                                 <label for="tanggal-dpa-modal">Tanggal</label>
                                 <input type="date" class="form-control" name="tgl_sumber_dpa" id="tanggal-dpa-modal"
-                                    placeholder="DD/MM/YYYY">
+                                    placeholder="DD/MM/YYYY" required>
                             </div>
                         </div>
                         <div class="row">
@@ -256,13 +256,13 @@
                                         <span class="input-group-text">0.00</span>
                                     </div>
                                     <input type="number" class="form-control" name="nilai_sumber_dpa"
-                                        id="nilai-dpa-modal" aria-label="Amount (to the nearest dollar)">
+                                        id="nilai-dpa-modal" aria-label="Amount (to the nearest dollar)" required>
                                 </div>
                             </div>
                             <div class="form-group col-sm-6">
                                 <label for="metode-dpa-modal">Metode Pengadaan</label>
                                 <input type="text" class="form-control" name="metode_pengadaan_dpa"
-                                    id="metode-dpa-modal">
+                                    id="metode-dpa-modal" required>
                             </div>
                         </div>
                         <div class="form-check form-check-flat form-check-success">
