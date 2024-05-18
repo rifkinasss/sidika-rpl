@@ -250,34 +250,66 @@
                                 <b>No</b>
                             </th>
                             <th>
-                                <b>Tujuan</b>
+                                <b>Nomor Surat</b>
                             </th>
                             <th>
+                                <b>Jenis Belanja Barang</b>
+                            </th>
+                            <th>
+                                <b>Nilai Kontrak</b>
+                            </th>
+                            <th class="text-center">
                                 <b>Status</b>
+                            </th>
+                            <th class="text-center">
+                                <b>Masa Berlaku</b>
+                            </th>
+                            <th>
+                                <b>Action</b>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- @foreach ($laporan->where('user_id', auth()->user()->id) as $lapor)
+                        @foreach ($barang_jasa->where('user_id', auth()->user()->id) as $barjas)
                             <tr>
                                 <td class="py-1">
                                     {{ $loop->iteration }}
                                 </td>
-                                <td style="width: 500px; height: auto;">
-                                    {{ $lapor->keperluan_perjadin }}
+                                <td>
+                                    {{ $barjas->nomor_surat_spk }}
                                 </td>
                                 <td>
-                                    @if ($lapor->status === 'Diproses')
+                                    {{ $barjas->jns_belanja }}
+                                </td>
+                                <td>
+                                    Rp {{ number_format($barjas->nilai_kontrak, 0, ',', '.') }}
+                                </td>
+                                <td class="text-center">
+                                    @if ($barjas->status === 'Diproses')
                                         <span class="badge text-bg-warning">Diproses</span>
-                                    @elseif ($lapor->status === 'Disetujui')
+                                    @elseif ($barjas->status === 'Disetujui')
                                         <span class="badge text-bg-success">Disetujui</span>
                                     @else
                                         <span class="badge text-bg-danger">Ditolak</span>
                                     @endif
                                 </td>
+                                <td class="text-center">
+                                    {{ \Carbon\Carbon::parse($barjas->tgl_mulai_kontrak)->format('d-M-y') }} - 
+                                    {{ \Carbon\Carbon::parse($barjas->tgl_berakhir_kontrak)->format('d-M-y') }}
+                                </td>
+                                <td>
+                                    @if ($barjas->status === 'Disetujui')
+                                        <a href="{{ route('belanja-modal.show', $barjas->id) }}" class="btn btn-outline-danger btn-icon-text">
+                                            Lapor
+                                            <i class="mdi mdi-file-chart btn-icon-append"></i></a>
+                                        <a href="{{ route('belanja-modal.detail', $barjas->id) }}" class="btn btn-outline-info btn-icon-text">
+                                            Detail
+                                            <i class="mdi mdi-information-outline btn-icon-append"></i></a>
+                                    @endif
+                                </td>
                             </tr>
                         @endforeach
-                    </tbody> --}}
+                    </tbody>
                 </table>
             </div>
         </div>

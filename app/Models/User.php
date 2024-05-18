@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Pegawai\BarangJasa;
 use App\Models\Pegawai\PelaporanPerjadin;
 use App\Models\Pegawai\PerjalananDinas;
 use App\Models\Pegawai\BarangModal;
@@ -43,5 +44,10 @@ class User extends Authenticatable
     public function barang_modal()
     {
         return $this->hasMany(BarangModal::class);
+    }
+
+    public function barang_jasa()
+    {
+        return $this->hasMany(BarangJasa::class);
     }
 }

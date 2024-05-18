@@ -24,7 +24,7 @@
                             <div class="form-group col-sm-4">
                                 <label for="nomor-spk-modal">Nomor Surat</label>
                                 <input type="number" class="form-control" name="nomor_surat_spk" id="nomor-spk-modal"
-                                    placeholder="SPK/DISDIKBUD/170524/1" disabled>
+                                    placeholder="Akan terisi setelah disetujui oleh admin" disabled>
                             </div>
                             <div class="form-group col-sm-4">
                                 <label for="jenis-spk-modal">Jenis Belanja Modal</label>
@@ -69,7 +69,7 @@
                                 <div class="form-group">
                                     <label for="nomor-spk-modal">Nomor</label>
                                     <input type="number" class="form-control" name="nomor_kontrak" id="nomor-spk-modal"
-                                        placeholder="JWK/DISDIKBUD/170524/1" disabled>
+                                        placeholder="Akan terisi setelah disetujui oleh admin" disabled>
                                 </div>
                             </div>
                             <div class="col-sm-3">
@@ -103,7 +103,7 @@
                         <div class="form-group">
                             <label for="nomor-adendum-modal">Nomor dan Tanggal</label>
                             <input type="text" class="form-control" name="nomor_tgl_adendum" id="nomor-adendum-modal"
-                                placeholder="AKT/DISDIKBUD/170524/1" disabled>
+                                placeholder="Akan terisi setelah disetujui oleh admin" disabled>
                         </div>
                         <div class="form-group">
                             <label for="uraian-adendum-modal" class="col-sm-3 col-form-label">Uraian Adendum (Beserta
@@ -237,7 +237,7 @@
                             <div class="form-group col-sm-6">
                                 <label for="nomor-dpa-modal">Nomor</label>
                                 <input type="number" class="form-control" name="nomor_sumber_dpa" id="nomor-dpa-modal"
-                                    placeholder="DPPA/DISDIKBUD/170524/1" disabled>
+                                    placeholder="Akan terisi setelah disetujui oleh admin" disabled>
                             </div>
                             <div class="form-group col-sm-6">
                                 <label for="tanggal-dpa-modal">Tanggal</label>
