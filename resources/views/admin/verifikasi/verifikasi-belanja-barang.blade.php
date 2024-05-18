@@ -6,16 +6,19 @@
         <div class="col-sm-12 grid-margin stretch-card">
             <div class="card mt-4">
                 <div class="card-body">
-                    <h4 class="card-title">Verifikasi Belanja Barang</h4>
+                    <h4 class="card-title">Verifikasi Belanja Barang Jasa</h4>
                     <p class="card-description">
-                        Super Admin & Admin dapat menyetujui, menambah komentar, dan menolak belanja modal.
+                        Super Admin & Admin dapat menyetujui, menambah komentar, dan menolak belanja barang jasa.
                     </p>
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <thead>
                                 <tr>
                                     <th>
-                                        <b>#</b>
+                                        <b>No</b>
+                                    </th>
+                                    <th>
+                                        <b>Nama Lengkap</b>
                                     </th>
                                     <th>
                                         <b>Jenis Belanja Barang</b>
@@ -38,33 +41,50 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="py-1">
-                                        1
-                                    </td>
-                                    <td>
-                                        Belanja Barang Mebel, Meja dan Kursi
-                                    </td>
-                                    <td>
-                                        Rp 152.760.000
-                                    </td>
-                                    <td>
-                                        <span class="badge text-bg-success">Lunas</span>
-                                    </td>
-                                    <td>
-                                        <span class="badge text-bg-danger">20%</span>
-                                    </td>
-                                    <td>
-                                        10-Jan-23 - 09-Feb-23
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-success"><i
-                                                class="mdi mdi-check-circle-outline text-white"></i></button>
-                                        <button class="btn btn-warning"><i
-                                                class="mdi mdi-message-text-outline text-white"></i></button>
-                                        <button class="btn btn-danger"><i class="mdi mdi-delete text-white"></i></button>
-                                    </td>
-                                </tr>
+                                @foreach ($barjas as $b)
+                                    <tr>
+                                        <td class="py-1">
+                                            1
+                                        </td>
+                                        <td>
+                                            {{ $b->user->nama }}
+                                        </td>
+                                        <td>
+                                            {{ $b->jns_belanja }}
+                                        </td>
+                                        <td>
+                                            Rp {{ number_format($b->nilai_kontrak, 0, ',', '.') }}
+                                        </td>
+                                        <td class="text-center">
+                                            @if ($b->status === 'Diproses')
+                                                <span class="badge text-bg-warning">Diproses</span>
+                                            @elseif ($b->status === 'Disetujui')
+                                                <span class="badge text-bg-success">Disetujui</span>
+                                            @else
+                                                <span class="badge text-bg-danger">Ditolak</span>
+                                            @endif
+                                        </td>
+                                        <td class="text-center">
+                                            @if ($b->persentase_progress < '40%')
+                                                <span class="badge text-bg-warning">{{ $b->persentase_progress }} %</span>
+                                            @elseif ($b->persentase_progress >= '50%')
+                                                <span class="badge text-bg-success">{{ $b->persentase_progress }} %</span>
+                                            @endif
+                                        </td>
+                                        <td class="text-center">
+                                            {{ \Carbon\Carbon::parse($b->tgl_mulai_kontrak)->format('d-M-y') }} -
+                                            {{ \Carbon\Carbon::parse($b->tgl_berakhir_kontrak)->format('d-M-y') }}
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('verifikasi-belanja-barang-jasa.show', $b->id) }}"
+                                                class="btn btn-primary">Detail</a>
+                                            @if ($b->status_lapor != 'Belum')
+                                                <a href="{{ route('verifikasi-belanja-barang-jasa.laporan', $b->id) }}"
+                                                    class="btn btn-secondary">Laporan</a>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

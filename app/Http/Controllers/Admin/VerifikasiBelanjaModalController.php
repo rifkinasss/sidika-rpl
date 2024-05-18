@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Pegawai\BarangJasa;
 use App\Models\Pegawai\BarangModal;
 use App\Models\User;
 use Illuminate\Http\Request;
