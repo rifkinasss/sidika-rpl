@@ -64,6 +64,8 @@ Route::middleware('admin')->group(function () {
     Route::get('dashboard-admin/verifikasi-belanja-modal/{id}/laporan', [VerifikasiBelanjaModalController::class, 'laporan'])->name('verifikasi-belanja-modal.laporan');
     Route::post('dashboard-admin/verifikasi-belanja-modal/{id}/verif', [VerifikasiBelanjaModalController::class, 'verif'])->name('verifikasi-belanja-modal.verif');
     Route::resource('dashboard-admin/verifikasi-belanja-barang-jasa', VerifikasiBelanjaBarangJasaController::class);
+    Route::get('dashboard-admin/verifikasi-belanja-barang-jasa/{id}/laporan', [VerifikasiBelanjaBarangJasaController::class, 'laporan'])->name('verifikasi-belanja-barang-jasa.laporan');
+    Route::post('dashboard-admin/verifikasi-belanja-barang-jasa/{id}/verif', [VerifikasiBelanjaBarangJasaController::class, 'verif'])->name('verifikasi-belanja-barang-jasa.verif');
     Route::get('/dashboard-admin/bantuan', function () {
         return view('admin.bantuan');
     })->name('dashboard-admin-bantuan');
