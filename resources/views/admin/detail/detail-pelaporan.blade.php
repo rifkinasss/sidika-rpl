@@ -6,7 +6,14 @@
         <div class="col-sm-12 grid-margin stretch-card">
             <div class="card mt-4">
                 <div class="card-body">
-                    <h4 class="card-title">Detail Pengajuan Perjalanan Dinas</h4>
+                    <h4 class="card-title">Detail Pelaporan Perjalanan Dinas</h4>
+                    <div class="row mb-3">
+                        <label for="nama_lengkap" class="col-sm-2 col-form-label">Nama Surat</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="nama_lengkap"
+                                value="{{ $detail_pelaporanperjadin->perjalanandinas->nomor_surat }}" disabled>
+                        </div>
+                    </div>
                     <div class="row mb-3">
                         <label for="nama_lengkap" class="col-sm-2 col-form-label">Nama Lengkap</label>
                         <div class="col-sm-10">
@@ -15,23 +22,17 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label for="keperluan_perjadin" class="col-sm-2 col-form-label">Keperluan Perjalanan Dinas</label>
+                        <label for="nama_lengkap" class="col-sm-2 col-form-label">NIP</label>
                         <div class="col-sm-10">
-                            <textarea type="text" class="form-control" id="keperluan_perjadin" rows="3" disabled>{{ $detail_pelaporanperjadin->perjalanandinas->keperluan_perjadin }}</textarea>
+                            <input type="text" class="form-control" id="nama_lengkap"
+                                value="{{ $detail_pelaporanperjadin->perjalanandinas->user->nip }}" disabled>
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label for="nama" class="col-sm-2 col-form-label">Jumlah Dibayarkan</label>
+                        <label for="keperluan_perjadin" class="col-sm-2 col-form-label">Keperluan Perjalanan Dinas</label>
                         <div class="col-sm-10">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text bg-success text-white">Rp.</span>
-                                </div>
-                                <input type="text" class="form-control" id="jumlah"
-                                    aria-label="Amount (to the nearest dollar)"
-                                    value="{{ number_format($detail_pelaporanperjadin->perjalanandinas->jumlah_dibayarkan, 2, ',', '.') }}"
-                                    readonly>
-                            </div>
+                            <input type="text" class="form-control" id="keperluan_perjadin"
+                                value="{{ $detail_pelaporanperjadin->perjalanandinas->keperluan_perjadin }}" disabled>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -39,6 +40,13 @@
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="tujuan"
                                 value="{{ $detail_pelaporanperjadin->perjalanandinas->tujuan }}" disabled>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="jumlah_hari" class="col-sm-2 col-form-label">Jumlah Hari</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="jumlah_hari"
+                                value="{{ $detail_pelaporanperjadin->perjalanandinas->jumlah_hari }} Hari" disabled>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -56,80 +64,81 @@
                                 disabled>
                         </div>
                     </div>
-                    <div class="row mb-5">
-                        <label for="jumlah_hari" class="col-sm-2 col-form-label">Jumlah Hari</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="jumlah_hari"
-                                value="{{ $detail_pelaporanperjadin->perjalanandinas->jumlah_hari }} Hari" disabled>
+                    <div class="row mb-3">
+                        <label for="tanggal" class="col-sm-2 col-form-label">Jenis Transportasi</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="tanggal"
+                                value="{{ $detail_pelaporanperjadin->jns_transportasi_berangkat }}" disabled>
+                        </div>
+                        <div class="col-sm-1"></div>
+                        <label for="tanggal" class="col-sm-2 col-form-label">Jenis Transportasi</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="tanggal"
+                                value="{{ $detail_pelaporanperjadin->jns_transportasi_kembali }}" disabled>
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label for="uang_perhari" class="col-sm-2 col-form-label">Uang Perhari</label>
-                        <div class="col-sm-10">
+                        <label for="tanggal" class="col-sm-2 col-form-label">Nama Transportasi</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="tanggal"
+                                value="{{ $detail_pelaporanperjadin->nama_transportasi_berangkat }}" disabled>
+                        </div>
+                        <div class="col-sm-1"></div>
+                        <label for="tanggal" class="col-sm-2 col-form-label">Nama Transportasi</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="tanggal"
+                                value="{{ $detail_pelaporanperjadin->nama_transportasi_kembali }}" disabled>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="tanggal" class="col-sm-2 col-form-label">Nomor Tiket</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="tanggal"
+                                value="{{ $detail_pelaporanperjadin->nomor_tiket_berangkat }}" disabled>
+                        </div>
+                        <div class="col-sm-1"></div>
+                        <label for="tanggal" class="col-sm-2 col-form-label">Nomor Tiket</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="tanggal"
+                                value="{{ $detail_pelaporanperjadin->nomor_tiket_kembali }}" disabled>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="tanggal" class="col-sm-2 col-form-label">Nomor Kursi</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="tanggal"
+                                value="{{ $detail_pelaporanperjadin->nomor_kursi_berangkat }}" disabled>
+                        </div>
+                        <div class="col-sm-1"></div>
+                        <label for="tanggal" class="col-sm-2 col-form-label">Nomor Kursi</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="tanggal"
+                                value="{{ $detail_pelaporanperjadin->nomor_kursi_kembali }}" disabled>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="tanggal" class="col-sm-2 col-form-label">Harga</label>
+                        <div class="col-sm-3">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text bg-success text-white">Rp.</span>
                                 </div>
                                 <input type="text" class="form-control" id="uang_perhari"
                                     aria-label="Amount (to the nearest dollar)"
-                                    value="{{ number_format($detail_pelaporanperjadin->perjalanandinas->uang_harian, 2, ',', '.') }}"
+                                    value="{{ number_format($detail_pelaporanperjadin->harga_berangkat, 2, ',', '.') }}"
                                     disabled>
                             </div>
                         </div>
-                    </div>
-                    <div class="row mb-5">
-                        <label for="total_uang_perhari" class="col-sm-2 col-form-label">Total Uang Perhari</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-1"></div>
+                        <label for="tanggal" class="col-sm-2 col-form-label">Harga</label>
+                        <div class="col-sm-4">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text bg-success text-white">Rp.</span>
                                 </div>
-                                <input type="text" class="form-control" id="total_uang_perhari"
+                                <input type="text" class="form-control" id="uang_perhari"
                                     aria-label="Amount (to the nearest dollar)"
-                                    value="{{ number_format($detail_pelaporanperjadin->perjalanandinas->uang_total, 2, ',', '.') }}"
-                                    disabled>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label for="biaya_akomodasi" class="col-sm-2 col-form-label">Biaya Akomodasi</label>
-                        <div class="col-sm-10">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text bg-success text-white">Rp.</span>
-                                </div>
-                                <input type="text" class="form-control" id="biaya_akomodasi"
-                                    aria-label="Amount (to the nearest dollar)"
-                                    value="{{ number_format($detail_pelaporanperjadin->perjalanandinas->biaya_akomodasi, 2, ',', '.') }}"
-                                    disabled>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label for="biaya_lain" class="col-sm-2 col-form-label">Biaya
-                            lain/Kontribusi/<br>Bantuan/Transport</label>
-                        <div class="col-sm-10">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text bg-success text-white">Rp.</span>
-                                </div>
-                                <input type="text" class="form-control" id="biaya_lain"
-                                    aria-label="Amount (to the nearest dollar)"
-                                    value="{{ number_format($detail_pelaporanperjadin->perjalanandinas->biaya_lain, 2, ',', '.') }}"
-                                    disabled>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label for="jumlah_biaya" class="col-sm-2 col-form-label">Jumlah Biaya</label>
-                        <div class="col-sm-10">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text bg-success text-white">Rp.</span>
-                                </div>
-                                <input type="text" class="form-control" id="jumlah_biaya"
-                                    aria-label="Amount (to the nearest dollar)"
-                                    value="{{ number_format($detail_pelaporanperjadin->perjalanandinas->jumlah_biaya, 2, ',', '.') }}"
+                                    value="{{ number_format($detail_pelaporanperjadin->harga_kembali, 2, ',', '.') }}"
                                     disabled>
                             </div>
                         </div>

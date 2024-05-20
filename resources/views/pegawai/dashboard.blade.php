@@ -5,11 +5,11 @@
         <div class="col-sm-6 mb-4 mb-xl-0">
             <div class="d-lg-flex align-items-center">
                 <div>
-                    <h3 class="text-dark font-weight-bold mb-2">Hi, welcome {{ Auth::user()->nama }}!</h3>
+                    <h3 class="text-dark font-weight-bold mb-2">Hai, Selamat Datang {{ Auth::user()->nama }}!</h3>
                 </div>
             </div>
         </div>
-        <div class="col-sm-6">
+        {{-- <div class="col-sm-6">
             <div class="d-flex align-items-center justify-content-md-end">
                 <div class="pe-1 mb-3 mb-xl-0">
                     <button type="button" class="btn btn-outline-info btn-icon-text">
@@ -18,7 +18,7 @@
                     </button>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="col-lg-12 grid-margin mt-4 stretch-card">
             <div class="card">
                 <div class="card-body">
@@ -40,25 +40,25 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>
+                            <th class="text-center">
                                 <b>No</b>
                             </th>
-                            <th>
+                            <th class="text-center">
                                 <b>Nomor Surat</b>
                             </th>
                             <th>
                                 <b>Keperluan Perjalanan Dinas</b>
                             </th>
-                            <th>
+                            <th class="text-center">
                                 <b>Status</b>
                             </th>
-                            <th>
+                            <th class="text-center">
                                 <b>Anggaran</b>
                             </th>
                             <th class="text-center">
                                 <b>Tanggal</b>
                             </th>
-                            <th>
+                            <th class="text-center">
                                 <b>Action</b>
                             </th>
                         </tr>
@@ -66,16 +66,16 @@
                     <tbody>
                         @foreach ($perjadin->where('user_id', auth()->user()->id) as $p)
                             <tr>
-                                <td class="py-1">
+                                <td class="text-center">
                                     {{ $loop->iteration }}
                                 </td>
-                                <td>
+                                <td class="text-center">
                                     {{ $p->nomor_surat }}
                                 </td>
                                 <td>
                                     {{ $p->keperluan_perjadin }}
                                 </td>
-                                <td>
+                                <td class="text-center">
                                     @if ($p->status === 'Diproses')
                                         <span class="badge text-bg-warning">Diproses</span>
                                     @elseif ($p->status === 'Disetujui')
@@ -87,13 +87,16 @@
                                     @endif
                                 </td>
                                 <td>
-                                    Rp {{ number_format($p->jumlah_dibayarkan, 0, ',', '.') }}
+                                    <div class="flex-container">
+                                        <span class="currency">Rp</span>
+                                        <span class="amount">{{ number_format($p->jumlah_dibayarkan, 0, ',', '.') }}</span>
+                                    </div>
                                 </td>
                                 <td class="text-center">
                                     {{ \Carbon\Carbon::parse($p->tgl_berangkat)->format('d-M-y') }} -
                                     {{ \Carbon\Carbon::parse($p->tgl_kembali)->format('d-M-y') }}
                                 </td>
-                                <td>
+                                <td class="text-center">
                                     @if ($p->status === 'Disetujui')
                                         <a href="{{ route('pelaporan-perjadin.show', $p->id) }}"
                                             class="btn btn-outline-danger btn-icon-text">Lapor<i
@@ -126,10 +129,22 @@
                                 <b>No</b>
                             </th>
                             <th>
-                                <b>Tujuan</b>
+                                <b>Lokasi Penginapan</b>
                             </th>
                             <th>
+                                <b>Tujuan</b>
+                            </th>
+                            <th class="text-center">
+                                <b>Lama Hari</b>
+                            </th>
+                            <th class="text-center">
                                 <b>Status</b>
+                            </th>
+                            <th class="text-center">
+                                <b>Tanggal Lapor</b>
+                            </th>
+                            <th class="text-center">
+                                <b>Tanggal Disetujui</b>
                             </th>
                         </tr>
                     </thead>
@@ -139,10 +154,16 @@
                                 <td class="py-1">
                                     {{ $loop->iteration }}
                                 </td>
-                                <td style="width: 500px; height: auto;">
-                                    {{ $lapor->tujuan }}
+                                <td>
+                                    {{ $lapor->jns_penginapan }}
                                 </td>
                                 <td>
+                                    {{ $lapor->tujuan }}
+                                </td>
+                                <td class="text-center">
+                                    {{ $lapor->perjalanandinas->jumlah_hari }} Hari
+                                </td>
+                                <td class="text-center">
                                     @if ($lapor->status === 'Diproses')
                                         <span class="badge text-bg-warning">Diproses</span>
                                     @elseif ($lapor->status === 'Disetujui')
@@ -150,6 +171,12 @@
                                     @else
                                         <span class="badge text-bg-danger">Ditolak</span>
                                     @endif
+                                </td>
+                                <td class="text-center">
+                                    {{ \Carbon\Carbon::parse($lapor->created_at)->format('d-M-y') }}
+                                </td>
+                                <td class="text-center">
+                                    {{ \Carbon\Carbon::parse($lapor->updated_at)->format('d-M-y') }}
                                 </td>
                             </tr>
                         @endforeach
@@ -216,15 +243,17 @@
                                     @endif
                                 </td>
                                 <td class="text-center">
-                                    {{ \Carbon\Carbon::parse($barmod->tgl_mulai_kontrak)->format('d-M-y') }} - 
+                                    {{ \Carbon\Carbon::parse($barmod->tgl_mulai_kontrak)->format('d-M-y') }} -
                                     {{ \Carbon\Carbon::parse($barmod->tgl_berakhir_kontrak)->format('d-M-y') }}
                                 </td>
                                 <td>
                                     @if ($barmod->status === 'Disetujui')
-                                        <a href="{{ route('belanja-modal.show', $barmod->id) }}" class="btn btn-outline-danger btn-icon-text">
+                                        <a href="{{ route('belanja-modal.show', $barmod->id) }}"
+                                            class="btn btn-outline-danger btn-icon-text">
                                             Lapor
                                             <i class="mdi mdi-file-chart btn-icon-append"></i></a>
-                                        <a href="{{ route('belanja-modal.detail', $barmod->id) }}" class="btn btn-outline-info btn-icon-text">
+                                        <a href="{{ route('belanja-modal.detail', $barmod->id) }}"
+                                            class="btn btn-outline-info btn-icon-text">
                                             Detail
                                             <i class="mdi mdi-information-outline btn-icon-append"></i></a>
                                     @endif
@@ -294,15 +323,17 @@
                                     @endif
                                 </td>
                                 <td class="text-center">
-                                    {{ \Carbon\Carbon::parse($barjas->tgl_mulai_kontrak)->format('d-M-y') }} - 
+                                    {{ \Carbon\Carbon::parse($barjas->tgl_mulai_kontrak)->format('d-M-y') }} -
                                     {{ \Carbon\Carbon::parse($barjas->tgl_berakhir_kontrak)->format('d-M-y') }}
                                 </td>
                                 <td>
                                     @if ($barjas->status === 'Disetujui')
-                                        <a href="{{ route('belanja-barang-jasa.show', $barjas->id) }}" class="btn btn-outline-danger btn-icon-text">
+                                        <a href="{{ route('belanja-barang-jasa.show', $barjas->id) }}"
+                                            class="btn btn-outline-danger btn-icon-text">
                                             Lapor
                                             <i class="mdi mdi-file-chart btn-icon-append"></i></a>
-                                        <a href="{{ route('belanja-barang-jasa.detail', $barjas->id) }}" class="btn btn-outline-info btn-icon-text">
+                                        <a href="{{ route('belanja-barang-jasa.detail', $barjas->id) }}"
+                                            class="btn btn-outline-info btn-icon-text">
                                             Detail
                                             <i class="mdi mdi-information-outline btn-icon-append"></i></a>
                                     @endif

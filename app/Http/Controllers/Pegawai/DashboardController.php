@@ -54,7 +54,7 @@ class DashboardController extends Controller
         $barang_jasa = BarangJasa::all();
 
         // Pass data to the view
-        return view('pegawai.dashboard', compact('perjadin', 'laporan', 'barang_modal', 'barang_jasa' ,'formattedData'));
+        return view('pegawai.dashboard', compact('perjadin', 'laporan', 'barang_modal', 'barang_jasa', 'formattedData'));
     }
 
 

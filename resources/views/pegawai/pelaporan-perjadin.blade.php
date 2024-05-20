@@ -68,10 +68,10 @@
                                         <div class="col-sm-9">
                                             <select class="form-control text-black" name="jns_transportasi_berangkat">
                                                 <option selected>Pilih Jenis Transportasi</option>
-                                                <option value="pesawat-berangkat">Pesawat</option>
-                                                <option value="kereta-api-berangkat">Kereta Api</option>
-                                                <option value="bis-berangkat">Bis</option>
-                                                <option value="kapal-berangkat">Kapal</option>
+                                                <option value="Pesawat">Pesawat</option>
+                                                <option value="Kereta Api">Kereta Api</option>
+                                                <option value="Bis">Bis</option>
+                                                <option value="Kapal Laut">Kapal</option>
                                             </select>
                                         </div>
                                     </div>
@@ -137,10 +137,10 @@
                                         <div class="col-sm-9">
                                             <select class="form-control text-black" name="jns_transportasi_kembali">
                                                 <option selected>Pilih Jenis Transportasi</option>
-                                                <option value="pesawat">Pesawat</option>
-                                                <option value="kereta-api">Kereta Api</option>
-                                                <option value="bis">Bis</option>
-                                                <option value="kapal">Kapal</option>
+                                                <option value="Pesawat">Pesawat</option>
+                                                <option value="Kereta Api">Kereta Api</option>
+                                                <option value="Bis">Bis</option>
+                                                <option value="Kapal Laut">Kapal</option>
                                             </select>
                                         </div>
                                     </div>

@@ -12,13 +12,13 @@ class PDFController extends Controller
 {
     public function generatePDF($id)
     {
-        $users = User::get();
+        $user = User::get();
         $perjadin = PerjalananDinas::findOrFail($id);
 
         $data = [
             'title' => 'Surat Perintah Perjalanan Dinas',
             'date' => date('m/d/Y'),
-            'users' => $users,
+            'user' => $user,
             'perjadin' => $perjadin
         ];
 

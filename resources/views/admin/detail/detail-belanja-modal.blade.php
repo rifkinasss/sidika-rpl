@@ -6,7 +6,7 @@
         <div class="col-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Data Pengaju</h4>
+                    <h4 class="card-title">Data Pengajuan</h4>
                     <div class="row">
                         <div class="form-group col-sm-4">
                             <label for="nama_lengkap">Nama Lengkap</label>
@@ -41,8 +41,8 @@
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="nomor-spk-modal">Nomor Surat</label>
-                            <input type="text" class="form-control" id="nomor-spk-modal" value="{{ $barmod->nomor_surat_spk }}"
-                                disabled>
+                            <input type="text" class="form-control" id="nomor-spk-modal"
+                                value="{{ $barmod->nomor_surat_spk }}" disabled>
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="jenis-spk-modal">Jenis Belanja Modal</label>
@@ -297,7 +297,8 @@
                         </div>
                     </div>
                     <div class="d-grid gap-2 d-md-flex justify-content-between mt-3">
-                        <a href="{{ url('/dashboard-admin/verifikasi-belanja-modal') }}" class="btn btn-secondary mt-2 mb-2">Kembali</a>
+                        <a href="{{ url('/dashboard-admin/verifikasi-belanja-modal') }}"
+                            class="btn btn-secondary mt-2 mb-2">Kembali</a>
                         @if ($barmod->status != 'Disetujui' && $barmod->status != 'Ditolak')
                             <form action="{{ route('verifikasi-belanja-modal.update', $barmod->id) }}" method="POST">
                                 @method('PUT')
