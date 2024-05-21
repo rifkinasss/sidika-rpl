@@ -277,4 +277,50 @@
         </form>
         {{-- end of div.row --}}
     </div>
+
+    <script>
+        function calculateDays(startDate, endDate) {
+            const start = new Date(startDate);
+            const end = new Date(endDate);
+            const diffTime = Math.abs(end - start);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            return diffDays;
+        }
+
+        document.getElementById('mulai-kontrak-barjas').addEventListener('change', function() {
+            const startDate = this.value;
+            const endDate = document.getElementById('berakhir-kontrak-barjas').value;
+            if (startDate && endDate) {
+                const days = calculateDays(startDate, endDate);
+                document.getElementById('jumlah-hari-kontrak-barjas').value = days;
+            }
+        });
+
+        document.getElementById('berakhir-kontrak-barjas').addEventListener('change', function() {
+            const startDate = document.getElementById('mulai-kontrak-barjas').value;
+            const endDate = this.value;
+            if (startDate && endDate) {
+                const days = calculateDays(startDate, endDate);
+                document.getElementById('jumlah-hari-kontrak-barjas').value = days;
+            }
+        });
+
+        document.getElementById('mulai-adendum-barjas').addEventListener('change', function() {
+            const startDate = this.value;
+            const endDate = document.getElementById('berakhir-adendum-barjas').value;
+            if (startDate && endDate) {
+                const days = calculateDays(startDate, endDate);
+                document.getElementById('jumlah-hari-adendum-barjas').value = days;
+            }
+        });
+
+        document.getElementById('berakhir-adendum-barjas').addEventListener('change', function() {
+            const startDate = document.getElementById('mulai-adendum-barjas').value;
+            const endDate = this.value;
+            if (startDate && endDate) {
+                const days = calculateDays(startDate, endDate);
+                document.getElementById('jumlah-hari-adendum-barjas').value = days;
+            }
+        });
+    </script>
 @endsection
