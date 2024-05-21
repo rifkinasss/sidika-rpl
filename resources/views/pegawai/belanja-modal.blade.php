@@ -19,7 +19,7 @@
                             <div class="form-group col-sm-4">
                                 <label for="nomor-spk-modal">Nomor Surat</label>
                                 <input type="number" class="form-control" name="nomor_surat_spk" id="nomor-spk-modal"
-                                placeholder="Akan terisi setelah disetujui oleh admin" disabled>
+                                    placeholder="Akan terisi setelah disetujui oleh admin" disabled>
                             </div>
                             <div class="form-group col-sm-4">
                                 <label for="jenis-spk-modal">Jenis Belanja Modal</label>
@@ -109,8 +109,8 @@
                             <label for="uraian-adendum-modal" class="col-sm-3 col-form-label">Uraian Adendum (Beserta
                                 Nilai)</label>
                             <div class="col-sm-9">
-                                <textarea class="form-control" name="uraian_adendum" id="uraian-adendum-modal"
-                                    placeholder="" rows="4" required></textarea>
+                                <textarea class="form-control" name="uraian_adendum" id="uraian-adendum-modal" placeholder="" rows="4"
+                                    required></textarea>
                             </div>
                         </div>
                         <hr>
@@ -203,7 +203,8 @@
                                         <span class="input-group-text">0.00</span>
                                     </div>
                                     <input type="number" class="form-control" name="nilai_pemeliharaan"
-                                        id="nilai-pemeliharaan-modal" aria-label="Amount (to the nearest dollar)" required>
+                                        id="nilai-pemeliharaan-modal" aria-label="Amount (to the nearest dollar)"
+                                        required>
                                 </div>
                             </div>
                         </div>
@@ -278,4 +279,50 @@
         </form>
         {{-- end of div.row --}}
     </div>
+
+    <script>
+        function calculateDays(startDate, endDate) {
+            const start = new Date(startDate);
+            const end = new Date(endDate);
+            const timeDiff = end - start;
+            const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            return daysDiff;
+        }
+
+        document.getElementById('mulai-kontrak-modal').addEventListener('change', function() {
+            const startDate = this.value;
+            const endDate = document.getElementById('berakhir-kontrak-modal').value;
+            if (startDate && endDate) {
+                const days = calculateDays(startDate, endDate);
+                document.getElementById('jumlah-hari-kontrak-modal').value = days;
+            }
+        });
+
+        document.getElementById('berakhir-kontrak-modal').addEventListener('change', function() {
+            const startDate = document.getElementById('mulai-kontrak-modal').value;
+            const endDate = this.value;
+            if (startDate && endDate) {
+                const days = calculateDays(startDate, endDate);
+                document.getElementById('jumlah-hari-kontrak-modal').value = days;
+            }
+        });
+
+        document.getElementById('mulai-adendum-modal').addEventListener('change', function() {
+            const startDate = this.value;
+            const endDate = document.getElementById('berakhir-adendum-modal').value;
+            if (startDate && endDate) {
+                const days = calculateDays(startDate, endDate);
+                document.getElementById('jumlah-hari-adendum-modal').value = days;
+            }
+        });
+
+        document.getElementById('berakhir-adendum-modal').addEventListener('change', function() {
+            const startDate = document.getElementById('mulai-adendum-modal').value;
+            const endDate = this.value;
+            if (startDate && endDate) {
+                const days = calculateDays(startDate, endDate);
+                document.getElementById('jumlah-hari-adendum-modal').value = days;
+            }
+        });
+    </script>
 @endsection
