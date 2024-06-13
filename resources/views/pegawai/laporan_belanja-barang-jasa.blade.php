@@ -1,24 +1,87 @@
 @extends('pegawai.layouts.app')
 
 @section('content')
+<style>
+    /* Custom CSS for sidebar */
+    .sidebar {
+        height: calc(100vh - 159px);
+        position: fixed;
+        left: 0;
+        top: 159px;
+        background-color: #ffffff;
+        width: 250px;
+        padding-top: 20px;
+    }
+
+    .sidebar .nav-link {
+        color: #0082D4;
+        font-weight: 500;
+        background-color: #ffffff;
+    }
+
+    .sidebar .nav-link:hover {
+        background-color: rgba(0, 131, 212, 0.3);
+        color: #ffffff;
+    }
+
+    .menu-icon {
+        margin-right: 10px;
+    }
+
+    .page-body-wrapper {
+        background-color: #ffffff
+    }
+
+    .menu-title {
+        margin-left: 5px;
+    }
+
+    .main-panel {
+        margin-left: 250px; /* adjust based on sidebar width */
+        padding: 20px;
+    }
+
+    @media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+    .main-panel {
+        margin-left: 0;
+    }
+    }
+</style>
+<div class="sidebar">
+    <h3 class="ms-3">Navigasi</h3>
+    <nav class="nav flex-column">
+        <a class="nav-link py-4 active" href="#surat-surat-barjas">
+            <i class="mdi mdi-email menu-icon"></i>
+            <span class="menu-title">Surat-surat</span>
+        </a>
+        <a class="nav-link py-4" href="#persentase-progress-barjas">
+            <i class="mdi mdi-progress-check menu-icon"></i>
+            <span class="menu-title">Persentase Progress</span>
+        </a>
+    </nav>
+</div>
+<div class="content-wrapper">    
     <h1>Pelaporan Belanja Barang Jasa</h1>
-    <h6 style="color: red;" class="mb-4">Harap laporkan data selengkap-lengkapnya.*</h6>
+    <p class="mb-4 text-danger">Harap laporkan data selengkap-lengkapnya.*</p>
     <div class="row">
         <form action="{{ route('belanja-barang-jasa.update', $barjas->id) }}" method="POST">
             @method('PUT')
             @csrf
             {{-- card pertama --}}
-            <div class="col-12 grid-margin stretch-card">
+            <div class="col-sm-12 grid-margin stretch-card" id="surat-surat-barjas">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Sistem Pelaporan Monitoring Kontrak (SPMK)</h4>
                         <div class="row">
-                            <div class="form-group col-sm-6">
+                            <div class="form-group col-sm-12">
                                 <label for="nomor-spmk-barjas">Nomor</label>
                                 <input type="text" class="form-control" name="nomor_spmk" id="nomor-spmk-barjas"
                                     placeholder="Akan terisi setelah diverifikasi oleh admin" value="{{ $barjas->nomor_spmk }}" disabled>
                             </div>
-                            <div class="form-group col-sm-6">
+                            <div class="form-group col-sm-12">
                                 <label for="tanggal-spmk-barjas">Tanggal</label>
                                 <input type="date" class="form-control" name="tgl_spmk" id="tanggal-spmk-barjas"
                                     placeholder="DD/MM/YYYY" value="{{ $barjas->tgl_spmk ?? '' }}"
@@ -30,34 +93,26 @@
 
                         <h4 class="card-title">Berita Acara Serah Terima (BAST)</h4>
                         <div class="row mb-3">
-                            <div class="form-group col-sm-3">
+                            <div class="form-group col-sm-12">
                                 <label for="nomor-bast-barjas">Nomor</label>
                                 <input type="text" class="form-control" name="nomor_bast" id="nomor-bast-barjas"
                                     placeholder="Akan terisi setelah diverifikasi oleh admin" value="{{ $barjas->nomor_bast }}" disabled>
                             </div>
-                            <div class="form-group col-sm-3">
+                            <div class="form-group col-sm-12">
                                 <label for="tanggal-bast-barjas">Tanggal</label>
                                 <input type="date" class="form-control" name="tgl_bast" id="tanggal-bast-barjas"
                                     placeholder="DD/MM/YYYY" value="{{ $barjas->tgl_bast ?? '' }}"
                                     {{ $barjas->tgl_bast ? 'disabled' : '' }}>
                             </div>
-                            <div class="form-group col-sm-6">
+                            <div class="form-group col-sm-12">
                                 <label for="nilai-bast-barjas">Nilai</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text bg-success text-white">Rp.</span>
-                                    </div>
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">0.00</span>
-                                    </div>
-                                    <input type="number" class="form-control" name="nilai_bast" id="nilai-bast-barjas"
-                                        aria-label="Amount (to the nearest dollar)" value="{{ $barjas->nilai_bast ?? '' }}"
-                                        {{ $barjas->nilai_bast ? 'disabled' : '' }}>
-                                </div>
+                                <input type="number" class="form-control" name="nilai_bast" id="nilai-bast-barjas"
+                                    aria-label="Amount (to the nearest dollar)" value="{{ $barjas->nilai_bast ?? '' }}"
+                                    {{ $barjas->nilai_bast ? 'disabled' : '' }}>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-6">
+                            <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="mulai-bast-barjas">Tanggal Proses Hasil Operasi (PHO)</label>
                                     <input type="date" class="form-control" name="tgl_pho" id="mulai-bast-barjas"
@@ -65,7 +120,7 @@
                                         {{ $barjas->tgl_pho ? 'disabled' : '' }}>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="berakhir-bast-barjas">Tanggal Proses Hasil Operasi (FHO)</label>
                                     <input type="date" class="form-control" name="tgl_fho" id="berakhir-bast-barjas"
@@ -78,31 +133,23 @@
 
                         <h4 class="card-title">Surat Perintah Pencairan Dana (SP2D)</h4>
                         <div class="row">
-                            <div class="form-group col-sm-3">
+                            <div class="form-group col-sm-12">
                                 <label for="nomor-sp2d-barjas">Nomor</label>
                                 <input type="text" class="form-control" name="nomor_sp2d" id="nomor-sp2d-barjas"
                                     placeholder="Akan terisi setelah diverifikasi oleh admin" value="{{ $barjas->nomor_sp2d }}" disabled>
                             </div>
-                            <div class="form-group col-sm-3">
+                            <div class="form-group col-sm-12">
                                 <label for="tanggal-sp2d-barjas">Tanggal</label>
                                 <input type="date" class="form-control" name="tgl_sp2d" id="tanggal-sp2d-barjas"
                                     placeholder="DD/MM/YYYY" value="{{ $barjas->tgl_sp2d ?? '' }}"
                                     {{ $barjas->tgl_sp2d ? 'disabled' : '' }}>
                             </div>
-                            <div class="form-group col-sm-6">
+                            <div class="form-group col-sm-12">
                                 <label for="nilai-sp2d-barjas">Nilai</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text bg-success text-white">Rp.</span>
-                                    </div>
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">0.00</span>
-                                    </div>
-                                    <input type="number" class="form-control" name="nilai_sp2d" id="nilai-sp2d-barjas"
-                                        aria-label="Amount (to the nearest dollar)"
-                                        value="{{ $barjas->nilai_sp2d ?? '' }}"
-                                        {{ $barjas->nilai_sp2d ? 'disabled' : '' }}>
-                                </div>
+                                <input type="number" class="form-control" name="nilai_sp2d" id="nilai-sp2d-barjas"
+                                    aria-label="Amount (to the nearest dollar)"
+                                    value="{{ $barjas->nilai_sp2d ?? '' }}"
+                                    {{ $barjas->nilai_sp2d ? 'disabled' : '' }}>
                             </div>
                         </div>
                     </div>
@@ -110,12 +157,12 @@
             </div>
 
             {{-- card kedua presentase input --}}
-            <div class="col-12 grid-margin stretch-card">
+            <div class="col-sm-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
                         <label for="persentase-number-barjas" class="card-title">Persentase Progress</label>
                         <div class="row">
-                            <div class="col-sm-10">
+                            <div class="col-sm-12">
                                 <input type="range" class="form-range" id="persentase-range-barjas" min="0"
                                     max="100">
                             </div>
@@ -156,4 +203,5 @@
             document.getElementById('persentase-number-barjas').value = this.value;
         });
     </script>
+</div>
 @endsection

@@ -77,29 +77,23 @@
 		}
 		var bestSellersData = {
 			datasets: [{
-				data: [20, 15, 20, 35, 10],
+				data: [25, 15, 20],
 				backgroundColor: [
-					'#ee5b5b',
-					'#fcd53b',
+					'#0082D4',
 					'#0bdbb8',
-					'#464dee',
-					'#0ad7f7'
+					'#fcd53b'
 				],
 				borderColor: [
-					'#ee5b5b',
-					'#fcd53b',
+					'#0082D4',
 					'#0bdbb8',
-					'#464dee',
-					'#0ad7f7'
+					'#fcd53b'
 				],
 			}],
 			// These labels appear in the legend and in the tooltips when hovering different arcs
 			labels: [
-				'Automotive',
-				'Books',
-				'Software',
-				'Toys',
-				'Video games'
+				'Perjalanan Dinas',
+				'Belanja Modal',
+				'Belanja Barang Jasa'
 			]
 		};
 		var bestSellersOptions = {
@@ -232,33 +226,33 @@
 		var revenueChartData = {
 			labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "No", "Dec"],
 			datasets: [{
-				label: 'Margin',
+				label: 'Perjalanan Dinas',
 				data: [45, 45, 70, 70, 50, 50, 70, 60, 65, 60, 55, 55],
 				backgroundColor: [
-						'#0ddbb9',
+						'#0082D4',
 				],
 				borderColor: [
-						'#0ddbb9'
+						'#0082D4'
 				],
 				borderWidth: 2,
 				fill: false,
 			},
 			{
-				label: 'Product',
+				label: 'Belanja Modal',
 				borderDash: [3, 4],
 				data: [35, 35, 60, 60, 40, 40, 60, 50, 55, 50, 45, 45],
 				borderColor: [
-						'#464dee',
+						'#0ddbb9',
 				],
 				borderWidth: 2,
 				fill: false,
 				pointBorderWidth: 4,
 			},
 			{
-				label: 'Cost',
+				label: 'Belanja Barang Jasa',
 				data: [25, 25, 50, 50, 30, 30, 50, 40, 45, 40, 35, 35],
 				borderColor: [
-						'#ee5b5b',
+						'#fcd53b',
 				],
 				borderWidth: 2,
 				fill: false,
@@ -352,14 +346,14 @@
 				borderDash: [3, 4],
 				data: [35, 35, 60, 60, 40, 40, 60, 50, 55, 50, 45, 45],
 				borderColor: [
-						'#464dee',
+						'#0082D4',
 				],
 				borderWidth: 2,
 				fill: false,
 				pointBorderWidth: 4,
 			},
 			{
-				label: 'Cost',
+				label: 'Belanja Barang Jasa',
 				data: [25, 25, 50, 50, 30, 30, 50, 40, 45, 40, 35, 35],
 				borderColor: [
 						'#ee5b5b',
@@ -455,7 +449,7 @@
 						borderDash: [3, 4],
 						data: [35, 35, 60, 60, 40, 40, 60, 50, 55, 50, 45, 45],
 						borderColor: [
-								'#464dee',
+								'#0082D4',
 						],
 						borderWidth: 2,
 						fill: false,
@@ -557,7 +551,7 @@
 				borderDash: [3, 4],
 				data: [35, 35, 60, 60, 40, 40, 60, 50, 55, 50, 45, 45],
 				borderColor: [
-						'#464dee',
+						'#0082D4',
 				],
 				borderWidth: 2,
 				fill: false,
@@ -666,7 +660,7 @@
 						'rgba(70, 77, 238, 1)',
 				],
 				borderColor: [
-						'#464dee',
+						'#0082D4',
 				],
 				borderWidth: 2,
 				fill: true,
@@ -1051,19 +1045,19 @@
 		var supportTrackerData = {
 			labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", ],
 			datasets: [{
-				label: 'New Tickets',
+				label: 'Disetujui',
 				data: [640, 750, 500, 400, 1200, 650, 550, 450, 400],
 				backgroundColor: [
-					'#464dee', '#464dee', '#464dee', '#464dee', '#464dee', '#464dee', '#464dee', '#464dee', '#464dee', 
+					'#0082D4', '#0082D4', '#0082D4', '#0082D4', '#0082D4', '#0082D4', '#0082D4', '#0082D4', '#0082D4', 
 				],
 				borderColor: [
-					'#464dee', '#464dee', '#464dee', '#464dee',  '#464dee', '#464dee', '#464dee', '#464dee', '#464dee', 
+					'#0082D4', '#0082D4', '#0082D4', '#0082D4',  '#0082D4', '#0082D4', '#0082D4', '#0082D4', '#0082D4', 
 				],
 				borderWidth: 1,
 				fill: false
 			},
 			{
-					label: 'Open Tickets',
+					label: 'Diajukan',
 					data: [800, 550, 700, 600, 1100, 650, 550, 650, 850],					
 					backgroundColor: [
 						'#d8d8d8', '#d8d8d8', '#d8d8d8', '#d8d8d8', '#d8d8d8', '#d8d8d8', '#d8d8d8', '#d8d8d8', '#d8d8d8', 

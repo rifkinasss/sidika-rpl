@@ -1,6 +1,7 @@
 @extends('pegawai.layouts.app')
 
 @section('content')
+<div class="content-wrapper">
     <div class="row">
 
         {{-- card pertama --}}
@@ -66,4 +67,5 @@
 
 
     </div>
+</div>
 @endsection

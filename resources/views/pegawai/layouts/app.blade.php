@@ -14,8 +14,6 @@
     <!-- endinject -->
     {{-- Leaflet API --}}
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <!-- endinject -->
@@ -56,10 +54,8 @@
         @include('pegawai.layouts.partials.navbar')
         <div class="container-fluid page-body-wrapper">
             <div class="main-panel">
-                <div class="content-wrapper">
-                    @yield('content')
-                </div>
-                <!-- content-wrapper ends -->
+                {{-- content-wrapper ada di section --}}
+                @yield('content')
             </div>
             <!-- main-panel ends -->
         </div>
@@ -84,8 +80,6 @@
     <!-- Custom js for this page-->
     <script src='{{ asset('js/dashboard.js') }}'></script>
     <!-- End custom js for this page-->
-    <!-- jQuery (diperlukan untuk Bootstrap 5) -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     {{-- Leaflet JS --}}
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
@@ -106,8 +100,6 @@
     <!-- Form Handler Pengajuan Perjadin -->
     <script src="{{ asset('js/form-handler.js') }}"></script>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

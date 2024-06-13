@@ -27,8 +27,9 @@
                             </div>
                         </div>
                     </a>
-                    <a class="navbar-brand brand-logo-mini" href="{{ url('dashboard') }}"><img
-                            src="{{ asset('images/logo-mini.svg') }}" alt="logo" /></a>
+                    <a class="navbar-brand brand-logo-mini" href="{{ url('dashboard') }}">
+                        <img src="/images/SIDIKA_rpl.png" style="height: auto; width: 50px;" alt="logo sidika">
+                    </a>
                 </div>
 
                 {{-- Profile Navbar --}}
