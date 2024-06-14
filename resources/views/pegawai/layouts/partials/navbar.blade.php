@@ -33,40 +33,32 @@
                 </div>
 
                 {{-- Profile Navbar --}}
-                <ul class="navbar-nav navbar-nav-right">
+                <ul class="navbar-nav ms-auto navbar-nav-right">
                     @guest
                         @if (Route::has('login'))
-                            <li class="nav-item nav-profile dropdown">
-                                <a class="nav-link dropdown-toggle" href="{{ route('login') }}" data-bs-toggle="dropdown"
-                                    id="profileDropdown">{{ __('Login') }}</a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                         @endif
                         @if (Route::has('register'))
-                            <li class="nav-item nav-profile dropdown">
-                                <a class="nav-link dropdown-toggle" href="{{ route('register') }}" data-bs-toggle="dropdown"
-                                    id="profileDropdown">{{ __('Register') }}</a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                         @endif
                     @else
                         <li class="nav-item nav-profile dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
-                                id="profileDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                v-pre>
-                                <span class="nav-profile-name">{{ Auth::user()->nama }}<span
-                                        class="online-status"></span></span>
-                                <img src="{{ asset('images/faces/face2.jpg') }}" alt="profile" />
+                            <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="nav-profile-name">{{ Auth::user()->nama }}</span>
+                                <span class="online-status"></span>
+                                <img src="{{ asset('images/faces/face2.jpg') }}" alt="profile">
                             </a>
-                            <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
                                 <a class="dropdown-item" href="{{ route('profile') }}">
-                                    <i class="mdi mdi-settings text-primary"></i>
-                                    Settings
+                                    <i class="mdi mdi-settings text-primary"></i> Settings
                                 </a>
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    <i class="mdi mdi-logout text-primary"></i>
-                                    {{ __('Logout') }}
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="mdi mdi-logout text-primary"></i> {{ __('Logout') }}
                                 </a>
-
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>

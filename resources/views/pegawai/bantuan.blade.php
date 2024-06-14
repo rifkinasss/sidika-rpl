@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <h4 class="card-title">Hubungi Kami</h4>
                     <p class="mt-4">
-                        Kamu punya pertanyaan atau keluhan terkait kendala pada layanan aplikasi GoPay? Hubungi kami melalui
+                        Kamu punya pertanyaan atau keluhan terkait kendala pada layanan aplikasi SIDIKA? Hubungi kami melalui
                         email dan call center di bawah ini!
                     </p>
                     <ul style="list-style-type: none;">
@@ -24,7 +24,7 @@
                         </li>
                     </ul>
                     <p class="mt-4">
-                        Kamu juga bisa mendapatkan lebih banyak informasi mengenai GoPay dari akun resmi media sosial GoPay
+                        Kamu juga bisa mendapatkan lebih banyak informasi mengenai SIDIKA dari akun resmi media sosial SIDIKA
                         berikut!
                     </p>
                     <ul style="list-style-type: none;">
