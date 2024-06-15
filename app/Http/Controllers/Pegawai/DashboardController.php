@@ -12,7 +12,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        // Fetch the raw data from the database including the year
+        // Fetch the data for the chart
         $dataForChart = PerjalananDinas::selectRaw('DATE_FORMAT(created_at, "%Y-%m") as month, COUNT(*) as total')
             ->groupBy('month')
             ->orderBy('month')
@@ -34,7 +34,7 @@ class DashboardController extends Controller
             '12' => 'Desember',
         ];
 
-        // Format the data
+        // Format the data for the chart
         $formattedData = [];
         foreach ($dataForChart as $data) {
             $yearMonth = explode('-', $data->month);
@@ -43,18 +43,26 @@ class DashboardController extends Controller
 
             $formattedData[] = [
                 'month' => $months[$monthNumber] . ' ' . $year,
-                'total' => $data->total
+                'total' => $data->total,
             ];
         }
 
         // Fetch additional data
-        $perjadin = PerjalananDinas::all();
-        $laporan = PelaporanPerjadin::all();
-        $barang_modal = BarangModal::all();
-        $barang_jasa = BarangJasa::all();
+        $perjadinCount = PerjalananDinas::count();
+        $laporanCount = PelaporanPerjadin::count();
+        $barangModalCount = BarangModal::count();
+        $barangJasaCount = BarangJasa::count();
+        $jumlahDisetujui = PerjalananDinas::where('status', 'disetujui')->count();
 
         // Pass data to the view
-        return view('pegawai.dashboard', compact('perjadin', 'laporan', 'barang_modal', 'barang_jasa', 'formattedData'));
+        return view('pegawai.dashboard', compact(
+            'perjadinCount',
+            'laporanCount',
+            'barangModalCount',
+            'barangJasaCount',
+            'formattedData',
+            'jumlahDisetujui'
+        ));
     }
 
 

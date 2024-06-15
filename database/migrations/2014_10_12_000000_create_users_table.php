@@ -2,7 +2,9 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -32,6 +34,28 @@ return new class extends Migration
             $table->string('password');
             $table->timestamps();
         });
+
+        DB::table('users')->insert([
+            'nip' => null,
+            'nama' => 'Super Admin',
+            'email' => 'su-admin@urproj.com',
+            'role' => 'superadmin',
+            'jenisKelamin' => 'Laki-laki',
+            'agama' => 'Islam',
+            'alamat' => null,
+            'noHp' => null,
+            'tempat_lahir' => null,
+            'tanggal_lahir' => null,
+            'pendidikanTerakhir' => null,
+            'statusPerkawinan' => null,
+            'pangkat' => null,
+            'golongan' => null,
+            'jabatan' => null,
+            'unit_kerja' => null,
+            'password' => Hash::make('password'),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
     }
 
     /**

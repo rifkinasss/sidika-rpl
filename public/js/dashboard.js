@@ -62,7 +62,7 @@
 					align: 'start',
 					color: 'white',
 				}
-			}				
+			}
 
 		};
 		if ($("#salesDifference").length) {
@@ -112,8 +112,8 @@
 					 align: 'center',
 					 anchor: 'center'
 				}
-			}				
-	
+			}
+
 		};
 		if ($("#bestSellers").length) {
 			var pieChartCanvas = $("#bestSellers").get(0).getContext("2d");
@@ -209,8 +209,8 @@
 						align: 'center',
 						anchor: 'center'
 					}
-				}				
-		
+				}
+
 		}
 		};
 		if ($("#barChartStacked").length) {
@@ -314,8 +314,8 @@
 					align: 'center',
 					anchor: 'center'
 				}
-			}				
-	
+			}
+
 		};
 		if ($("#revenue-for-last-month-chart").length) {
 			var lineChartCanvas = $("#revenue-for-last-month-chart").get(0).getContext("2d");
@@ -418,8 +418,8 @@
 					align: 'center',
 					anchor: 'center'
 				}
-			}				
-	
+			}
+
 		};
 		if ($("#serveLoading").length) {
 			var lineChartCanvas = $("#serveLoading").get(0).getContext("2d");
@@ -521,7 +521,7 @@
 					align: 'center',
 					anchor: 'center'
 				}
-			}					
+			}
 		};
 		if ($("#dataManaged").length) {
 			var lineChartCanvas = $("#dataManaged").get(0).getContext("2d");
@@ -624,8 +624,8 @@
 					align: 'center',
 					anchor: 'center'
 				}
-			}				
-	
+			}
+
 		};
 		if ($("#salesTrafic").length) {
 			var lineChartCanvas = $("#salesTrafic").get(0).getContext("2d");
@@ -718,7 +718,7 @@
 					align: 'center',
 					anchor: 'center'
 				}
-			}				
+			}
 		};
 		if ($("#visitorsToday").length) {
 			var lineChartCanvas = $("#visitorsToday").get(0).getContext("2d");
@@ -781,7 +781,7 @@
 			elements: {
 				point: {
 					radius: 0
-				},		
+				},
 			},
 			plugins: {
 				datalabels: {
@@ -789,7 +789,7 @@
 					align: 'center',
 					anchor: 'center'
 				}
-			}				
+			}
 		};
 		if ($("#newClient").length) {
 			var lineChartCanvas = $("#newClient").get(0).getContext("2d");
@@ -837,8 +837,8 @@
 					align: 'center',
 					anchor: 'center'
 				}
-			}				
-	
+			}
+
 		};
 		if ($("#allProducts").length) {
 			var lineChartCanvas = $("#allProducts").get(0).getContext("2d");
@@ -886,8 +886,8 @@
 					align: 'center',
 					anchor: 'center'
 				}
-			}				
-	
+			}
+
 		};
 		if ($("#invoices").length) {
 			var lineChartCanvas = $("#invoices").get(0).getContext("2d");
@@ -935,7 +935,7 @@
 					align: 'center',
 					anchor: 'center'
 				}
-			}					
+			}
 		};
 		if ($("#projects").length) {
 			var lineChartCanvas = $("#projects").get(0).getContext("2d");
@@ -983,8 +983,8 @@
 					align: 'center',
 					anchor: 'center'
 				}
-			}				
-	
+			}
+
 		};
 		if ($("#orderRecieved").length) {
 			var lineChartCanvas = $("#orderRecieved").get(0).getContext("2d");
@@ -1032,7 +1032,7 @@
 					align: 'center',
 					anchor: 'center'
 				}
-			}				
+			}
 		};
 		if ($("#transactions").length) {
 			var lineChartCanvas = $("#transactions").get(0).getContext("2d");
@@ -1048,22 +1048,22 @@
 				label: 'Disetujui',
 				data: [640, 750, 500, 400, 1200, 650, 550, 450, 400],
 				backgroundColor: [
-					'#0082D4', '#0082D4', '#0082D4', '#0082D4', '#0082D4', '#0082D4', '#0082D4', '#0082D4', '#0082D4', 
+					'#0082D4', '#0082D4', '#0082D4', '#0082D4', '#0082D4', '#0082D4', '#0082D4', '#0082D4', '#0082D4',
 				],
 				borderColor: [
-					'#0082D4', '#0082D4', '#0082D4', '#0082D4',  '#0082D4', '#0082D4', '#0082D4', '#0082D4', '#0082D4', 
+					'#0082D4', '#0082D4', '#0082D4', '#0082D4',  '#0082D4', '#0082D4', '#0082D4', '#0082D4', '#0082D4',
 				],
 				borderWidth: 1,
 				fill: false
 			},
 			{
 					label: 'Diajukan',
-					data: [800, 550, 700, 600, 1100, 650, 550, 650, 850],					
+					data: [800, 550, 700, 600, 1100, 650, 550, 650, 850],
 					backgroundColor: [
-						'#d8d8d8', '#d8d8d8', '#d8d8d8', '#d8d8d8', '#d8d8d8', '#d8d8d8', '#d8d8d8', '#d8d8d8', '#d8d8d8', 
+						'#d8d8d8', '#d8d8d8', '#d8d8d8', '#d8d8d8', '#d8d8d8', '#d8d8d8', '#d8d8d8', '#d8d8d8', '#d8d8d8',
 					],
 					borderColor: [
-						'#d8d8d8', '#d8d8d8', '#d8d8d8', '#d8d8d8', '#d8d8d8', '#d8d8d8', '#d8d8d8', '#d8d8d8', '#d8d8d8', 
+						'#d8d8d8', '#d8d8d8', '#d8d8d8', '#d8d8d8', '#d8d8d8', '#d8d8d8', '#d8d8d8', '#d8d8d8', '#d8d8d8',
 					],
 					borderWidth: 1,
 					fill: false
@@ -1128,7 +1128,7 @@
 					align: 'center',
 					anchor: 'center'
 				}
-			}				
+			}
 		};
 		if ($("#supportTracker").length) {
 			var barChartCanvas = $("#supportTracker").get(0).getContext("2d");

@@ -12,6 +12,7 @@ use App\Http\Controllers\Pegawai\BelanjaModalController;
 use App\Http\Controllers\Pegawai\PerjalananDinasController;
 use App\Http\Controllers\Pegawai\BelanjaBarangJasaController;
 use App\Http\Controllers\Pegawai\PelaporanPerjadinController;
+use App\Http\Controllers\Pegawai\ProfileController;
 use App\Http\Controllers\Admin\VerifikasiBelanjaModalController;
 use App\Http\Controllers\Admin\VerifikasiPerjalananDinasController;
 use App\Http\Controllers\Admin\VerifikasiBelanjaBarangJasaController;
@@ -79,7 +80,6 @@ Route::middleware('pegawai')->group(function () {
     Route::resource('perjalanan-dinas', PerjalananDinasController::class);
     Route::resource('pelaporan-perjadin', PelaporanPerjadinController::class);
     Route::post('/pelaporan-perjadin/{id}', [PelaporanPerjadinController::class, 'store'])->name('pelaporan-perjadin.store');
-    // Route::get('/pelaporan-perjalanan-dinas/{id}', [PelaporanPerjadinController::class, 'lapor']);
     Route::resource('belanja-modal', BelanjaModalController::class);
     Route::get('belanja-modal/detail/{id}', [BelanjaModalController::class, 'detail'])->name('belanja-modal.detail');
     Route::resource('belanja-barang-jasa', BelanjaBarangJasaController::class);
@@ -87,8 +87,6 @@ Route::middleware('pegawai')->group(function () {
     Route::get('/bantuan', function () {
         return view('pegawai.bantuan');
     })->name('bantuan');
-    Route::get('/profile', function () {
-        return view('pegawai.profile');
-    })->name('profile');
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
     Route::get('/SPPD/{id}', [PDFController::class, 'generatePDF'])->name('SPPD');
 });

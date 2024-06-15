@@ -3,140 +3,153 @@
 @section('content')
     <div class="content-wrapper bg-primary">
         <div class="row mt-4">
-        <h2 class="text-center text-light mb-4">Ringkasan {{ Auth::user()->nama }}</h2>
-        <div class="col-sm-6 grid-margin grid-margin-md-0 stretch-card">
-            <div class="card">
-            <div class="card-body">
-                <div class="d-flex align-items-center justify-content-between">
-                <h4 class="card-title">Perjalanan Dinas yang Diajukan</h4>
-                <h4 class="text-success font-weight-bold">Disetujui :<span class="text-dark ms-3">5</span></h4>
+            <h2 class="text-center text-light mb-4">Ringkasan {{ Auth::user()->nama }}</h2>
+            <div class="col-sm-6 grid-margin grid-margin-md-0 stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <h4 class="card-title">Perjalanan Dinas yang Diajukan</h4>
+                            <h4 class="text-success font-weight-bold">Disetujui :<span
+                                    class="text-dark ms-3">{{ $jumlahDisetujui }}</span></h4>
+                        </div>
+                        <div id="support-tracker-legend" class="support-tracker-legend"></div>
+                        <canvas id="supportTracker"></canvas>
+                    </div>
                 </div>
-                <div id="support-tracker-legend" class="support-tracker-legend"></div>
-                <canvas id="supportTracker"></canvas>
             </div>
+            <div class="col-sm-6 grid-margin grid-margin-md-0 stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-lg-flex align-items-center justify-content-between mb-4">
+                            <h4 class="card-title">Perbandingan Layanan yang Berhasil Diajukan</h4>
+                        </div>
+                        <div class="product-order-wrap padding-reduced">
+                            <canvas id="bestSellers"></canvas>
+                        </div>
+                        <ul class="graphl-legend-rectangle">
+                            <li><span class="bg-primary"></span>Perjalanan Dinas</li>
+                            <li><span class="bg-success"></span>Belanja Modal</li>
+                            <li><span class="bg-warning"></span>Belanja Barang Jasa</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-sm-6 grid-margin grid-margin-md-0 stretch-card">
-            <div class="card">
-            <div class="card-body">
-                <div class="d-lg-flex align-items-center justify-content-between mb-4">
-                <h4 class="card-title">Perbandingan Layanan yang Berhasil Diajukan</h4>
-                </div>
-                <div class="product-order-wrap padding-reduced">
-                <canvas id="bestSellers"></canvas>
-                </div>
-                <ul class="graphl-legend-rectangle">
-                <li><span class="bg-primary"></span>Perjalanan Dinas</li>
-                <li><span class="bg-success"></span>Belanja Modal</li>
-                <li><span class="bg-warning"></span>Belanja Barang Jasa</li>
-                </ul>
-            </div>
-            </div>
-        </div>
-        </div>
-		<div class="row mt-4">
+        <div class="row mt-4">
             <div class="col-sm-8 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <div class="d-flex align-items-center justify-content-between">
-                    <h4 class="card-title mb-2">Tren Jumlah Perjalanan Dinas, Belanja Modal & Belanja Barang Jasa</h4>
-                    <div class="dropdown">
-                      <a href="#" class="text-success btn btn-link  px-1"><i class="mdi mdi-refresh"></i></a>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <h4 class="card-title mb-2">Tren Jumlah Perjalanan Dinas, Belanja Modal & Belanja Barang Jasa
+                            </h4>
+                            <div class="dropdown">
+                                <a href="#" class="text-success btn btn-link  px-1"><i
+                                        class="mdi mdi-refresh"></i></a>
+                            </div>
+                        </div>
+                        <div>
+                            <ul class="nav nav-tabs tab-no-active-fill" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active ps-2 pe-2" id="revenue-for-last-month-tab"
+                                        data-bs-toggle="tab" href="#revenue-for-last-month" role="tab"
+                                        aria-controls="revenue-for-last-month" aria-selected="true">Seminggu Terakhir</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link ps-2 pe-2" id="server-loading-tab" data-bs-toggle="tab"
+                                        href="#server-loading" role="tab" aria-controls="server-loading"
+                                        aria-selected="false">Sebulan Terakhir</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link ps-2 pe-2" id="data-managed-tab" data-bs-toggle="tab"
+                                        href="#data-managed" role="tab" aria-controls="data-managed"
+                                        aria-selected="false">Setahun Terakhir</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content tab-no-active-fill-tab-content">
+                                <div class="tab-pane fade show active" id="revenue-for-last-month" role="tabpanel"
+                                    aria-labelledby="revenue-for-last-month-tab">
+                                    <div class="d-lg-flex justify-content-between">
+                                        <p class="mb-4"></p>
+                                        <div id="revenuechart-legend" class="revenuechart-legend">f</div>
+                                    </div>
+                                    <canvas id="revenue-for-last-month-chart"></canvas>
+                                </div>
+                                <div class="tab-pane fade" id="server-loading" role="tabpanel"
+                                    aria-labelledby="server-loading-tab">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="mb-4"></p>
+                                        <div id="serveLoading-legend" class="revenuechart-legend">f</div>
+                                    </div>
+                                    <canvas id="serveLoading"></canvas>
+                                </div>
+                                <div class="tab-pane fade" id="data-managed" role="tabpanel"
+                                    aria-labelledby="data-managed-tab">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="mb-4"></p>
+                                        <div id="dataManaged-legend" class="revenuechart-legend">f</div>
+                                    </div>
+                                    <canvas id="dataManaged"></canvas>
+                                </div>
+                                <div class="tab-pane fade" id="sales-by-traffic" role="tabpanel"
+                                    aria-labelledby="sales-by-traffic-tab">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="mb-4"></p>
+                                        <div id="salesTrafic-legend" class="revenuechart-legend">f</div>
+                                    </div>
+                                    <canvas id="salesTrafic"></canvas>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                  <div>
-                    <ul class="nav nav-tabs tab-no-active-fill" role="tablist">
-                      <li class="nav-item">
-                        <a class="nav-link active ps-2 pe-2" id="revenue-for-last-month-tab" data-bs-toggle="tab" href="#revenue-for-last-month" role="tab" aria-controls="revenue-for-last-month" aria-selected="true">Seminggu Terakhir</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link ps-2 pe-2" id="server-loading-tab" data-bs-toggle="tab" href="#server-loading" role="tab" aria-controls="server-loading" aria-selected="false">Sebulan Terakhir</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link ps-2 pe-2" id="data-managed-tab" data-bs-toggle="tab" href="#data-managed" role="tab" aria-controls="data-managed" aria-selected="false">Setahun Terakhir</a>
-                      </li>
-                    </ul>
-                    <div class="tab-content tab-no-active-fill-tab-content">
-                      <div class="tab-pane fade show active" id="revenue-for-last-month" role="tabpanel" aria-labelledby="revenue-for-last-month-tab">
-                        <div class="d-lg-flex justify-content-between">
-                          <p class="mb-4"></p>
-                          <div id="revenuechart-legend" class="revenuechart-legend">f</div>
-                        </div>
-                        <canvas id="revenue-for-last-month-chart"></canvas>
-                      </div>
-                      <div class="tab-pane fade" id="server-loading" role="tabpanel" aria-labelledby="server-loading-tab">
-                        <div class="d-flex justify-content-between">
-                          <p class="mb-4"></p>
-                          <div id="serveLoading-legend" class="revenuechart-legend">f</div>
-                        </div>
-                        <canvas id="serveLoading"></canvas>
-                      </div>
-                      <div class="tab-pane fade" id="data-managed" role="tabpanel" aria-labelledby="data-managed-tab">
-                        <div class="d-flex justify-content-between">
-                          <p class="mb-4"></p>
-                          <div id="dataManaged-legend" class="revenuechart-legend">f</div>
-                        </div>
-                        <canvas id="dataManaged"></canvas>
-                      </div>
-                      <div class="tab-pane fade" id="sales-by-traffic" role="tabpanel" aria-labelledby="sales-by-traffic-tab">
-                        <div class="d-flex justify-content-between">
-                          <p class="mb-4"></p>
-                          <div id="salesTrafic-legend" class="revenuechart-legend">f</div>
-                        </div>
-                        <canvas id="salesTrafic"></canvas>
-                      </div>
-                    </div>
-                  </div>
                 </div>
-              </div>
             </div>
             <div class="col-sm-4 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title mb-2">Perjalanan Dinas Terbaik Anda</h4>
-                  <div class="row">
-                    <div class="col-lg-8">
-                      <h3 class="font-weight-bold text-secondary">Kota Jakarta Pusat, DKI Jakarta</h3>
-                      <p class="text-dark">23-10-2023 - 28-10-2023</p>
-                      <div class="d-lg-flex align-items- mb-3">
-                      </div>
-                    </div>
-                    <div class="col-lg-4">
-                      <div class="position-relative">
-                        <img src="images/dashboard/live.png" class="w-100" alt="">
-                        <div class="live-info badge badge-success">Live</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-12 mt-4 mt-lg-0">
-                      <h4 class="mb-3">Biaya :</h4>
-                      <div class="bg-primary text-white px-4 py-4 card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title mb-2">Perjalanan Dinas Terbaik Anda</h4>
                         <div class="row">
-                          <div class="col-sm-6 pl-lg-5">
-                            <h2>Rp 3,3jt</h2>
-                            <p class="mb-0">Akomodasi</p>
-                          </div>
-                          <div class="col-sm-6 climate-info-border mt-lg-0 mt-2">
-                            <h2>Rp 3,4jt</h2>
-                            <p class="mb-0">Transportasi</p>
-                          </div>
+                            <div class="col-lg-8">
+                                <h3 class="font-weight-bold text-secondary">Kota Jakarta Pusat, DKI Jakarta</h3>
+                                <p class="text-dark">23-10-2023 - 28-10-2023</p>
+                                <div class="d-lg-flex align-items- mb-3">
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="position-relative">
+                                    <img src="images/dashboard/live.png" class="w-100" alt="">
+                                    <div class="live-info badge badge-success">Live</div>
+                                </div>
+                            </div>
                         </div>
-                      </div>
+                        <div class="row">
+                            <div class="col-sm-12 mt-4 mt-lg-0">
+                                <h4 class="mb-3">Biaya :</h4>
+                                <div class="bg-primary text-white px-4 py-4 card">
+                                    <div class="row">
+                                        <div class="col-sm-6 pl-lg-5">
+                                            <h2>Rp 3,3jt</h2>
+                                            <p class="mb-0">Akomodasi</p>
+                                        </div>
+                                        <div class="col-sm-6 climate-info-border mt-lg-0 mt-2">
+                                            <h2>Rp 3,4jt</h2>
+                                            <p class="mb-0">Transportasi</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 mt-4">
+                            <h4 class="text-dark">Keperluan Perjalanan Dinas :</h4>
+                            <p>Pembayaran biaya perjalanan dinas ke DKI Jakarta dalam rangka menghadiri rangkaian..</p>
+                            <h4 class="text-dark mt-4">Penginapan :</h4>
+                            <p>HOTEL MARRAKESH INN</p>
+                            <h4 class="text-dark mt-4">Transportasi :</h4>
+                            <p>SUPER AIR JET & BATIK AIR</p>
+                        </div>
                     </div>
-                  </div>
-                  <div class="col-sm-12 mt-4">
-                    <h4 class="text-dark">Keperluan Perjalanan Dinas :</h4>
-                    <p>Pembayaran biaya perjalanan dinas ke DKI Jakarta dalam rangka menghadiri rangkaian..</p>
-                    <h4 class="text-dark mt-4">Penginapan :</h4>
-                    <p>HOTEL MARRAKESH INN</p>
-                    <h4 class="text-dark mt-4">Transportasi :</h4>
-                    <p>SUPER AIR JET & BATIK AIR</p>
-                  </div>
                 </div>
-              </div>
             </div>
-		</div>
+        </div>
         <div class="row">
             <div class="col-sm-12 flex-column d-flex stretch-card">
                 <div class="row">
@@ -179,7 +192,7 @@
                 </div>
             </div>
         </div>
-	</div>
+    </div>
 
     <div class="content-wrapper">
         <h3 class="text-primary text-center font-weight-bold mb-2">Tabel {{ Auth::user()->nama }}</h3>
@@ -254,7 +267,8 @@
                                     <td>
                                         <div class="flex-container">
                                             <span class="currency">Rp</span>
-                                            <span class="amount">{{ number_format($p->jumlah_dibayarkan, 0, ',', '.') }}</span>
+                                            <span
+                                                class="amount">{{ number_format($p->jumlah_dibayarkan, 0, ',', '.') }}</span>
                                         </div>
                                     </td>
                                     <td class="text-center">

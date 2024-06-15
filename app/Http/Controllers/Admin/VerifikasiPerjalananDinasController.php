@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Pegawai\PerjalananDinas;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Mail\PerjalananDinasApproved;
+use App\Mail\PerjalananDinasRejected;
+use Illuminate\Support\Facades\Mail;
 
 class VerifikasiPerjalananDinasController extends Controller
 {
@@ -34,11 +37,16 @@ class VerifikasiPerjalananDinasController extends Controller
                 'nomor_surat' => $nomorSurat,
                 'status' => 'Disetujui',
             ]);
-            
+
+            // Send approval email
+            Mail::to($perjalanandinas->user->email)->send(new PerjalananDinasApproved($perjalanandinas));
         } elseif ($request->has('ditolak')) {
             $perjalanandinas->update([
                 'status' => 'Ditolak',
             ]);
+
+            // Send rejection email
+            Mail::to($perjalanandinas->user->email)->send(new PerjalananDinasRejected($perjalanandinas));
         }
 
         return redirect()->route('verifikasi-perjalanan-dinas.index')->with('success', 'Status perjalanan dinas berhasil diperbarui.');

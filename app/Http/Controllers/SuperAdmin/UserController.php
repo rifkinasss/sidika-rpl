@@ -13,7 +13,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::all();
+        $users = User::where('role', '!=', 'superadmin')->get();
         return view('superadmin.user', compact('users'));
     }
     public function create()
@@ -47,7 +47,7 @@ class UserController extends Controller
             'password' => $request->password,
         ]);
 
-        return redirect()->route('dashboard-superadmin.user.index');
+        return redirect()->route('user.index');
     }
     public function edit(string $id)
     {
