@@ -12,15 +12,6 @@ class UserSeeder extends Seeder
     {
         $users = [
             [
-                'nip' => '123456789101234567',
-                'nama' => 'Super Admin',
-                'email' => 'su-admin@urproj.com',
-                'role' => 'superadmin',
-                'jabatan' => 'Super Admin',
-                'unit_kerja' => 'Super Admin',
-                'password' => bcrypt('password'),
-            ],
-            [
                 'nip' => '234567891012345678',
                 'nama' => 'Admin',
                 'email' => 'admin@urproj.com',

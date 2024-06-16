@@ -135,8 +135,11 @@
                                     <th>
                                         <b>Unit Kerja</b>
                                     </th>
-                                    <th>
+                                    {{-- <th>
                                         <b>Password</b>
+                                    </th> --}}
+                                    <th>
+                                        <b>Action</b>
                                     </th>
                                 </tr>
                             </thead>
@@ -170,9 +173,9 @@
                                         <td>
                                             {{ $u->unit_kerja }}
                                         </td>
-                                        <td>
+                                        {{-- <td>
                                             {{ $u->password }}
-                                        </td>
+                                        </td> --}}
                                         <td>
                                             <a href="{{ route('user.edit', $u->id) }}" class="btn btn-success"><i
                                                     class="mdi mdi-pencil text-white"></i></a>
