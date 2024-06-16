@@ -41,6 +41,6 @@ class VerifikasiPerjalananDinasController extends Controller
             ]);
         }
 
-        return redirect()->route('verifikasi-perjalanan-dinas.index')->with('success', 'Status perjalanan dinas berhasil diperbarui.');
+        return redirect()->route('verifikasi-perjalanan-dinas.index')->with('verif-perjadin', 'Status perjalanan dinas berhasil diperbarui.');
     }
 }

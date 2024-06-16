@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="/vendors/base/vendor.bundle.base.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="shortcut icon" href="/images/favicon.png" />
+    {{-- sweetalert --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>

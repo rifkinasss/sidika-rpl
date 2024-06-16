@@ -50,7 +50,7 @@ class VerifikasiBelanjaModalController extends Controller
             ]);
         }
 
-        return redirect()->route('verifikasi-belanja-modal.index');
+        return redirect()->route('verifikasi-belanja-modal.index')->with('verif-barmod', 'Status belanja modal berhasil diperbarui.');
     }
 
     public function update(Request $request, string $id)
@@ -77,6 +77,6 @@ class VerifikasiBelanjaModalController extends Controller
             ]);
         }
 
-        return redirect()->route('verifikasi-belanja-modal.index')->with('success', 'Status pengajuan belanja modal berhasil diperbarui.');
+        return redirect()->route('verifikasi-belanja-modal.index')->with('verif-pel-barmod', 'Status progress belanja modal berhasil diperbarui.');
     }
 }

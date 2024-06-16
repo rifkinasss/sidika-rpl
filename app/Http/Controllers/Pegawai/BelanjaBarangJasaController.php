@@ -66,7 +66,7 @@ class BelanjaBarangJasaController extends Controller
             'metode_pengadaan_dpa' => $request->metode_pengadaan_dpa,
         ]);
 
-        return redirect()->route('pegawai');
+        return redirect()->route('pegawai')->with('belanja-barjas', 'Pengajuan belanja barang jasa berhasil dikirim.');
     }
 
     public function show($id)
@@ -105,6 +105,6 @@ class BelanjaBarangJasaController extends Controller
 
         } 
 
-        return redirect()->route('pegawai');
+        return redirect()->route('pegawai')->with('pel-belanja-barjas', 'Progress dokumen belanja barang jasa berhasil diperbarui.');
     }
 }

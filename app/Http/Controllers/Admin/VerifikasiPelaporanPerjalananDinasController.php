@@ -36,6 +36,6 @@ class VerifikasiPelaporanPerjalananDinasController extends Controller
             ]);
         }
 
-        return redirect()->route('verifikasi-pelaporan-perjadin.index');
+        return redirect()->route('verifikasi-pelaporan-perjadin.index')->with('verif-pel-perjadin', 'Status pelaporan perjalanan dinas berhasil diperbarui.');
     }
 }

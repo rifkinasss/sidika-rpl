@@ -66,7 +66,7 @@ class BelanjaModalController extends Controller
             'metode_pengadaan_dpa' => $request->metode_pengadaan_dpa,
         ]);
 
-        return redirect()->route('pegawai');
+        return redirect()->route('pegawai')->with('belanja-modal', 'Pengajuan belanja modal berhasil dikirim.');
     }
 
     public function show($id)
@@ -105,6 +105,6 @@ class BelanjaModalController extends Controller
 
         } 
 
-        return redirect()->route('pegawai');
+        return redirect()->route('pegawai')->with('pel-belanja-modal', 'Progress dokumen belanja modal berhasil diperbarui.');
     }
 }

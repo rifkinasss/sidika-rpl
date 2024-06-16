@@ -1,6 +1,18 @@
 @extends('admin.layouts.app')
 
 @section('content')
+<script>
+    @if(session('verif-pel-perjadin'))
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title : 'Berhasil Update!',
+            text: '{{ session('verif-pel-perjadin') }}',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    @endif
+</script>
     <div class="row">
         <div class="col-sm-12 grid-margin stretch-card">
             <div class="card mt-4">

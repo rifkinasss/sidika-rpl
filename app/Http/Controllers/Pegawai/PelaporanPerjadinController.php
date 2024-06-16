@@ -65,7 +65,7 @@ class PelaporanPerjadinController extends Controller
 
         $pelaporan->save();
 
-        return redirect()->route('pegawai', ['perjadin' => $perjadin->id])->with('success', 'Pelaporan berhasil diperbarui.');
+        return redirect()->route('pegawai', ['perjadin' => $perjadin->id])->with('pel-perjadin', 'Pelaporan berhasil diperbarui.');
     }
 
     public function destroy(string $id)

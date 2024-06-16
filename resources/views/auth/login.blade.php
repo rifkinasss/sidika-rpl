@@ -1,6 +1,18 @@
 @extends('layouts.master')
 
 @section('content')
+<script>
+    @if(session('error'))
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title : 'Login Gagal!',
+            text: '{{ session('error') }}',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    @endif
+</script>
     <div class="main-panel">
         <div class="content-wrapper d-flex align-items-center auth px-0">
             <div class="row w-100 mx-0">

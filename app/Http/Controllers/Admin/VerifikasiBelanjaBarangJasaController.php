@@ -50,7 +50,7 @@ class VerifikasiBelanjaBarangJasaController extends Controller
             ]);
         }
 
-        return redirect()->route('verifikasi-belanja-barang-jasa.index');
+        return redirect()->route('verifikasi-belanja-barang-jasa.index')->with('verif-barjas', 'Status barang jasa berhasil diperbarui.');
     }
 
     public function update(Request $request, string $id)
@@ -77,6 +77,6 @@ class VerifikasiBelanjaBarangJasaController extends Controller
             ]);
         }
 
-        return redirect()->route('verifikasi-belanja-barang-jasa.index')->with('success', 'Status pengajuan belanja barang jasa berhasil diperbarui.');
+        return redirect()->route('verifikasi-belanja-barang-jasa.index')->with('verif-pel-barjas', 'Status progress belanja barang jasa berhasil diperbarui.');
     }
 }

@@ -29,9 +29,9 @@ class UserController extends Controller
         if ($request->hasFile('file')) {
             Excel::import(new UsersImport, $request->file('file'));
 
-            return redirect()->back()->with('success', 'Pengguna berhasil diimpor.');
+            return redirect()->back()->with('success-import', 'Pengguna berhasil diimpor.');
         } else {
-            return redirect()->back()->with('error', 'File tidak ditemukan.');
+            return redirect()->back()->with('error-import', 'File tidak ditemukan.');
         }
     }
 
@@ -47,7 +47,7 @@ class UserController extends Controller
             'password' => $request->password,
         ]);
 
-        return redirect()->route('dashboard-superadmin.user.index');
+        return redirect()->route('user.index')->with('tambah-user', 'Pengguna berhasil dibuat.');
     }
     public function edit(string $id)
     {
@@ -71,12 +71,12 @@ class UserController extends Controller
             $user->password = bcrypt($request->password);
         }
 
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')->with('edit-user', 'User berhasil diperbarui.');
     }
     public function destroy(string $id)
     {
         $user = User::find($id);
         $user->delete();
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')->with('delet-user', 'User berhasil dihapus.');
     }
 }

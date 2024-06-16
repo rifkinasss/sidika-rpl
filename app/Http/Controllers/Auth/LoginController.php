@@ -45,11 +45,11 @@ class LoginController extends Controller
             $user = Auth::user();
 
             if ($user->role == 'pegawai') {
-                return redirect()->route('pegawai')->with('alert', 'Login berhasil! Selamat datang, pegawai.');
+                return redirect()->route('pegawai')->with('alert', 'Selamat datang, pegawai.');
             } elseif ($user->role == 'admin') {
-                return redirect()->route('admin')->with('alert', 'Login berhasil! Selamat datang, admin.');
+                return redirect()->route('admin')->with('alert', 'Selamat datang, admin.');
             } elseif ($user->role == 'superadmin') {
-                return redirect()->route('superadmin')->with('alert', 'Login berhasil! Selamat datang, superadmin.');
+                return redirect()->route('superadmin')->with('alert', 'Selamat datang, superadmin.');
             } else {
                 Auth::logout();
                 return redirect('/login')->with('error', 'Unauthorized access detected. Please contact support.');

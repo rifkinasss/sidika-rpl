@@ -85,12 +85,12 @@ class PerjalananDinasController extends Controller
 
         session()->flash('uang_total', $uang_total);
 
-        return redirect()->route('pegawai');
+        return redirect()->route('pegawai')->with('perjadin', 'Pengajuan perjalanan dinas berhasil dibuat.');
     }
     public function destroy(string $id)
     {
         $perjadin = PerjalananDinas::find($id);
         $perjadin->delete();
-        return redirect()->route('pegawai');
+    return redirect()->route('pegawai');
     }
 }

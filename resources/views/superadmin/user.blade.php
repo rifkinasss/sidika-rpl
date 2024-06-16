@@ -1,6 +1,67 @@
 @extends('superadmin.layouts.app')
 
 @section('content')
+<script>
+    // berhasil import
+    @if(session('success-import'))
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title : 'Berhasil!',
+            text: '{{ session('success-import') }}',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    @endif
+
+    // gagal import
+    @if(session('error-import'))
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title : 'Gagal!',
+            text: '{{ session('error-import') }}',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    @endif
+
+    // user dibuat
+    @if(session('tambah-user'))
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title : 'Berhasil Ditambahkan!',
+            text: '{{ session('tambah-user') }}',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    @endif
+
+    // user diedit
+    @if(session('edit-user'))
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title : 'Berhasil Diubah!',
+            text: '{{ session('edit-user') }}',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    @endif
+
+    // user dihapus
+    @if(session('delet-user'))
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title : 'Dihapus!',
+            text: '{{ session('delet-user') }}',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    @endif
+</script>
     <div class="row">
         {{-- card tabel admin --}}
         <div class="col-sm-12 grid-margin stretch-card">

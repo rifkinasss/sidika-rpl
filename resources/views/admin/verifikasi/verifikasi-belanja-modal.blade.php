@@ -1,6 +1,31 @@
 @extends('admin.layouts.app')
 
 @section('content')
+<script>
+    // status belanja modal
+    @if(session('verif-barmod'))
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title : 'Berhasil!',
+            text: '{{ session('verif-barmod') }}',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    @endif
+
+    // status progress belanja modal
+    @if(session('verif-pel-barmod'))
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title : 'Berhasil Update!',
+            text: '{{ session('verif-pel-barmod') }}',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    @endif
+</script>
     <div class="row">
         {{-- card tabel admin --}}
         <div class="col-sm-12 grid-margin stretch-card">
