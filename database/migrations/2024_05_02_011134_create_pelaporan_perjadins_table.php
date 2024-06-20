@@ -40,6 +40,7 @@ return new class extends Migration
             $table->integer('total_biaya_kembali');
             $table->enum('status', ['Diproses', 'Disetujui', 'Ditolak'])->default('Diproses');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -48,6 +49,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pelaporan_perjadin');
+        Schema::table('pelaporan_perjadin', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
     }
 };

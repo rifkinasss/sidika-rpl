@@ -3,7 +3,6 @@
     <nav class="navbar top-navbar col-lg-12 col-12 p-0">
         <div class="container-fluid">
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-between">
-                {{-- Search Navbar --}}
                 <ul class="navbar-nav navbar-nav-left">
                     <li class="nav-item nav-search d-none d-lg-block ms-3">
                         <div class="input-group">
@@ -17,7 +16,8 @@
                         </div>
                     </li>
                 </ul>
-                <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+                <div
+                    class="navbar-nav text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
                     <a class="navbar-brand brand-logo" href="{{ url('/dashboard-superadmin') }}">
                         <div class="row">
                             <div class="col">

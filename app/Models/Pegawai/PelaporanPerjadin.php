@@ -6,10 +6,11 @@ use App\Models\User;
 use App\Models\Pegawai\PerjalananDinas;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class PelaporanPerjadin extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
 
     protected $table = 'pelaporan_perjadins';

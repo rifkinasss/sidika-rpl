@@ -1,91 +1,91 @@
 @extends('pegawai.layouts.app')
 
 @section('content')
-<script>
-    // login
-    @if(session('alert'))
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title : 'Login Berhasil!',
-            text: '{{ session('alert') }}',
-            showConfirmButton: false,
-            timer: 1500
-        });
-    @endif
+    <script>
+        // login
+        @if (session('alert'))
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Login Berhasil!',
+                text: '{{ session('alert') }}',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        @endif
 
-    // pengajuan perjadin
-    @if(session('perjadin'))
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title : 'Berhasil Dikirim!',
-            text: '{{ session('perjadin') }}',
-            showConfirmButton: false,
-            timer: 1500
-        });
-    @endif
+        // pengajuan perjadin
+        @if (session('perjadin'))
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Berhasil Dikirim!',
+                text: '{{ session('perjadin') }}',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        @endif
 
-    // pelaporan perjadin
-    @if(session('pel-perjadin'))
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title : 'Berhasil Dikirim!',
-            text: '{{ session('pel-perjadin') }}',
-            showConfirmButton: false,
-            timer: 1500
-        });
-    @endif
+        // pelaporan perjadin
+        @if (session('pel-perjadin'))
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Berhasil Dikirim!',
+                text: '{{ session('pel-perjadin') }}',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        @endif
 
-    // belanja modal
-    @if(session('belanja-modal'))
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title : 'Berhasil Dikirim!',
-            text: '{{ session('belanja-modal') }}',
-            showConfirmButton: false,
-            timer: 1500
-        });
-    @endif
+        // belanja modal
+        @if (session('belanja-modal'))
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Berhasil Dikirim!',
+                text: '{{ session('belanja-modal') }}',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        @endif
 
-    // pelaporan belanja modal
-    @if(session('pel-belanja-modal'))
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title : 'Berhasil Diperbarui!',
-            text: '{{ session('pel-belanja-modal') }}',
-            showConfirmButton: false,
-            timer: 1500
-        });
-    @endif
+        // pelaporan belanja modal
+        @if (session('pel-belanja-modal'))
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Berhasil Diperbarui!',
+                text: '{{ session('pel-belanja-modal') }}',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        @endif
 
-    // belanja barang jasa
-    @if(session('belanja-barjas'))
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title : 'Berhasil Dikirim!',
-            text: '{{ session('belanja-barjas') }}',
-            showConfirmButton: false,
-            timer: 1500
-        });
-    @endif
+        // belanja barang jasa
+        @if (session('belanja-barjas'))
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Berhasil Dikirim!',
+                text: '{{ session('belanja-barjas') }}',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        @endif
 
-    // pelaporan belanja barang jasa
-    @if(session('pel-belanja-barjas'))
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title : 'Berhasil Diperbarui!',
-            text: '{{ session('pel-belanja-barjas') }}',
-            showConfirmButton: false,
-            timer: 1500
-        });
-    @endif
-</script>
+        // pelaporan belanja barang jasa
+        @if (session('pel-belanja-barjas'))
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Berhasil Diperbarui!',
+                text: '{{ session('pel-belanja-barjas') }}',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        @endif
+    </script>
     <div class="content-wrapper bg-primary">
         <div class="row mt-4">
             <h2 class="text-center text-light mb-4">Ringkasan {{ Auth::user()->nama }}</h2>
@@ -281,18 +281,6 @@
 
     <div class="content-wrapper">
         <h3 class="text-primary text-center font-weight-bold mb-2">Tabel {{ Auth::user()->nama }}</h3>
-        {{-- <div class="row">
-            <div class="col-lg-12 grid-margin mt-4 stretch-card">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">Data Pengajuan</h4>
-                        <canvas id="barCharts"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
-
-        {{-- card tabel perjadin --}}
         <div class="card mt-4">
             <div class="card-body">
                 <h4 class="card-title">Pengajuan Perjalanan Dinas</h4>

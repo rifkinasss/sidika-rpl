@@ -57,6 +57,7 @@ return new class extends Migration
             $table->string('persentase_progress')->default('0');
             $table->enum('status_lapor', ['Belum', 'Lapor', 'Disetujui', 'Ditolak'])->default('Belum');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -65,6 +66,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('barang_modal');
+        Schema::table('barang_modal', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
     }
 };

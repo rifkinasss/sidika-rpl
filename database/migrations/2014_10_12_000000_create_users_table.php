@@ -33,6 +33,7 @@ return new class extends Migration
             $table->string('unit_kerja')->nullable();
             $table->string('password');
             $table->timestamps();
+            $table->softDeletes();
         });
 
         DB::table('users')->insert([
@@ -63,6 +64,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
     }
 };
